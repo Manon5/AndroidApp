@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background_3"
+    tools:context="com.example.manon.weirdwords.WinActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:background="@mipmap/victoire"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="150dp"/>
+
+
+    <Button
+        android:id="@+id/next_level_button"
+        android:layout_width="270dp"
+        android:layout_height="90dp"
+        android:background="@mipmap/main_menu_button"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="90dp"
+        android:text="Niveau suivant"
+        android:textSize="37sp"
+        android:textColor="#e5d8c0"/>
+
+
+
+
+
+</LinearLayout>

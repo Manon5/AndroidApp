@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_choose_level_menu"
+    tools:context="com.example.manon.weirdwords.ChooseLevelMenu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@mipmap/toolbar">
+
+        <ImageButton
+            android:id="@+id/undo_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@mipmap/icone_undo"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageButton
+            android:id="@+id/indice_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_indice"
+            android:layout_alignParentRight="true"/>
+
+        <ImageButton
+            android:id="@+id/param_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_param"
+            android:layout_toLeftOf="@+id/indice_button"/>
+    </RelativeLayout>
+
+
+    <include layout="@layout/content_choose_level_menu" />
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
