@@ -1,0 +1,12 @@
+PRIORITAIRE :
+
+	1) Sauvegarder l'avancement du joueur a la fermeture de l'application
+
+	2) Se servir de cette sauvegarde pour rendre accessibles certains niveaux seulement
+
+	3) Adapter l'interface des niveaux en fonction du nombre de lettres du mot à trouver
+
+
+SECONDAIRE :
+
+	4) Concevoir un systeme d'indices (icone en haut a droite)
