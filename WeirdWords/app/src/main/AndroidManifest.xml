@@ -50,6 +50,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manon.weirdwords.MainMenu" />
         </activity>
+        <activity
+            android:name=".ChooseLevelMenu4"
+            android:label="@string/title_activity_choose_level_menu4"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".FiveLettersLevel"></activity>
     </application>
 
 </manifest>
