@@ -28,7 +28,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         if(levelS.charAt(6) == '1'){
             ThreeLettersLevel.getInstance().finish();
         }else{
-            FourLettersLevel.getInstance().finish();
+            FiveLettersLevel.getInstance().finish();
         }
 
 
@@ -81,6 +81,22 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level 3.7w";
         }else if(levelS.equals("level 3.7w") || levelS.equals("level 3.7n")){
             levelS2="level 3.8w";
+        }else if(levelS.equals("level 3.8w") || levelS.equals("level 3.8n")){
+            levelS2="level 4.1w";
+        }else if(levelS.equals("level 4.1w") || levelS.equals("level 4.1n")){
+            levelS2="level 4.2w";
+        }else if(levelS.equals("level 4.2w") || levelS.equals("level 4.2n")){
+            levelS2="level 4.3w";
+        }else if(levelS.equals("level 4.3w") || levelS.equals("level 4.3n")){
+            levelS2="level 4.4w";
+        }else if(levelS.equals("level 4.4w") || levelS.equals("level 4.4n")){
+            levelS2="level 4.5w";
+        }else if(levelS.equals("level 4.5w") || levelS.equals("level 4.5n")){
+            levelS2="level 4.6w";
+        }else if(levelS.equals("level 4.6w") || levelS.equals("level 4.6n")){
+            levelS2="level 4.7w";
+        }else if(levelS.equals("level 4.7w") || levelS.equals("level 4.7n")){
+            levelS2="level 4.8w";
         }else{
 
         }
@@ -94,8 +110,10 @@ public class WinActivity extends Activity implements View.OnClickListener{
                     appel = new Intent(WinActivity.this, ThreeLettersLevel.class);
                 }else if(levelS2.charAt(6) == '2'){
                     appel = new Intent(WinActivity.this, FourLettersLevel.class);
-                }else{
+                }else  if(levelS2.charAt(6) == '3'){
                     appel = new Intent(WinActivity.this, FourLettersLevel.class);
+                }else{
+                    appel = new Intent(WinActivity.this, FiveLettersLevel.class);
                 }
 
                 Bundle objetbunble = new Bundle();

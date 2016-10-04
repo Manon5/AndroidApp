@@ -59,7 +59,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
 
 
 
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.1n");
                 defineIntent.putExtras(objetbunble );
@@ -72,7 +72,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.2n");
                 defineIntent.putExtras(objetbunble );
@@ -84,7 +84,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.3n");
                 defineIntent.putExtras(objetbunble );
@@ -97,7 +97,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
             public void onClick(View v) {
 
                 //création de notre item
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.4n");
                 defineIntent.putExtras(objetbunble );
@@ -110,7 +110,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
             public void onClick(View v) {
 
                 //création de notre item
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.5n");
                 defineIntent.putExtras(objetbunble );
@@ -123,7 +123,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
             public void onClick(View v) {
 
                 //création de notre item
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.6n");
                 defineIntent.putExtras(objetbunble );
@@ -136,7 +136,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
             public void onClick(View v) {
 
                 //création de notre item
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.7n");
                 defineIntent.putExtras(objetbunble );
@@ -149,7 +149,7 @@ public class ChooseLevelMenu4 extends AppCompatActivity {
             public void onClick(View v) {
 
                 //création de notre item
-                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FourLettersLevel.class);
+                Intent defineIntent = new Intent(ChooseLevelMenu4.this, FiveLettersLevel.class);
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", "level 4.8n");
                 defineIntent.putExtras(objetbunble );

@@ -27,7 +27,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_1_mini"
                 />
 
             <ImageButton
@@ -35,7 +35,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_3_mini"
                 />
 
             <ImageButton
@@ -43,7 +43,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_5_mini"
                 />
 
             <ImageButton
@@ -51,7 +51,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_7_mini"
                 />
 
 
@@ -68,7 +68,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_2_mini"
                 />
 
             <ImageButton
@@ -76,7 +76,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_4_mini"
                 />
 
             <ImageButton
@@ -84,7 +84,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_6_mini"
                 />
 
             <ImageButton
@@ -92,7 +92,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="15dp"
-                android:background="@mipmap/small_menu_item"
+                android:background="@mipmap/level_4_8_mini"
                 />
 
 
