@@ -54,7 +54,12 @@
             android:name=".ChooseLevelMenu4"
             android:label="@string/title_activity_choose_level_menu4"
             android:theme="@style/AppTheme" />
-        <activity android:name=".FiveLettersLevel"></activity>
+        <activity android:name=".FiveLettersLevel" />
+        <activity
+            android:name=".ChooseLevelMenu5"
+            android:label="@string/title_activity_choose_level_menu5"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".SixLettersLevel"></activity>
     </application>
 
 </manifest>

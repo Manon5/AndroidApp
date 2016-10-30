@@ -70,7 +70,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.1n");
+                objetbunble.putString("passInfo", "level 1.1n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité
@@ -87,7 +87,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.2n");
+                objetbunble.putString("passInfo", "level 1.2n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité
@@ -103,7 +103,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.3n");
+                objetbunble.putString("passInfo", "level 1.3n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité
@@ -119,7 +119,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.4n");
+                objetbunble.putString("passInfo", "level 1.4n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité
@@ -135,7 +135,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.5n");
+                objetbunble.putString("passInfo", "level 1.5n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité
@@ -151,7 +151,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.6n");
+                objetbunble.putString("passInfo", "level 1.6n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité
@@ -167,7 +167,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.7n");
+                objetbunble.putString("passInfo", "level 1.7n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité
@@ -183,7 +183,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener{
                 Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                 // objet qui vas nous permettre de passe des variables ici la variable passInfo
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "level 1.8n");
+                objetbunble.putString("passInfo", "level 1.8n//clue=3");
                 // on passe notre objet a notre activities
                 defineIntent.putExtras(objetbunble );
                 // on appelle notre activité

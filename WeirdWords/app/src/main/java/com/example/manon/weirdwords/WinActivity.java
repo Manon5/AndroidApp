@@ -10,8 +10,12 @@ import android.widget.Button;
 public class WinActivity extends Activity implements View.OnClickListener{
 
     private Button next_level_button = null;
-    private String levelS = " ";
-    private String levelS2 =" ";
+    private String levelS;
+    private String pass;
+    private String pass2;
+    private String levelS2;
+    private String clueInfo ;
+    private int i;
 
     static WinActivity WinActivity;
 
@@ -24,12 +28,17 @@ public class WinActivity extends Activity implements View.OnClickListener{
         WinActivity = this;
         Bundle objetbunble  = this.getIntent().getExtras();
         // récupération de la valeur
-        levelS = objetbunble.getString("passInfo");
-        if(levelS.charAt(6) == '1'){
+        pass = objetbunble.getString("passInfo");
+        if(pass.charAt(6) == '1'){
             ThreeLettersLevel.getInstance().finish();
         }else{
             FiveLettersLevel.getInstance().finish();
         }
+
+        // Construire levelS
+        levelS = pass.substring(0, 10);
+        // Construire clueInfo
+        clueInfo = pass.substring(10);
 
 
 
@@ -97,6 +106,22 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level 4.7w";
         }else if(levelS.equals("level 4.7w") || levelS.equals("level 4.7n")){
             levelS2="level 4.8w";
+        }else if(levelS.equals("evel 4.8w") || levelS.equals("level 4.8n")){
+            levelS2="level 5.1w";
+        }else if(levelS.equals("level 5.1w") || levelS.equals("level 5.1n")){
+            levelS2="level 5.2w";
+        }else if(levelS.equals("level 5.2w") || levelS.equals("level 5.2n")){
+            levelS2="level 5.3w";
+        }else if(levelS.equals("level 5.3w") || levelS.equals("level 5.3n")){
+            levelS2="level 5.4w";
+        }else if(levelS.equals("level 5.4w") || levelS.equals("level 5.4n")){
+            levelS2="level 5.5w";
+        }else if(levelS.equals("level 5.5w") || levelS.equals("level 5.5n")){
+            levelS2="level 5.6w";
+        }else if(levelS.equals("level 5.6w") || levelS.equals("level 5.6n")){
+            levelS2="level 5.7w";
+        }else if(levelS.equals("level 5.7w") || levelS.equals("level 5.7n")){
+            levelS2="level 5.8w";
         }else{
 
         }
@@ -116,8 +141,14 @@ public class WinActivity extends Activity implements View.OnClickListener{
                     appel = new Intent(WinActivity.this, FiveLettersLevel.class);
                 }
 
+                // determiner clueInfo
+
+                clueInfo = pass.substring(10);
+                // FIN
+                pass2 = levelS2 + clueInfo;
+
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", levelS2);
+                objetbunble.putString("passInfo", pass2);
                 appel.putExtras(objetbunble);
                 startActivity(appel);
 

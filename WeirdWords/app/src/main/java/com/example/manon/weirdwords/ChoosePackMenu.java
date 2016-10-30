@@ -20,6 +20,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
     private ImageButton level_2_button = null;
     private ImageButton level_3_button = null;
     private ImageButton level_4_button = null;
+    private ImageButton level_5_button = null;
 
 
 
@@ -38,6 +39,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         level_2_button = (ImageButton)findViewById(R.id.arrow_button_2);
         level_3_button = (ImageButton)findViewById(R.id.arrow_button_3);
         level_4_button = (ImageButton)findViewById(R.id.arrow_button_4);
+        level_5_button = (ImageButton)findViewById(R.id.arrow_button_5);
 
         // Activation bouton retour
         undo_button.setOnClickListener(new View.OnClickListener() {
@@ -75,11 +77,21 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 startActivity(level3);
 
             }
-        });level_4_button.setOnClickListener(new View.OnClickListener() {
+        });
+
+        level_4_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent level4 = new Intent(ChoosePackMenu.this, ChooseLevelMenu4.class);
                 startActivity(level4);
+            }
+        });
+
+        level_5_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu5.class);
+                startActivity(level5);
             }
         });
 

@@ -1,6 +1,7 @@
 package com.example.manon.weirdwords;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -73,6 +74,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     private ImageView image = null;
     private double randomD;
     private int randomI;
+    private int nbOfClues;
+    private int usedClues;
 
 
     //Clavier
@@ -95,7 +98,10 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     private String clavier17;
     private String clavier18;
 
-    private String levelS =" "  ;
+    private String levelS;
+    private String pass;
+    private String pass2;
+    private String clueInfo;
 
     static ThreeLettersLevel ThreeLettersLevel;
 
@@ -112,12 +118,42 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         Bundle objetbunble  = this.getIntent().getExtras();
         // récupération de la valeur
-        levelS = objetbunble .getString("passInfo");
+        pass = objetbunble.getString("passInfo");
+        System.out.print(pass);
+
+        levelS = pass.substring(0, 10);
+        System.out.print(levelS);
+        clueInfo = pass.substring(10);
+        System.out.print(clueInfo);
+
 
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
         clue_button = (ImageButton)findViewById(R.id.indice_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
+
+        usedClues = 0;
+
+        if(clueInfo.charAt(7) == '0'){
+            nbOfClues = 0;
+        }else if(clueInfo.charAt(7) == '1'){
+            nbOfClues = 1;
+        }else if(clueInfo.charAt(7) == '2'){
+            nbOfClues = 2;
+        }else if(clueInfo.charAt(7) == '3'){
+            nbOfClues = 3;
+        }else if(clueInfo.charAt(7) == '4'){
+            nbOfClues = 4;
+        }else if(clueInfo.charAt(7) == '5'){
+            nbOfClues = 5;
+        }else if(clueInfo.charAt(7) == '6'){
+            nbOfClues = 6;
+        }else{
+            nbOfClues = 7;
+        }
+
+        setClueButtonBackground(true, nbOfClues);
+
 
         if(levelS.charAt(9) == 'w'){
             WinActivity.getInstance().finish();
@@ -892,6 +928,40 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             }
         });
 
+        clue_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(usedClues == 0){
+                    saisie1.setTextColor(Color.GRAY);
+                    saisie[0] = answer.charAt(0);
+                    updateSaisie();
+                    determineFocusSaisie();
+                    isWon();
+                    nbOfClues = nbOfClues - 1;
+                    usedClues = usedClues + 1;
+                    setClueButtonBackground(true, nbOfClues);
+                }else if(usedClues == 1){
+                    saisie[1] = answer.charAt(1);
+                    focusSaisie ++;
+                    saisie2.setTextColor(Color.GRAY);
+                    updateSaisie();
+                    determineFocusSaisie();
+                    isWon();
+                    nbOfClues = nbOfClues - 1;
+                    usedClues = usedClues + 1;
+                    setClueButtonBackground(false, nbOfClues);
+
+
+
+                }else{
+
+                }
+
+
+
+            }
+        });
+
 
 
 
@@ -899,7 +969,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
                 char carac;
-                if (saisie1.getText().charAt(0) != ' ') {
+                if (saisie1.getText().charAt(0) != ' ' && usedClues == 0) {
                     carac = saisie1.getText().charAt(0);
                     saisie[0] = ' ';
                     releaseButton(carac);
@@ -1074,7 +1144,11 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         Intent defineIntent = new Intent(ThreeLettersLevel.this, WinActivity.class);
         // objet qui vas nous permettre de passe des variables ici la variable passInfo
         Bundle objetbunble = new Bundle();
-        objetbunble.putString("passInfo", levelS);
+
+        clueInfo = "//clue=" + nbOfClues;
+        pass2 = levelS + clueInfo;
+
+        objetbunble.putString("passInfo", pass2);
         // on passe notre objet a notre activities
         defineIntent.putExtras(objetbunble );
         // on appelle notre activité
@@ -1098,6 +1172,66 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
     public static ThreeLettersLevel getInstance(){
         return ThreeLettersLevel;
+    }
+
+
+    public void setClueButtonBackground(boolean isEnabled,int nbOfClues){
+        if(isEnabled == true){
+            // Bouton normal
+            if(nbOfClues == 0){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_0);
+            }else if(nbOfClues == 1){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_1);
+            }else if(nbOfClues == 2){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_2);
+            }else if(nbOfClues == 3){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_3);
+            }else if(nbOfClues == 4){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_4);
+            }else if(nbOfClues == 5){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_5);
+            }else if(nbOfClues == 6){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_6);
+            }else if(nbOfClues == 7){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_7);
+            }else if(nbOfClues == 8){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_8);
+            }else if(nbOfClues == 9){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_9);
+            }else{
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_10);
+            }
+
+
+        }else{
+            // Bouton desactive
+
+
+            if(nbOfClues == 0){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_0);
+            }else if(nbOfClues == 1){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_1);
+            }else if(nbOfClues == 2){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_2);
+            }else if(nbOfClues == 3){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_3);
+            }else if(nbOfClues == 4){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_4);
+            }else if(nbOfClues == 5){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_5);
+            }else if(nbOfClues == 6){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_6);
+            }else if(nbOfClues == 7){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_7);
+            }else if(nbOfClues == 8){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_8);
+            }else if(nbOfClues == 9){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_9);
+            }else{
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_10);
+            }
+        }
+
     }
 
 
