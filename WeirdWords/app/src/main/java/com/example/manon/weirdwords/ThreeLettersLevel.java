@@ -76,6 +76,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     private int randomI;
     private int nbOfClues;
     private int usedClues;
+    private boolean clueMode;
+    private int clueChoice;
 
 
     //Clavier
@@ -102,6 +104,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     private String pass;
     private String pass2;
     private String clueInfo;
+    private String clueCarac;
 
     static ThreeLettersLevel ThreeLettersLevel;
 
@@ -121,6 +124,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         pass = objetbunble.getString("passInfo");
         System.out.print(pass);
 
+        clueMode = false;
         levelS = pass.substring(0, 10);
         System.out.print(levelS);
         clueInfo = pass.substring(10);
@@ -134,25 +138,9 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         usedClues = 0;
 
-        if(clueInfo.charAt(7) == '0'){
-            nbOfClues = 0;
-        }else if(clueInfo.charAt(7) == '1'){
-            nbOfClues = 1;
-        }else if(clueInfo.charAt(7) == '2'){
-            nbOfClues = 2;
-        }else if(clueInfo.charAt(7) == '3'){
-            nbOfClues = 3;
-        }else if(clueInfo.charAt(7) == '4'){
-            nbOfClues = 4;
-        }else if(clueInfo.charAt(7) == '5'){
-            nbOfClues = 5;
-        }else if(clueInfo.charAt(7) == '6'){
-            nbOfClues = 6;
-        }else{
-            nbOfClues = 7;
-        }
-
-        setClueButtonBackground(true, nbOfClues);
+        clueCarac = "" + clueInfo.charAt(7);
+        nbOfClues = Integer.parseInt(clueCarac);
+        setClueButtonBackground(usedClues, nbOfClues);
 
 
         if(levelS.charAt(9) == 'w'){
@@ -393,7 +381,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
           @Override
             public void onClick(View v){
               char carac;
-                      if(isButton1Pressed == false){
+                      if(isButton1Pressed == false && clueMode == false){
                           if(focusSaisie < 3){
                               button1.setBackgroundResource(R.mipmap.small_button_pressed);
                               isButton1Pressed = true;
@@ -406,12 +394,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                               // Rien ne se passe : zone de saisie pleine
                           }
 
-                      }else{
+                      }else if(clueMode == false){
                           button1.setBackgroundResource(R.mipmap.small_button);
                           isButton1Pressed = false;
                           removeCharacter(button1);
                           updateSaisie();
                           determineFocusSaisie();
+                      }else{
+
                       }
 
           }
@@ -422,7 +412,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                     char carac;
-                    if(isButton2Pressed == false){
+                    if(isButton2Pressed == false && clueMode == false){
                         if(focusSaisie < 3){
                             button2.setBackgroundResource(R.mipmap.small_button_pressed);
                             isButton2Pressed = true;
@@ -436,12 +426,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                             // Rien ne se passe : zone de saisie pleine
                         }
 
-                    }else{
+                    }else if(clueMode == false){
                         button2.setBackgroundResource(R.mipmap.small_button);
                         isButton2Pressed = false;
                         removeCharacter(button2);
                         updateSaisie();
                         determineFocusSaisie();
+                    }else{
+
                     }
                 }
         });
@@ -451,7 +443,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton3Pressed == false){
+                if(isButton3Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button3.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton3Pressed = true;
@@ -465,12 +457,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button3.setBackgroundResource(R.mipmap.small_button);
                     isButton3Pressed = false;
                     removeCharacter(button3);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -480,7 +474,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton4Pressed == false){
+                if(isButton4Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button4.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton4Pressed = true;
@@ -494,12 +488,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button4.setBackgroundResource(R.mipmap.small_button);
                     isButton4Pressed = false;
                     removeCharacter(button4);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -510,7 +506,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton5Pressed == false){
+                if(isButton5Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button5.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton5Pressed = true;
@@ -524,12 +520,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button5.setBackgroundResource(R.mipmap.small_button);
                     isButton5Pressed = false;
                     removeCharacter(button5);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -539,7 +537,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton6Pressed == false){
+                if(isButton6Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button6.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton6Pressed = true;
@@ -553,12 +551,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button6.setBackgroundResource(R.mipmap.small_button);
                     isButton6Pressed = false;
                     removeCharacter(button6);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -568,7 +568,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton7Pressed == false){
+                if(isButton7Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button7.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton7Pressed = true;
@@ -582,12 +582,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button7.setBackgroundResource(R.mipmap.small_button);
                     isButton7Pressed = false;
                     removeCharacter(button7);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -597,7 +599,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton8Pressed == false){
+                if(isButton8Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button8.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton8Pressed = true;
@@ -611,12 +613,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button8.setBackgroundResource(R.mipmap.small_button);
                     isButton8Pressed = false;
                     removeCharacter(button8);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -626,7 +630,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton9Pressed == false){
+                if(isButton9Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button9.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton9Pressed = true;
@@ -640,12 +644,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button9.setBackgroundResource(R.mipmap.small_button);
                     isButton9Pressed = false;
                     removeCharacter(button9);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -655,7 +661,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton10Pressed == false){
+                if(isButton10Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button10.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton10Pressed = true;
@@ -669,12 +675,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button10.setBackgroundResource(R.mipmap.small_button);
                     isButton10Pressed = false;
                     removeCharacter(button10);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -684,7 +692,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton11Pressed == false){
+                if(isButton11Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button11.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton11Pressed = true;
@@ -698,12 +706,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button11.setBackgroundResource(R.mipmap.small_button);
                     isButton11Pressed = false;
                     removeCharacter(button11);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -713,7 +723,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton12Pressed == false){
+                if(isButton12Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button12.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton12Pressed = true;
@@ -727,12 +737,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button12.setBackgroundResource(R.mipmap.small_button);
                     isButton12Pressed = false;
                     removeCharacter(button12);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -742,7 +754,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton13Pressed == false){
+                if(isButton13Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button13.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton13Pressed = true;
@@ -756,12 +768,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button13.setBackgroundResource(R.mipmap.small_button);
                     isButton13Pressed = false;
                     removeCharacter(button13);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -771,7 +785,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton14Pressed == false){
+                if(isButton14Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button14.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton14Pressed = true;
@@ -785,12 +799,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button14.setBackgroundResource(R.mipmap.small_button);
                     isButton14Pressed = false;
                     removeCharacter(button14);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -800,7 +816,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton15Pressed == false){
+                if(isButton15Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button15.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton15Pressed = true;
@@ -814,12 +830,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button15.setBackgroundResource(R.mipmap.small_button);
                     isButton15Pressed = false;
                     removeCharacter(button15);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -829,7 +847,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton16Pressed == false){
+                if(isButton16Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button16.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton16Pressed = true;
@@ -843,12 +861,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button16.setBackgroundResource(R.mipmap.small_button);
                     isButton16Pressed = false;
                     removeCharacter(button16);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -858,7 +878,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton17Pressed == false){
+                if(isButton17Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button17.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton17Pressed = true;
@@ -872,12 +892,14 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button17.setBackgroundResource(R.mipmap.small_button);
                     isButton17Pressed = false;
                     removeCharacter(button17);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -887,7 +909,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton18Pressed == false){
+                if(isButton18Pressed == false && clueMode == false){
                     if(focusSaisie < 3){
                         button18.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton18Pressed = true;
@@ -901,12 +923,15 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button18.setBackgroundResource(R.mipmap.small_button);
                     isButton18Pressed = false;
                     removeCharacter(button18);
                     updateSaisie();
                     determineFocusSaisie();
+                }
+                else{
+
                 }
             }
         });
@@ -931,25 +956,20 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         clue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(usedClues == 0){
-                    saisie1.setTextColor(Color.GRAY);
-                    saisie[0] = answer.charAt(0);
-                    updateSaisie();
-                    determineFocusSaisie();
-                    isWon();
+                if(nbOfClues == 0){
+
+                }else if(usedClues <= 2){
+                    saisie1.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie1.setText("?");
+                    saisie2.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie2.setText("?");
+                    saisie3.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie3.setText("?");
+                    clueMode = true;
+
+                    usedClues++;
                     nbOfClues = nbOfClues - 1;
-                    usedClues = usedClues + 1;
-                    setClueButtonBackground(true, nbOfClues);
-                }else if(usedClues == 1){
-                    saisie[1] = answer.charAt(1);
-                    focusSaisie ++;
-                    saisie2.setTextColor(Color.GRAY);
-                    updateSaisie();
-                    determineFocusSaisie();
-                    isWon();
-                    nbOfClues = nbOfClues - 1;
-                    usedClues = usedClues + 1;
-                    setClueButtonBackground(false, nbOfClues);
+                    setClueButtonBackground(usedClues, nbOfClues);
 
 
 
@@ -968,32 +988,62 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         saisie1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if (saisie1.getText().charAt(0) != ' ' && usedClues == 0) {
-                    carac = saisie1.getText().charAt(0);
-                    saisie[0] = ' ';
-                    releaseButton(carac);
+
+                if(clueMode == false){
+                    char carac;
+                    if (saisie1.getText().charAt(0) != ' ' && usedClues == 0) {
+                        carac = saisie1.getText().charAt(0);
+                        saisie[0] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    } else {
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[0] = answer.charAt(0);
+                    saisie1.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                } else {
-
+                    isWon();
                 }
+
+
             }
         });
 
         saisie2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if(saisie2.getText().charAt(0) != ' '){
-                    carac = saisie2.getText().charAt(0);
-                    saisie[1] = ' ';
-                    releaseButton(carac);
+
+                if(clueMode == false){
+                    char carac;
+                    if(saisie2.getText().charAt(0) != ' '){
+                        carac = saisie2.getText().charAt(0);
+                        saisie[1] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    }else{
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[1] = answer.charAt(1);
+                    saisie2.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                }else{
-
+                    isWon();
                 }
+
+
 
 
             }
@@ -1002,16 +1052,31 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         saisie3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if (saisie3.getText().charAt(0) != ' ') {
-                    carac = saisie3.getText().charAt(0);
-                    saisie[2] = ' ';
-                    releaseButton(carac);
+
+                if(clueMode == false){
+                    char carac;
+                    if (saisie3.getText().charAt(0) != ' ') {
+                        carac = saisie3.getText().charAt(0);
+                        saisie[2] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    } else {
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[2] = answer.charAt(2);
+                    saisie3.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                } else {
-
+                    isWon();
                 }
+
+
             }
         });
 
@@ -1175,7 +1240,15 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     }
 
 
-    public void setClueButtonBackground(boolean isEnabled,int nbOfClues){
+    public void setClueButtonBackground(int usedClues,int nbOfClues){
+        boolean isEnabled;
+        if(usedClues <= 2){
+            isEnabled = true;
+        }else{
+            isEnabled = false;
+        }
+
+
         if(isEnabled == true){
             // Bouton normal
             if(nbOfClues == 0){
