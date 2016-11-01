@@ -11,7 +11,6 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
     private Button next_level_button = null;
     private String levelS;
-    private String pass;
     private String pass2;
     private String levelS2;
     private String clueInfo ;
@@ -28,100 +27,101 @@ public class WinActivity extends Activity implements View.OnClickListener{
         WinActivity = this;
         Bundle objetbunble  = this.getIntent().getExtras();
         // récupération de la valeur
-        pass = objetbunble.getString("passInfo");
-        if(pass.charAt(6) == '1'){
+        levelS = objetbunble.getString("passInfo");
+        if(levelS.charAt(6) == '1'){
             ThreeLettersLevel.getInstance().finish();
         }else{
             FiveLettersLevel.getInstance().finish();
         }
 
-        // Construire levelS
-        levelS = pass.substring(0, 10);
-        // Construire clueInfo
-        clueInfo = pass.substring(10);
 
 
 
 
 
-        if(levelS.equals("level 1.1w") || levelS.equals("level 1.1n")){
-            levelS2 = "level 1.2w";
-        }else if(levelS.equals("level 1.2w") || levelS.equals("level 1.2n")){
-            levelS2 = "level 1.3w";
-        }else if(levelS.equals("level 1.3w") || levelS.equals("level 1.3n")){
-            levelS2 = "level 1.4w";
-        }else if(levelS.equals("level 1.4w") || levelS.equals("level 1.4n")){
-            levelS2 = "level 1.5w";
-        }else if(levelS.equals("level 1.5w") || levelS.equals("level 1.5n")){
-        levelS2 = "level 1.6w";
-        }else if(levelS.equals("level 1.6w") || levelS.equals("level 1.6n")){
-            levelS2 = "level 1.7w";
-        }else if(levelS.equals("level 1.7w") || levelS.equals("level 1.7n")){
-            levelS2 = "level 1.8w";
-        }else if(levelS.equals("level 1.8w") || levelS.equals("level 1.8n")){
-            levelS2= "level 2.1w";
-        }else if(levelS.equals("level 2.1w") || levelS.equals("level 2.1n")){
-            levelS2="level 2.2w";
-        }else if(levelS.equals("level 2.2w") || levelS.equals("level 2.2n")){
-            levelS2="level 2.3w";
-        }else if(levelS.equals("level 2.3w") || levelS.equals("level 2.3n")){
-            levelS2="level 2.4w";
-        }else if(levelS.equals("level 2.4w") || levelS.equals("level 2.4n")){
-            levelS2="level 2.5w";
-        }else if(levelS.equals("level 2.5w") || levelS.equals("level 2.5n")){
-            levelS2="level 2.6w";
-        }else if(levelS.equals("level 2.6w") || levelS.equals("level 2.6n")){
-            levelS2="level 2.7w";
-        }else if(levelS.equals("level 2.7w") || levelS.equals("level 2.7n")){
-            levelS2="level 2.8w";
-        }else if(levelS.equals("level 2.8w") || levelS.equals("level 2.8n")){
-        levelS2="level 3.1w";
-        }else if(levelS.equals("level 3.1w") || levelS.equals("level 3.1n")){
-            levelS2="level 3.2w";
-        }else if(levelS.equals("level 3.2w") || levelS.equals("level 3.2n")){
-            levelS2="level 3.3w";
-        }else if(levelS.equals("level 3.3w") || levelS.equals("level 3.3n")){
-            levelS2="level 3.4w";
-        }else if(levelS.equals("level 3.4w") || levelS.equals("level 3.4n")){
-            levelS2="level 3.5w";
-        }else if(levelS.equals("level 3.5w") || levelS.equals("level 3.5n")){
-            levelS2="level 3.6w";
-        }else if(levelS.equals("level 3.6w") || levelS.equals("level 3.6n")){
-            levelS2="level 3.7w";
-        }else if(levelS.equals("level 3.7w") || levelS.equals("level 3.7n")){
-            levelS2="level 3.8w";
-        }else if(levelS.equals("level 3.8w") || levelS.equals("level 3.8n")){
-            levelS2="level 4.1w";
-        }else if(levelS.equals("level 4.1w") || levelS.equals("level 4.1n")){
-            levelS2="level 4.2w";
-        }else if(levelS.equals("level 4.2w") || levelS.equals("level 4.2n")){
-            levelS2="level 4.3w";
-        }else if(levelS.equals("level 4.3w") || levelS.equals("level 4.3n")){
-            levelS2="level 4.4w";
-        }else if(levelS.equals("level 4.4w") || levelS.equals("level 4.4n")){
-            levelS2="level 4.5w";
-        }else if(levelS.equals("level 4.5w") || levelS.equals("level 4.5n")){
-            levelS2="level 4.6w";
-        }else if(levelS.equals("level 4.6w") || levelS.equals("level 4.6n")){
-            levelS2="level 4.7w";
-        }else if(levelS.equals("level 4.7w") || levelS.equals("level 4.7n")){
-            levelS2="level 4.8w";
-        }else if(levelS.equals("evel 4.8w") || levelS.equals("level 4.8n")){
-            levelS2="level 5.1w";
-        }else if(levelS.equals("level 5.1w") || levelS.equals("level 5.1n")){
-            levelS2="level 5.2w";
-        }else if(levelS.equals("level 5.2w") || levelS.equals("level 5.2n")){
-            levelS2="level 5.3w";
-        }else if(levelS.equals("level 5.3w") || levelS.equals("level 5.3n")){
-            levelS2="level 5.4w";
-        }else if(levelS.equals("level 5.4w") || levelS.equals("level 5.4n")){
-            levelS2="level 5.5w";
-        }else if(levelS.equals("level 5.5w") || levelS.equals("level 5.5n")){
-            levelS2="level 5.6w";
-        }else if(levelS.equals("level 5.6w") || levelS.equals("level 5.6n")){
-            levelS2="level 5.7w";
-        }else if(levelS.equals("level 5.7w") || levelS.equals("level 5.7n")){
-            levelS2="level 5.8w";
+
+        if(levelS.equals("level=1x.1xw") || levelS.equals("level=1x.1xn")){
+            levelS2="level=1x.2xw";
+        }else if(levelS.equals("level=1x.2xw") || levelS.equals("level=1x.2xn")){
+            levelS2="level=1x.3xw";
+        }else if(levelS.equals("level=1x.3xw") || levelS.equals("level=1x.3xn")){
+            levelS2="level=1x.4xw";
+        }else if(levelS.equals("level=1x.4xw") || levelS.equals("level=1x.4xn")){
+            levelS2="level=1x.5xw";
+        }else if(levelS.equals("level=1x.5xw") || levelS.equals("level=1x.5xn")){
+            levelS2="level=1x.6xw";
+        }else if(levelS.equals("level=1x.6xw") || levelS.equals("level=1x.6xn")){
+            levelS2="level=1x.7xw";
+        }else if(levelS.equals("level=1x.7xw") || levelS.equals("level=1x.7xn")){
+            levelS2="level=1x.8xw";
+        }else if(levelS.equals("level=1x.8xw") || levelS.equals("level=1x.8xn")){
+            levelS2="level=1x.9xw";
+        }else if(levelS.equals("level=1x.9xw") || levelS.equals("level=1x.9xn")){
+            levelS2="level=1x.10w";
+        }else if(levelS.equals("level=1x.10w") || levelS.equals("level=1x.10n")){
+            levelS2="level=2x.1xw";
+        }else if(levelS.equals("level=2x.1xw") || levelS.equals("level=2x.1xn")){
+            levelS2="level=2x.2xw";
+        }else if(levelS.equals("level=2x.2xw") || levelS.equals("level=2x.2xn")){
+            levelS2="level=2x.3xw";
+        }else if(levelS.equals("level=2x.3xw") || levelS.equals("level=2x.3xn")){
+            levelS2="level=2x.4xw";
+        }else if(levelS.equals("level=2x.4xw") || levelS.equals("level=2x.4xn")){
+            levelS2="level=2x.5xw";
+        }else if(levelS.equals("level=2x.5xw") || levelS.equals("level=2x.5xn")){
+            levelS2="level=2x.6xw";
+        }else if(levelS.equals("level=2x.6xw") || levelS.equals("level=2x.6xn")){
+            levelS2="level=2x.7xw";
+        }else if(levelS.equals("level=2x.7xw") || levelS.equals("level=2x.7xn")){
+            levelS2="level=2x.8xw";
+        }else if(levelS.equals("level=2x.8xw") || levelS.equals("level=2x.8xn")){
+            levelS2="level=3x.1xw";
+        }else if(levelS.equals("level=3x.1xw") || levelS.equals("level=3x.1xn")){
+            levelS2="level=3x.2xw";
+        }else if(levelS.equals("level=3x.2xw") || levelS.equals("level=3x.2xn")){
+            levelS2="level=3x.3xw";
+        }else if(levelS.equals("level=3x.3xw") || levelS.equals("level=3x.3xn")){
+            levelS2="level=3x.4xw";
+        }else if(levelS.equals("level=3x.4wx") || levelS.equals("level=3x.4xn")){
+            levelS2="level=3x.5xw";
+        }else if(levelS.equals("level=3x.5xw") || levelS.equals("level=3x.5xn")){
+            levelS2="level=3x.6xw";
+        }else if(levelS.equals("level=3x.6xw") || levelS.equals("level=3x.6xn")){
+            levelS2="level=3x.7xw";
+        }else if(levelS.equals("level=3x.7xw") || levelS.equals("level=3x.7xn")){
+            levelS2="level=3x.8xw";
+        }else if(levelS.equals("level 3x.8xw") || levelS.equals("level=3x.8xn")){
+            levelS2="level=4x.1xw";
+        }else if(levelS.equals("level=4x.1xw") || levelS.equals("level=4x.1xn")){
+            levelS2="level=4x.2xw";
+        }else if(levelS.equals("level=4x.2xw") || levelS.equals("level=4x.2xn")){
+            levelS2="level=4x.3xw";
+        }else if(levelS.equals("level=4x.3xw") || levelS.equals("level=4x.3xn")){
+            levelS2="level=4x.4xw";
+        }else if(levelS.equals("level=4x.4xw") || levelS.equals("level=4x.4xn")){
+            levelS2="level=4x.5xw";
+        }else if(levelS.equals("level=4x.5xw") || levelS.equals("level=4x.5xn")){
+            levelS2="level=4x.6xw";
+        }else if(levelS.equals("level=4x.6xw") || levelS.equals("level=4x.6xn")){
+            levelS2="level=4x.7xw";
+        }else if(levelS.equals("level=4x.7xw") || levelS.equals("level=4x.7xn")){
+            levelS2="level=4x.8xw";
+        }else if(levelS.equals("level=4x.8xw") || levelS.equals("level=4x.8xn")){
+            levelS2="level=5x.1xw";
+        }else if(levelS.equals("level=5x.1xw") || levelS.equals("level=5x.1xn")){
+            levelS2="level=5x.2xw";
+        }else if(levelS.equals("level=5x.2xw") || levelS.equals("level=5x.2xn")){
+            levelS2="level=5x.3xw";
+        }else if(levelS.equals("level=5x.3xw") || levelS.equals("level=5x.3xn")){
+            levelS2="level=5x.4xw";
+        }else if(levelS.equals("level=5x.4xw") || levelS.equals("level=5x.4xn")){
+            levelS2="level=5x.5xw";
+        }else if(levelS.equals("level=5x.5xw") || levelS.equals("level=5x.5xn")){
+            levelS2="level=5x.6xw";
+        }else if(levelS.equals("level=5x.6xw") || levelS.equals("level=5x.6xn")){
+            levelS2="level=5x.7xw";
+        }else if(levelS.equals("level=5x.7xw") || levelS.equals("level=5x.7xn")){
+            levelS2="level=5x.8xw";
         }else{
 
         }
@@ -141,14 +141,11 @@ public class WinActivity extends Activity implements View.OnClickListener{
                     appel = new Intent(WinActivity.this, FiveLettersLevel.class);
                 }
 
-                // determiner clueInfo
 
-                clueInfo = pass.substring(10);
+
                 // FIN
-                pass2 = levelS2 + clueInfo;
-
                 Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", pass2);
+                objetbunble.putString("passInfo", levelS2);
                 appel.putExtras(objetbunble);
                 startActivity(appel);
 

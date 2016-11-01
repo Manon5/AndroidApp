@@ -11,6 +11,12 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class ThreeLettersLevel extends AppCompatActivity implements View.OnClickListener{
 
 
@@ -116,34 +122,66 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_three_letters_level);
         ThreeLettersLevel = this;
 
-
-        image = (ImageView)findViewById(R.id.level_image);
-
-        Bundle objetbunble  = this.getIntent().getExtras();
-        // récupération de la valeur
-        pass = objetbunble.getString("passInfo");
-        System.out.print(pass);
-
-        clueMode = false;
-        levelS = pass.substring(0, 10);
-        System.out.print(levelS);
-        clueInfo = pass.substring(10);
-        System.out.print(clueInfo);
-
-
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
         clue_button = (ImageButton)findViewById(R.id.indice_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
 
+        image = (ImageView)findViewById(R.id.level_image);
+
+        ///////////// Recup valeur niveau ///////////////////
+
+        Bundle objetbunble  = this.getIntent().getExtras();
+        // récupération de la valeur
+        levelS = objetbunble.getString("passInfo");
+
+
+
+        //////////////// Recup valeur memoire interne ///////////////////
+
+        FileInputStream input = null;
+        String read = null;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        pass = read;
+
+        //////////////// FIN //////////////
+
+        clueMode = false;
         usedClues = 0;
 
-        clueCarac = "" + clueInfo.charAt(7);
-        nbOfClues = Integer.parseInt(clueCarac);
-        setClueButtonBackground(usedClues, nbOfClues);
+        nbOfClues = getClueNb();
 
 
-        if(levelS.charAt(9) == 'w'){
+
+
+
+
+
+
+
+
+        if(levelS.charAt(11) == 'w'){
             WinActivity.getInstance().finish();
         }else{
 
@@ -151,7 +189,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
 
         // Personnalisation image
-        if(levelS.equals("level 1.1n") || levelS.equals("level 1.1w") || levelS.equals(null)){
+        if(levelS.equals("level=1x.1xn") || levelS.equals("level=1x.1xw") || levelS.equals(null)){
 
             answer = "BAR";
             image.setBackgroundResource(R.mipmap.level_1_1);
@@ -176,7 +214,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier18 = "E";
 
 
-        }else if(levelS.equals("level 1.2n") || levelS.equals("level 1.2w")) {
+        }else if(levelS.equals("level=1x.2xn") || levelS.equals("level=1x.2xw")) {
             image.setBackgroundResource(R.mipmap.level_1_2);
             answer = "LIT";
             clavier1 = "M";
@@ -198,7 +236,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier17 = "M";
             clavier18 = "E";
 
-        }else if(levelS.equals("level 1.3n") || levelS.equals("level 1.3w")){
+        }else if(levelS.equals("level=1x.3xn") || levelS.equals("level=1x.3xw")){
 
             image.setBackgroundResource(R.mipmap.level_1_3);
 
@@ -222,7 +260,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier17 = "P";
             clavier18 = "E";
 
-        }else if(levelS.equals("level 1.4n") || levelS.equals("level 1.4w")){
+        }else if(levelS.equals("level=1x.4xn") || levelS.equals("level=1x.4xw")){
 
             image.setBackgroundResource(R.mipmap.level_1_4);
 
@@ -245,7 +283,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier16 = "O";
             clavier17 = "M";
             clavier18 = "K";
-        }else if(levelS.equals("level 1.5n") || levelS.equals("level 1.5w")){
+        }else if(levelS.equals("level=1x.5xn") || levelS.equals("level=1x.5xw")){
             image.setBackgroundResource(R.mipmap.level_1_5);
             answer = "MER";
             clavier1 = "R";
@@ -266,7 +304,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier16 = "E";
             clavier17 = "M";
             clavier18 = "O";
-        }else if(levelS.equals("level 1.6n") || levelS.equals("level 1.6w")){
+        }else if(levelS.equals("level=1x.6xn") || levelS.equals("level=1x.6xw")){
         image.setBackgroundResource(R.mipmap.level_1_6);
 
             answer = "BUS";
@@ -288,7 +326,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         clavier16 = "U";
         clavier17 = "M";
         clavier18 = "P";
-    }else if(levelS.equals("level 1.7n") || levelS.equals("level 1.7w")){
+    }else if(levelS.equals("level=1x.7xn") || levelS.equals("level=1x.7xw")){
             image.setBackgroundResource(R.mipmap.level_1_7);
             answer = "ROC";
             clavier1 = "M";
@@ -309,7 +347,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier16 = "E";
             clavier17 = "N";
             clavier18 = "R";
-        }else if(levelS.equals("level 1.8n") || levelS.equals("level 1.8w")){
+        }else if(levelS.equals("level=1x.8xn") || levelS.equals("level=1x.8xw")){
             image.setBackgroundResource(R.mipmap.level_1_8);
 
             answer = "TOT";
@@ -331,6 +369,50 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier16 = "E";
             clavier17 = "I";
             clavier18 = "L";
+        }else if(levelS.equals("level=1x.9xn") || levelS.equals("level=1x.9xw")){
+            image.setBackgroundResource(R.mipmap.level_1_9);
+
+            answer = "ZOO";
+            clavier1 = "M";
+            clavier2 = "O";
+            clavier3 = "D";
+            clavier4 = "Z";
+            clavier5 = "E";
+            clavier6 = "H";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "M";
+            clavier10 = "S";
+            clavier11 = "Q";
+            clavier12 = "F";
+            clavier13 = "P";
+            clavier14 = "L";
+            clavier15 = "O";
+            clavier16 = "U";
+            clavier17 = "M";
+            clavier18 = "P";
+        }else if(levelS.equals("level=1x.10n") || levelS.equals("level=1x.10w")){
+            image.setBackgroundResource(R.mipmap.level_1_10);
+
+            answer = "ADO";
+            clavier1 = "M";
+            clavier2 = "T";
+            clavier3 = "D";
+            clavier4 = "U";
+            clavier5 = "E";
+            clavier6 = "H";
+            clavier7 = "G";
+            clavier8 = "M";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "Q";
+            clavier12 = "E";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "U";
+            clavier17 = "M";
+            clavier18 = "O";
         }else{
 
         }
@@ -958,7 +1040,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             public void onClick(View v) {
                 if(nbOfClues == 0){
 
-                }else if(usedClues <= 2){
+                }else if(usedClues < 2){
                     saisie1.setBackgroundResource(R.mipmap.button_blue_enabled);
                     saisie1.setText("?");
                     saisie2.setBackgroundResource(R.mipmap.button_blue_enabled);
@@ -969,6 +1051,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
                     usedClues++;
                     nbOfClues = nbOfClues - 1;
+                    setClueNb(nbOfClues, pass);
                     setClueButtonBackground(usedClues, nbOfClues);
 
 
@@ -1210,10 +1293,9 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         // objet qui vas nous permettre de passe des variables ici la variable passInfo
         Bundle objetbunble = new Bundle();
 
-        clueInfo = "//clue=" + nbOfClues;
-        pass2 = levelS + clueInfo;
 
-        objetbunble.putString("passInfo", pass2);
+
+        objetbunble.putString("passInfo", levelS);
         // on passe notre objet a notre activities
         defineIntent.putExtras(objetbunble );
         // on appelle notre activité
@@ -1304,6 +1386,89 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                 clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_10);
             }
         }
+
+    }
+
+
+    public void setClueNb(int nbOfClues, String param){
+
+
+        FileOutputStream output = null;
+        String clueNb = new String("" + nbOfClues);
+
+        // Traitement clueNb
+        if(nbOfClues < 10){
+            clueNb = clueNb +"xx";
+        }else if(nbOfClues < 100){
+            clueNb = clueNb + "x";
+        }else{
+
+        }
+
+
+        // Traitement param
+        param = param.substring(0, param.length() - 3);
+        param = param + clueNb;
+
+
+        try {
+            output = openFileOutput("USERINFOS", MODE_PRIVATE);
+            output.write(param.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public int getClueNb(){
+
+        FileInputStream input = null;
+        String read = null;
+        String clueNb = null;
+        int nbOfClues = 0;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Traitement pour obtenir nbOfClues //
+        clueNb = read.substring(23);
+        if(clueNb.charAt(2) != 'x'){
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
+        }else if(clueNb.charAt(1) != 'x'){
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
+        }else{
+            clueNb = "" + clueNb.charAt(0);
+        }
+
+        // Determiner nbOfClues et adapter le bouton
+        nbOfClues = Integer.parseInt(clueNb);
+        setClueButtonBackground(usedClues, nbOfClues);
+
+        return nbOfClues;
 
     }
 

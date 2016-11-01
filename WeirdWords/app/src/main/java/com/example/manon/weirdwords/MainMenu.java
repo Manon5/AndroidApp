@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class MainMenu extends Activity implements View.OnClickListener{
 
 
@@ -36,6 +40,23 @@ public class MainMenu extends Activity implements View.OnClickListener{
         credits_button = (Button)findViewById(R.id.credits_button);
 
 
+
+        //////////////// TEST //////////////
+        FileOutputStream output = null;
+        String param = "level_max=1x.1xn//clue=5xx";
+
+        try {
+            output = openFileOutput("USERINFOS", MODE_PRIVATE);
+            output.write(param.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //////////////// TEST //////////////
 
 
 

@@ -16,6 +16,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
     private ImageButton undo_button = null;
     private ImageButton clue_button = null;
     private ImageButton param_button = null;
+    private ImageButton level_0_button = null;
     private ImageButton level_1_button = null;
     private ImageButton level_2_button = null;
     private ImageButton level_3_button = null;
@@ -35,6 +36,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         param_button = (ImageButton)findViewById(R.id.param_button);
 
         //Init boutons menu
+        level_0_button = (ImageButton)findViewById(R.id.arrow_button_0);
         level_1_button = (ImageButton)findViewById(R.id.arrow_button_1);
         level_2_button = (ImageButton)findViewById(R.id.arrow_button_2);
         level_3_button = (ImageButton)findViewById(R.id.arrow_button_3);
@@ -53,6 +55,14 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
 
         // Activation boutons menu
+
+        level_0_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent level0 = new Intent(ChoosePackMenu.this, DidacticielMenu.class);
+                startActivity(level0);
+            }
+        });
 
         level_1_button.setOnClickListener(new View.OnClickListener() {
             @Override

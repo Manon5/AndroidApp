@@ -36,6 +36,14 @@
             android:layout_margin="5dp"
             android:background="@mipmap/icone_param"
             android:layout_toLeftOf="@+id/indice_button"/>
+
+        <ImageButton
+            android:id="@+id/help_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_aide"
+            android:layout_toLeftOf="@+id/param_button"/>
     </RelativeLayout>
 
 

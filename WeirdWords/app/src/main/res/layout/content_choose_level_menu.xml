@@ -54,6 +54,14 @@
                 android:background="@mipmap/level_1_7_mini"
                 />
 
+            <ImageButton
+                android:id="@+id/level_9"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_margin="15dp"
+                android:background="@mipmap/level_1_9_mini"
+                />
+
 
         </LinearLayout>
 
@@ -94,6 +102,14 @@
                 android:layout_margin="15dp"
                 android:background="@mipmap/level_1_8_mini"
                 />
+
+            <ImageButton
+            android:id="@+id/level_10"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_margin="15dp"
+            android:background="@mipmap/level_1_10_mini"
+            />
 
 
         </LinearLayout>
