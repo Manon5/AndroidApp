@@ -6,6 +6,13 @@ import android.support.v7.widget.AppCompatButton;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class WinActivity extends Activity implements View.OnClickListener{
 
@@ -14,7 +21,11 @@ public class WinActivity extends Activity implements View.OnClickListener{
     private String pass2;
     private String levelS2;
     private String clueInfo ;
+    private String memoryInfo;
+    private String levelMax;
     private int i;
+    private int nbOfClues;
+
 
     static WinActivity WinActivity;
 
@@ -30,11 +41,15 @@ public class WinActivity extends Activity implements View.OnClickListener{
         levelS = objetbunble.getString("passInfo");
         if(levelS.charAt(6) == '1'){
             ThreeLettersLevel.getInstance().finish();
+        }else if(levelS.charAt(6) == '2'){
+            FourLettersLevel.getInstance().finish();
         }else{
-            FiveLettersLevel.getInstance().finish();
+
         }
 
 
+        // Recuperer le nb d'indices
+        nbOfClues = getClueNb();
 
 
 
@@ -75,6 +90,10 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(levelS.equals("level=2x.7xw") || levelS.equals("level=2x.7xn")){
             levelS2="level=2x.8xw";
         }else if(levelS.equals("level=2x.8xw") || levelS.equals("level=2x.8xn")){
+            levelS2="level=2x.9xw";
+        }else if(levelS.equals("level=2x.9xw") || levelS.equals("level=2x.9xn")){
+            levelS2="level=2x.10w";
+        }else if(levelS.equals("level=2x.10w") || levelS.equals("level=2x.10n")){
             levelS2="level=3x.1xw";
         }else if(levelS.equals("level=3x.1xw") || levelS.equals("level=3x.1xn")){
             levelS2="level=3x.2xw";
@@ -90,7 +109,11 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=3x.7xw";
         }else if(levelS.equals("level=3x.7xw") || levelS.equals("level=3x.7xn")){
             levelS2="level=3x.8xw";
-        }else if(levelS.equals("level 3x.8xw") || levelS.equals("level=3x.8xn")){
+        }else if(levelS.equals("level=3x.8xw") || levelS.equals("level=3x.8xn")){
+            levelS2="level=3x.9xw";
+        }else if(levelS.equals("level=3x.9xw") || levelS.equals("level=3x.9xn")){
+            levelS2="level=3x.10w";
+        }else if(levelS.equals("level 3x.10w") || levelS.equals("level=3x.10n")){
             levelS2="level=4x.1xw";
         }else if(levelS.equals("level=4x.1xw") || levelS.equals("level=4x.1xn")){
             levelS2="level=4x.2xw";
@@ -125,6 +148,32 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else{
 
         }
+
+        levelMax = levelS2.substring(0, 5) + "_max" + levelS2.substring(5);
+        clueInfo = "//clue=" + nbOfClues;
+
+        if(clueInfo.length() == 8) {
+            clueInfo = clueInfo + "xx";
+        }else if(clueInfo.length() == 9){
+            clueInfo = clueInfo + "x";
+        }else{
+
+        }
+
+        memoryInfo = levelMax + clueInfo;
+
+        FileOutputStream output = null;
+        try {
+            output = openFileOutput("USERINFOS", MODE_PRIVATE);
+            output.write(memoryInfo.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         next_level_button = (Button)findViewById(R.id.next_level_button);
         next_level_button.setOnClickListener(new View.OnClickListener() {
@@ -165,4 +214,56 @@ public class WinActivity extends Activity implements View.OnClickListener{
     public static WinActivity getInstance(){
         return WinActivity;
     }
-}
+
+
+
+    public int getClueNb() {
+
+        FileInputStream input = null;
+        String read = null;
+        String clueNb = null;
+        int nbOfClues = 0;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Traitement pour obtenir nbOfClues //
+        clueNb = read.substring(23);
+        if (clueNb.charAt(2) != 'x') {
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
+        } else if (clueNb.charAt(1) != 'x') {
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
+        } else {
+            clueNb = "" + clueNb.charAt(0);
+        }
+
+        // Determiner nbOfClues et adapter le bouton
+        nbOfClues = Integer.parseInt(clueNb);
+
+        return nbOfClues;
+    }
+
+
+
+
+    }
+

@@ -3,10 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.manon.weirdwords.DidacticielMenu">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@mipmap/toolbar">
+
+        <ImageButton
+            android:id="@+id/undo_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@mipmap/icone_undo"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageButton
+            android:id="@+id/help_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_aide"
+            android:layout_toLeftOf="@+id/param_button"/>
+
+        <ImageButton
+            android:id="@+id/param_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_param"
+            android:layout_toLeftOf="@+id/clue_button"/>
+
+        <ImageButton
+            android:id="@+id/clue_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_indice"
+            android:layout_alignParentRight="true"/>
+
+
+    </RelativeLayout>
 </RelativeLayout>

@@ -50,10 +50,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
     private ImageButton level8 = null;
     private ImageButton level9 = null;
     private ImageButton level10 = null;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     private GoogleApiClient client;
 
 

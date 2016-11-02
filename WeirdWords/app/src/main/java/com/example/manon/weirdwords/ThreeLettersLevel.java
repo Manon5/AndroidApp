@@ -78,8 +78,6 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     private String answer;
     private int level;
     private ImageView image = null;
-    private double randomD;
-    private int randomI;
     private int nbOfClues;
     private int usedClues;
     private boolean clueMode;
@@ -124,7 +122,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
-        clue_button = (ImageButton)findViewById(R.id.indice_button);
+        clue_button = (ImageButton)findViewById(R.id.clue_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
 
         image = (ImageView)findViewById(R.id.level_image);
@@ -191,6 +189,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         // Personnalisation image
         if(levelS.equals("level=1x.1xn") || levelS.equals("level=1x.1xw") || levelS.equals(null)){
 
+            nbOfClues = nbOfClues + 5;
             answer = "BAR";
             image.setBackgroundResource(R.mipmap.level_1_1);
 
@@ -1053,15 +1052,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     nbOfClues = nbOfClues - 1;
                     setClueNb(nbOfClues, pass);
                     setClueButtonBackground(usedClues, nbOfClues);
-
-
-
                 }else{
-
                 }
-
-
-
             }
         });
 
@@ -1094,8 +1086,6 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     determineFocusSaisie();
                     isWon();
                 }
-
-
             }
         });
 
@@ -1125,10 +1115,6 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     determineFocusSaisie();
                     isWon();
                 }
-
-
-
-
             }
         });
 
@@ -1158,7 +1144,6 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     determineFocusSaisie();
                     isWon();
                 }
-
 
             }
         });

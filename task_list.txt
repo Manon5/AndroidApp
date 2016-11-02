@@ -2,15 +2,14 @@ PRIORITAIRE :
 
 	2) Se servir de cette sauvegarde pour rendre accessibles certains niveaux seulement
 
-	5) Adapter le système d'indices à tous les niveaux
+	5) Adapter le système d'indices à tous les niveaux (fait pour 1, 2 & 3)
 
 	6) Concevoir un didacticiel
 
 	7) Ajouter un certain nombre d'indices à chaque fin de niveau
 
-	8) Concevoir une petite explication (bouton "aide"
+	8) Concevoir une petite explication (bouton "aide")
 
-	9) Ajouter les bon boutons à la toolbar
 
 	
 
@@ -27,3 +26,5 @@ FAIT :
 	=> Manon
 
 	1) Sauvegarder l'avancement du joueur a la fermeture de l'application
+
+	9) Ajouter les bons boutons à la toolbar

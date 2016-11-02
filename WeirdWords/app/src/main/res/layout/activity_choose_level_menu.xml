@@ -27,20 +27,28 @@
             android:layout_alignParentLeft="true" />
 
         <ImageButton
-            android:id="@+id/param_button"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_margin="5dp"
-            android:background="@mipmap/icone_param"
-            android:layout_alignParentRight="true"/>
-
-        <ImageButton
             android:id="@+id/help_button"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_margin="5dp"
             android:background="@mipmap/icone_aide"
             android:layout_toLeftOf="@+id/param_button"/>
+
+        <ImageButton
+            android:id="@+id/param_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_param"
+            android:layout_toLeftOf="@+id/clue_button"/>
+
+        <ImageButton
+            android:id="@+id/clue_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_indice"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
 
