@@ -67,7 +67,10 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         level_1_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle objetbunble = new Bundle();
+                objetbunble.putString("passInfo", "1");
                 Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                level1.putExtras(objetbunble);
                 startActivity(level1);
             }
         });
@@ -75,7 +78,10 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         level_2_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent level2 = new Intent(ChoosePackMenu.this, ChooseLevelMenu2.class);
+                Bundle objetbunble = new Bundle();
+                objetbunble.putString("passInfo", "2");
+                Intent level2 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                level2.putExtras(objetbunble);
                 startActivity(level2);
             }
         });
@@ -83,7 +89,10 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         level_3_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent level3 = new Intent(ChoosePackMenu.this, ChooseLevelMenu3.class);
+                Bundle objetbunble = new Bundle();
+                objetbunble.putString("passInfo", "3");
+                Intent level3 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                level3.putExtras(objetbunble);
                 startActivity(level3);
 
             }
@@ -92,7 +101,10 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         level_4_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent level4 = new Intent(ChoosePackMenu.this, ChooseLevelMenu4.class);
+                Bundle objetbunble = new Bundle();
+                objetbunble.putString("passInfo", "4");
+                Intent level4 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                level4.putExtras(objetbunble);
                 startActivity(level4);
             }
         });
@@ -100,7 +112,10 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         level_5_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu5.class);
+                Bundle objetbunble = new Bundle();
+                objetbunble.putString("passInfo", "5");
+                Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                level5.putExtras(objetbunble);
                 startActivity(level5);
             }
         });

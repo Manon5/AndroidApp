@@ -75,13 +75,18 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     // Parametrage zone de saisie
     private int focusSaisie = 0;
     private char[] saisie = {' ', ' ', ' '};
-    private String answer;
+    private String answer1;
+    private String answer2;
     private int level;
     private ImageView image = null;
     private int nbOfClues;
     private int usedClues;
     private boolean clueMode;
     private int clueChoice;
+
+    private boolean isSaisie1Locked = false;
+    private boolean isSaisie2Locked = false;
+    private boolean isSaisie3Locked = false;
 
 
     //Clavier
@@ -161,7 +166,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         }
 
-        pass = read;
+        pass = read.substring(0, 16);
 
         //////////////// FIN //////////////
 
@@ -182,7 +187,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         if(levelS.charAt(11) == 'w'){
             WinActivity.getInstance().finish();
         }else{
-
+            ChooseLevelMenu.getInstance().finish();
         }
 
 
@@ -190,7 +195,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         if(levelS.equals("level=1x.1xn") || levelS.equals("level=1x.1xw") || levelS.equals(null)){
 
             nbOfClues = nbOfClues + 5;
-            answer = "BAR";
+            answer1 = "BAR";
+            answer2 = "BAR";
             image.setBackgroundResource(R.mipmap.level_1_1);
 
             clavier1 = "M";
@@ -215,7 +221,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         }else if(levelS.equals("level=1x.2xn") || levelS.equals("level=1x.2xw")) {
             image.setBackgroundResource(R.mipmap.level_1_2);
-            answer = "LIT";
+            answer1 = "LIT";
+            answer2 = "LIT";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "D";
@@ -239,7 +246,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_3);
 
-            answer = "RAT";
+            answer1 = "RAT";
+            answer2 = "ART";
             clavier1 = "H";
             clavier2 = "O";
             clavier3 = "Q";
@@ -263,7 +271,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_4);
 
-            answer = "FOU";
+            answer1 = "FOU";
+            answer2 = "OUF";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "D";
@@ -284,7 +293,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier18 = "K";
         }else if(levelS.equals("level=1x.5xn") || levelS.equals("level=1x.5xw")){
             image.setBackgroundResource(R.mipmap.level_1_5);
-            answer = "MER";
+            answer1 = "MER";
+            answer2 = "MER";
             clavier1 = "R";
             clavier2 = "T";
             clavier3 = "H";
@@ -306,7 +316,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=1x.6xn") || levelS.equals("level=1x.6xw")){
         image.setBackgroundResource(R.mipmap.level_1_6);
 
-            answer = "BUS";
+            answer1 = "BUS";
+            answer2 = "BUS";
         clavier1 = "M";
         clavier2 = "T";
         clavier3 = "D";
@@ -327,7 +338,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         clavier18 = "P";
     }else if(levelS.equals("level=1x.7xn") || levelS.equals("level=1x.7xw")){
             image.setBackgroundResource(R.mipmap.level_1_7);
-            answer = "ROC";
+            answer1 = "ROC";
+            answer2 = "ROC";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "D";
@@ -349,7 +361,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=1x.8xn") || levelS.equals("level=1x.8xw")){
             image.setBackgroundResource(R.mipmap.level_1_8);
 
-            answer = "TOT";
+            answer1 = "TOT";
+            answer2 = "TOT";
             clavier1 = "T";
             clavier2 = "T";
             clavier3 = "M";
@@ -371,7 +384,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=1x.9xn") || levelS.equals("level=1x.9xw")){
             image.setBackgroundResource(R.mipmap.level_1_9);
 
-            answer = "ZOO";
+            answer1 = "ZOO";
+            answer2 = "ZOO";
             clavier1 = "M";
             clavier2 = "O";
             clavier3 = "D";
@@ -393,7 +407,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=1x.10n") || levelS.equals("level=1x.10w")){
             image.setBackgroundResource(R.mipmap.level_1_10);
 
-            answer = "ADO";
+            answer1 = "ADO";
+            answer2 = "ADO";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "D";
@@ -1030,6 +1045,11 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle objetbunble = new Bundle();
+                objetbunble.putString("passInfo", "1");
+                Intent undo = new Intent(ThreeLettersLevel.this, ChooseLevelMenu.class);
+                undo.putExtras(objetbunble);
+                startActivity(undo);
                 finish();
             }
         });
@@ -1064,9 +1084,9 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
 
-                if(clueMode == false){
+                if(clueMode == false ){
                     char carac;
-                    if (saisie1.getText().charAt(0) != ' ' && usedClues == 0) {
+                    if (saisie1.getText().charAt(0) != ' ' && isSaisie1Locked == false) {
                         carac = saisie1.getText().charAt(0);
                         saisie[0] = ' ';
                         releaseButton(carac);
@@ -1077,7 +1097,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     }
                 }else{
                     clueMode = false;
-                    saisie[0] = answer.charAt(0);
+                    saisie[0] = answer1.charAt(0);
+                    isSaisie1Locked = true;
                     saisie1.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1095,7 +1116,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
                 if(clueMode == false){
                     char carac;
-                    if(saisie2.getText().charAt(0) != ' '){
+                    if(saisie2.getText().charAt(0) != ' ' && isSaisie2Locked == false){
                         carac = saisie2.getText().charAt(0);
                         saisie[1] = ' ';
                         releaseButton(carac);
@@ -1106,7 +1127,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     }
                 }else{
                     clueMode = false;
-                    saisie[1] = answer.charAt(1);
+                    saisie[1] = answer1.charAt(1);
+                    isSaisie2Locked = true;
                     saisie2.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1124,7 +1146,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
                 if(clueMode == false){
                     char carac;
-                    if (saisie3.getText().charAt(0) != ' ') {
+                    if (saisie3.getText().charAt(0) != ' ' && isSaisie3Locked == false) {
                         carac = saisie3.getText().charAt(0);
                         saisie[2] = ' ';
                         releaseButton(carac);
@@ -1135,7 +1157,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     }
                 }else{
                     clueMode = false;
-                    saisie[2] = answer.charAt(2);
+                    saisie[2] = answer1.charAt(2);
+                    isSaisie3Locked = true;
                     saisie3.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1280,6 +1303,11 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
 
 
+
+
+
+
+
         objetbunble.putString("passInfo", levelS);
         // on passe notre objet a notre activities
         defineIntent.putExtras(objetbunble );
@@ -1295,7 +1323,9 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
     public void isWon(){
         boolean isWon;
-        if(saisie[0] == answer.charAt(0) && saisie[1] == answer.charAt(1) && saisie[2] == answer.charAt(2)){
+        if(saisie[0] == answer1.charAt(0) && saisie[1] == answer1.charAt(1) && saisie[2] == answer1.charAt(2)){
+            win();
+        }else if(saisie[0] == answer2.charAt(0) && saisie[1] == answer2.charAt(1) && saisie[2] == answer2.charAt(2)){
             win();
         }else{
 
@@ -1377,13 +1407,16 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
     public void setClueNb(int nbOfClues, String param){
 
+        System.out.println(param);
 
+        String pass = null;
         FileOutputStream output = null;
-        String clueNb = new String("" + nbOfClues);
+        String clueNb = new String("//clue=" + nbOfClues);
 
         // Traitement clueNb
-        if(nbOfClues < 10){
-            clueNb = clueNb +"xx";
+
+        if(nbOfClues < 10) {
+            clueNb = clueNb + "xx";
         }else if(nbOfClues < 100){
             clueNb = clueNb + "x";
         }else{
@@ -1392,13 +1425,12 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
 
         // Traitement param
-        param = param.substring(0, param.length() - 3);
-        param = param + clueNb;
+        pass = param + clueNb;
 
 
         try {
             output = openFileOutput("USERINFOS", MODE_PRIVATE);
-            output.write(param.getBytes());
+            output.write(pass.getBytes());
             if(output != null)
                 output.close();
         } catch (FileNotFoundException e) {
@@ -1414,7 +1446,6 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         FileInputStream input = null;
         String read = null;
-        String clueNb = null;
         int nbOfClues = 0;
         char[] readBuffer = new char[26];
         InputStreamReader isr = null;
@@ -1440,7 +1471,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         }
 
         // Traitement pour obtenir nbOfClues //
-        clueNb = read.substring(23);
+         String clueNb = new String(read.substring(23));
         if(clueNb.charAt(2) != 'x'){
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
         }else if(clueNb.charAt(1) != 'x'){

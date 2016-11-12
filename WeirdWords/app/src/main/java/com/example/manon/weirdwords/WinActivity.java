@@ -101,7 +101,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=3x.3xw";
         }else if(levelS.equals("level=3x.3xw") || levelS.equals("level=3x.3xn")){
             levelS2="level=3x.4xw";
-        }else if(levelS.equals("level=3x.4wx") || levelS.equals("level=3x.4xn")){
+        }else if(levelS.equals("level=3x.4xw") || levelS.equals("level=3x.4xn")){
             levelS2="level=3x.5xw";
         }else if(levelS.equals("level=3x.5xw") || levelS.equals("level=3x.5xn")){
             levelS2="level=3x.6xw";
@@ -145,6 +145,10 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=5x.7xw";
         }else if(levelS.equals("level=5x.7xw") || levelS.equals("level=5x.7xn")){
             levelS2="level=5x.8xw";
+        }else if(levelS.equals("level=5x.8xw") || levelS.equals("level=5x.8xn")){
+            levelS2="level=5x.9xw";
+        }else if(levelS.equals("level=5x.9xw") || levelS.equals("level=5x.9xn")){
+            levelS2="level=5x.10xw";
         }else{
 
         }
@@ -157,7 +161,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(clueInfo.length() == 9){
             clueInfo = clueInfo + "x";
         }else{
-
+            clueInfo = clueInfo + "xxxxxxx";
         }
 
         memoryInfo = levelMax + clueInfo;
@@ -249,7 +253,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         // Traitement pour obtenir nbOfClues //
         clueNb = read.substring(23);
         if (clueNb.charAt(2) != 'x') {
-            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
         } else if (clueNb.charAt(1) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
         } else {

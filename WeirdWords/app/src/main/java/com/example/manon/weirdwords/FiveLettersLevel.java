@@ -1,6 +1,7 @@
 package com.example.manon.weirdwords;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,12 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class FiveLettersLevel extends AppCompatActivity implements View.OnClickListener{
 
@@ -74,8 +81,10 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
     private String answer;
     private int level;
     private ImageView image = null;
-    private double randomD;
-    private int randomI;
+    private int nbOfClues;
+    private int usedClues;
+    private boolean clueMode;
+    private int clueChoice;
 
 
     //Clavier
@@ -99,6 +108,10 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
     private String clavier18;
 
     private String levelS =" "  ;
+    private String pass;
+    private String pass2;
+    private String clueInfo;
+    private String clueCarac;
 
     static FiveLettersLevel FiveLettersLevel;
 
@@ -113,14 +126,59 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
 
         image = (ImageView)findViewById(R.id.level_image);
 
-        Bundle objetbunble  = this.getIntent().getExtras();
-        // recupération de la valeur
-        levelS = objetbunble.getString("passInfo");
 
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
-        clue_button = (ImageButton)findViewById(R.id.indice_button);
+        clue_button = (ImageButton)findViewById(R.id.clue_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
+
+        image = (ImageView)findViewById(R.id.level_image);
+
+nbOfClues = getClueNb();
+
+
+        ///////////// Recup valeur niveau ///////////////////
+
+        Bundle objectbunble  = this.getIntent().getExtras();
+        // récupération de la valeur
+        levelS = objectbunble.getString("passInfo");
+
+
+
+        //////////////// Recup valeur memoire interne ///////////////////
+
+        FileInputStream input = null;
+        String read = null;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        pass = read;
+
+        //////////////// FIN //////////////
+
+        clueMode = false;
+        usedClues = 0;
+
+
 
         if(levelS.charAt(9) == 'w'){
             WinActivity.getInstance().finish();
@@ -130,7 +188,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
 
 
         // Personnalisation image
-        if(levelS.equals("level 4.1n") || levelS.equals("level 4.1w") || levelS.equals(null)){
+        if(levelS.equals("level=4x.1xn") || levelS.equals("level=4x.1xw") || levelS.equals(null)){
 
             answer = "STYLO";
             image.setBackgroundResource(R.mipmap.level_4_1);
@@ -155,7 +213,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier18 = "T";
 
 
-        }else if(levelS.equals("level 4.2n") || levelS.equals("level 4.2w")) {
+        }else if(levelS.equals("level=4x.2xn") || levelS.equals("level=4x.2xw")) {
             image.setBackgroundResource(R.mipmap.level_4_2);
             answer = "VIVRE";
             clavier1 = "P";
@@ -177,7 +235,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "V";
             clavier18 = "G";
 
-        }else if(levelS.equals("level 4.3n") || levelS.equals("level 4.3w")){
+        }else if(levelS.equals("level=4x.3xn") || levelS.equals("level=4x.3xw")){
 
             image.setBackgroundResource(R.mipmap.level_4_3);
 
@@ -201,7 +259,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "P";
             clavier18 = "E";
 
-        }else if(levelS.equals("level 4.4n") || levelS.equals("level 4.4w")){
+        }else if(levelS.equals("level=4x.4xn") || levelS.equals("level=4x.4xw")){
 
             image.setBackgroundResource(R.mipmap.level_4_4);
 
@@ -224,7 +282,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier16 = "H";
             clavier17 = "X";
             clavier18 = "I";
-        }else if(levelS.equals("level 4.5n") || levelS.equals("level 4.5w")){
+        }else if(levelS.equals("level=4x.5xn") || levelS.equals("level=4x.5xw")){
             image.setBackgroundResource(R.mipmap.level_4_5);
             answer = "PANDA";
             clavier1 = "B";
@@ -245,7 +303,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier16 = "E";
             clavier17 = "N";
             clavier18 = "A";
-        }else if(levelS.equals("level 4.6n") || levelS.equals("level 4.6w")){
+        }else if(levelS.equals("level=4x.6xn") || levelS.equals("level=4x.6xw")){
             image.setBackgroundResource(R.mipmap.level_4_6);
 
             answer = "TARTE";
@@ -267,7 +325,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier16 = "U";
             clavier17 = "A";
             clavier18 = "J";
-        }else if(levelS.equals("level 4.7n") || levelS.equals("level 4.7w")){
+        }else if(levelS.equals("level=4x.7xn") || levelS.equals("level=4x.7xw")){
             image.setBackgroundResource(R.mipmap.level_4_7);
             answer = "ATOME";
             clavier1 = "M";
@@ -288,7 +346,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier16 = "E";
             clavier17 = "N";
             clavier18 = "R";
-        }else if(levelS.equals("level 4.8n") || levelS.equals("level 4.8w")){
+        }else if(levelS.equals("level=4x.8xn") || levelS.equals("level=4x.8xw")){
             image.setBackgroundResource(R.mipmap.level_4_8);
 
             answer = "BULLE";
@@ -311,7 +369,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "H";
             clavier18 = "L";
 
-        }else if(levelS.equals("level 5.1n") || levelS.equals("level 5.1w")){
+        }else if(levelS.equals("level=5x.1xn") || levelS.equals("level=5x.1xw")){
             image.setBackgroundResource(R.mipmap.level_5_1);
 
             answer = "SATAN";
@@ -334,7 +392,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "H";
             clavier18 = "U";
 
-        }else if(levelS.equals("level 5.2n") || levelS.equals("level 5.2w")){
+        }else if(levelS.equals("level=5x.2xn") || levelS.equals("level=5x.2xw")){
             image.setBackgroundResource(R.mipmap.level_5_2);
 
             answer = "CAJOU";
@@ -357,7 +415,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "O";
             clavier18 = "L";
 
-        }else if(levelS.equals("level 5.3n") || levelS.equals("level 5.3w")){
+        }else if(levelS.equals("level=5x.3xn") || levelS.equals("level=5x.3xw")){
             image.setBackgroundResource(R.mipmap.level_5_3);
 
             answer = "FOLIE";
@@ -380,7 +438,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "B";
             clavier18 = "P";
 
-        }else if(levelS.equals("level 5.4n") || levelS.equals("level 5.4w")){
+        }else if(levelS.equals("level=5x.4xn") || levelS.equals("level=5x.4xw")){
             image.setBackgroundResource(R.mipmap.level_5_4);
 
             answer = "FRUIT";
@@ -403,7 +461,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "F";
             clavier18 = "L";
 
-        }else if(levelS.equals("level 5.5n") || levelS.equals("level 5.5w")){
+        }else if(levelS.equals("level=5x.5xn") || levelS.equals("level=5x.5xw")){
             image.setBackgroundResource(R.mipmap.level_5_5);
 
             answer = "DINDE";
@@ -426,7 +484,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "N";
             clavier18 = "L";
 
-        }else if(levelS.equals("level 5.6n") || levelS.equals("level 5.6w")){
+        }else if(levelS.equals("level=5x.6xn") || levelS.equals("level=5x.6xw")){
             image.setBackgroundResource(R.mipmap.level_5_6);
 
             answer = "IGLOO";
@@ -449,7 +507,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "E";
             clavier18 = "L";
 
-        }else if(levelS.equals("level 5.7n") || levelS.equals("level 5.7w")){
+        }else if(levelS.equals("level=5x.7xn") || levelS.equals("level=5x.7xw")){
             image.setBackgroundResource(R.mipmap.level_5_7);
 
             answer = "BALAI";
@@ -472,7 +530,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier17 = "B";
             clavier18 = "L";
 
-        }else if(levelS.equals("level 5.8n") || levelS.equals("level 5.8w")){
+        }else if(levelS.equals("level=5x.8xn") || levelS.equals("level=5x.8xw")){
             image.setBackgroundResource(R.mipmap.level_5_8);
 
             answer = "TISSU";
@@ -1074,6 +1132,8 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
 
         focusSaisie = 0;
 
+
+
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1081,6 +1141,32 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             }
         });
 
+        clue_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(nbOfClues == 0){
+
+                }else if(usedClues < 2){
+                    saisie1.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie1.setText("?");
+                    saisie2.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie2.setText("?");
+                    saisie3.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie3.setText("?");
+                    saisie4.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie4.setText("?");
+                    saisie5.setBackgroundResource(R.mipmap.button_blue_enabled);
+                    saisie5.setText("?");
+                    clueMode = true;
+                    usedClues++;
+                    nbOfClues = nbOfClues - 1;
+                    setClueNb(nbOfClues, pass);
+                    setClueButtonBackground(usedClues, nbOfClues);
+                }else{
+
+                }
+            }
+        });
 
 
 
@@ -1088,15 +1174,30 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         saisie1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if (saisie1.getText().charAt(0) != ' ') {
-                    carac = saisie1.getText().charAt(0);
-                    saisie[0] = ' ';
-                    releaseButton(carac);
+                if(clueMode == false){
+                    char carac;
+                    if (saisie1.getText().charAt(0) != ' ' && usedClues == 0) {
+                        carac = saisie1.getText().charAt(0);
+                        saisie[0] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    } else {
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[0] = answer.charAt(0);
+                    saisie1.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                } else {
-
+                    isWon();
                 }
             }
         });
@@ -1104,15 +1205,30 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         saisie2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if(saisie2.getText().charAt(0) != ' '){
-                    carac = saisie2.getText().charAt(0);
-                    saisie[1] = ' ';
-                    releaseButton(carac);
+                if(clueMode == false){
+                    char carac;
+                    if(saisie2.getText().charAt(0) != ' '){
+                        carac = saisie2.getText().charAt(0);
+                        saisie[1] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    }else{
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[1] = answer.charAt(1);
+                    saisie2.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                }else{
-
+                    isWon();
                 }
 
 
@@ -1122,15 +1238,30 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         saisie3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if (saisie3.getText().charAt(0) != ' ') {
-                    carac = saisie3.getText().charAt(0);
-                    saisie[2] = ' ';
-                    releaseButton(carac);
+                if(clueMode == false){
+                    char carac;
+                    if(saisie3.getText().charAt(0) != ' '){
+                        carac = saisie3.getText().charAt(0);
+                        saisie[2] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    }else{
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[2] = answer.charAt(2);
+                    saisie2.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                } else {
-
+                    isWon();
                 }
             }
         });
@@ -1138,15 +1269,29 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         saisie4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if (saisie4.getText().charAt(0) != ' ') {
-                    carac = saisie4.getText().charAt(0);
-                    saisie[3] = ' ';
-                    releaseButton(carac);
+                if(clueMode == false){
+                    char carac;
+                    if (saisie4.getText().charAt(0) != ' ') {
+                        carac = saisie4.getText().charAt(0);
+                        saisie[3] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    } else {
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[3] = answer.charAt(3);
+                    saisie4.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                } else {
-
+                    isWon();
                 }
             }
         });
@@ -1154,15 +1299,29 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         saisie5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char carac;
-                if (saisie5.getText().charAt(0) != ' ') {
-                    carac = saisie5.getText().charAt(0);
-                    saisie[4] = ' ';
-                    releaseButton(carac);
+                if(clueMode == false){
+                    char carac;
+                    if (saisie5.getText().charAt(0) != ' ') {
+                        carac = saisie5.getText().charAt(0);
+                        saisie[4] = ' ';
+                        releaseButton(carac);
+                        updateSaisie();
+                        determineFocusSaisie();
+                    } else {
+
+                    }
+                }else{
+                    clueMode = false;
+                    saisie[4] = answer.charAt(4);
+                    saisie5.setTextColor(Color.GRAY);
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
-                } else {
-
+                    isWon();
                 }
             }
         });
@@ -1337,6 +1496,155 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
     }
 
 
+
+    public void setClueNb(int nbOfClues, String param){
+
+
+        FileOutputStream output = null;
+        String clueNb = new String("" + nbOfClues);
+
+        // Traitement clueNb
+        if(nbOfClues < 10){
+            clueNb = clueNb +"xx";
+        }else if(nbOfClues < 100){
+            clueNb = clueNb + "x";
+        }else{
+
+        }
+
+
+        // Traitement param
+        param = param.substring(0, param.length() - 3);
+        param = param + clueNb;
+
+
+        try {
+            output = openFileOutput("USERINFOS", MODE_PRIVATE);
+            output.write(param.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public int getClueNb(){
+
+        FileInputStream input = null;
+        String read = null;
+        String clueNb = null;
+        int nbOfClues = 0;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Traitement pour obtenir nbOfClues //
+        clueNb = read.substring(23);
+        if(clueNb.charAt(2) != 'x'){
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
+        }else if(clueNb.charAt(1) != 'x'){
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
+        }else{
+            clueNb = "" + clueNb.charAt(0);
+        }
+
+        // Determiner nbOfClues et adapter le bouton
+        nbOfClues = Integer.parseInt(clueNb);
+        setClueButtonBackground(usedClues, nbOfClues);
+
+        return nbOfClues;
+
+    }
+
+    public void setClueButtonBackground(int usedClues,int nbOfClues){
+        boolean isEnabled;
+        if(usedClues <= 2){
+            isEnabled = true;
+        }else{
+            isEnabled = false;
+        }
+
+
+        if(isEnabled == true){
+            // Bouton normal
+            if(nbOfClues == 0){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_0);
+            }else if(nbOfClues == 1){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_1);
+            }else if(nbOfClues == 2){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_2);
+            }else if(nbOfClues == 3){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_3);
+            }else if(nbOfClues == 4){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_4);
+            }else if(nbOfClues == 5){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_5);
+            }else if(nbOfClues == 6){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_6);
+            }else if(nbOfClues == 7){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_7);
+            }else if(nbOfClues == 8){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_8);
+            }else if(nbOfClues == 9){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_9);
+            }else{
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_10);
+            }
+
+
+        }else{
+            // Bouton desactive
+
+
+            if(nbOfClues == 0){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_0);
+            }else if(nbOfClues == 1){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_1);
+            }else if(nbOfClues == 2){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_2);
+            }else if(nbOfClues == 3){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_3);
+            }else if(nbOfClues == 4){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_4);
+            }else if(nbOfClues == 5){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_5);
+            }else if(nbOfClues == 6){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_6);
+            }else if(nbOfClues == 7){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_7);
+            }else if(nbOfClues == 8){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_8);
+            }else if(nbOfClues == 9){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_9);
+            }else{
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_10);
+            }
+        }
+
+    }
 
 
 

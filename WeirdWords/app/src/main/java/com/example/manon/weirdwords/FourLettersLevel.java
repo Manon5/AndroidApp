@@ -180,7 +180,12 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         if(levelS.charAt(11) == 'w'){
             WinActivity.getInstance().finish();
         }else{
-
+            Bundle xx = new Bundle();
+            xx.putString("passInfo", levelS.charAt(6) + "");
+            Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
+            undo.putExtras(xx);
+            startActivity(undo);
+            finish();
         }
 
 
@@ -1363,19 +1368,19 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                 if(clueMode == false){
                     char carac;
-                    if (saisie3.getText().charAt(0) != ' ') {
-                        carac = saisie3.getText().charAt(0);
-                        saisie[2] = ' ';
+                    if(saisie2.getText().charAt(0) != ' '){
+                        carac = saisie2.getText().charAt(0);
+                        saisie[1] = ' ';
                         releaseButton(carac);
                         updateSaisie();
                         determineFocusSaisie();
-                    } else {
+                    }else{
 
                     }
                 }else{
                     clueMode = false;
-                    saisie[2] = answer.charAt(2);
-                    saisie3.setTextColor(Color.GRAY);
+                    saisie[1] = answer.charAt(1);
+                    saisie2.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
                     saisie3.setBackgroundResource(R.mipmap.button_blue);
@@ -1393,7 +1398,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                 if(clueMode == false){
                     char carac;
-                    if (saisie3.getText().charAt(0) != ' ') {
+                    if (saisie4.getText().charAt(0) != ' ') {
                         carac = saisie3.getText().charAt(0);
                         saisie[3] = ' ';
                         releaseButton(carac);
