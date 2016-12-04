@@ -76,13 +76,12 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
     // Parametrage zone de saisie
     private int focusSaisie = 0;
     private char[] saisie = {' ', ' ', ' ', ' '};
-    private String answer;
-    private int level;
+    private String answer1;
+    private String answer2;
     private ImageView image = null;
     private int nbOfClues;
     private int usedClues;
     private boolean clueMode;
-    private int clueChoice;
 
 
     //Clavier
@@ -107,9 +106,6 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
     private String levelS =" " ;
     private String pass;
-    private String pass2;
-    private String clueInfo;
-    private String clueCarac;
 
     static FourLettersLevel FourLettersLevel;
 
@@ -167,8 +163,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }
 
-        pass = read;
-
+        pass = read.substring(0, 16);
         //////////////// FIN //////////////
 
         clueMode = false;
@@ -180,21 +175,14 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         if(levelS.charAt(11) == 'w'){
             WinActivity.getInstance().finish();
         }else{
-            Bundle xx = new Bundle();
-            xx.putString("passInfo", levelS.charAt(6) + "");
-            Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
-            undo.putExtras(xx);
-            startActivity(undo);
-            finish();
+            ChooseLevelMenu.getInstance().finish();
         }
 
 
         // Personnalisation image
         if(levelS.equals("level=2x.1xn") || levelS.equals("level=2x.1xw") || levelS.equals(null)){
-
-
-            nbOfClues = nbOfClues + 5;
-            answer = "FOOT";
+            answer1 = "FOOT";
+            answer2 = "FOOT";
             image.setBackgroundResource(R.mipmap.level_2_1);
 
             clavier1 = "Q";
@@ -219,7 +207,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=2x.2xn") || levelS.equals("level=2x.2xw")) {
             image.setBackgroundResource(R.mipmap.level_2_2);
-            answer = "YOGA";
+            answer1 = "YOGA";
+            answer2 = "YOGA";
             clavier1 = "P";
             clavier2 = "S";
             clavier3 = "Y";
@@ -242,8 +231,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         }else if(levelS.equals("level=2x.3xn") || levelS.equals("level=2x.3xw")){
 
             image.setBackgroundResource(R.mipmap.level_2_3);
-
-            answer = "JAVA";
+            answer1 = "JAVA";
+            answer2 = "JAVA";
             clavier1 = "H";
             clavier2 = "O";
             clavier3 = "Q";
@@ -266,8 +255,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         }else if(levelS.equals("level=2x.4xn") || levelS.equals("level=2x.4xw")){
 
             image.setBackgroundResource(R.mipmap.level_2_4);
-
-            answer = "MISS";
+            answer1 = "MISS";
+            answer2 = "MISS";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "S";
@@ -288,7 +277,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier18 = "I";
         }else if(levelS.equals("level=2x.5xn") || levelS.equals("level=2x.5xw")){
             image.setBackgroundResource(R.mipmap.level_2_5);
-            answer = "VELO";
+            answer1 = "VELO";
+            answer2 = "VOLE";
             clavier1 = "L";
             clavier2 = "T";
             clavier3 = "K";
@@ -309,8 +299,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier18 = "O";
         }else if(levelS.equals("level=2x.6xn") || levelS.equals("level=2x.6xw")){
             image.setBackgroundResource(R.mipmap.level_2_6);
-
-            answer = "KIWI";
+            answer1 = "KIWI";
+            answer2 = "KIWI";
             clavier1 = "M";
             clavier2 = "W";
             clavier3 = "I";
@@ -331,7 +321,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier18 = "P";
         }else if(levelS.equals("level=2x.7xn") || levelS.equals("level=2x.7xw")){
             image.setBackgroundResource(R.mipmap.level_2_7);
-            answer = "BLOC";
+            answer1 = "BLOC";
+            answer2 = "BLOC";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "D";
@@ -352,8 +343,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier18 = "R";
         }else if(levelS.equals("level=2x.8xn") || levelS.equals("level=2x.8xw")){
             image.setBackgroundResource(R.mipmap.level_2_8);
-
-            answer = "RHUM";
+            answer1 = "RHUM";
+            answer2 = "RHUM";
             clavier1 = "T";
             clavier2 = "T";
             clavier3 = "M";
@@ -375,8 +366,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=2x.9xn") || levelS.equals("level=2x.9xw")){
             image.setBackgroundResource(R.mipmap.level_2_9);
-
-            answer = "SALE";
+            answer1 = "SALE";
+            answer2 = "SALE";
             clavier1 = "T";
             clavier2 = "K";
             clavier3 = "M";
@@ -398,8 +389,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=2x.10n") || levelS.equals("level=2x.10w")){
             image.setBackgroundResource(R.mipmap.level_2_10);
-
-            answer = "CLUB";
+            answer1 = "CLUB";
+            answer2 = "CLUB";
             clavier1 = "T";
             clavier2 = "C";
             clavier3 = "M";
@@ -421,8 +412,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.1xn") || levelS.equals("level=3x.1xw")){
             image.setBackgroundResource(R.mipmap.level_3_1);
-
-            answer = "KAKI";
+            answer1 = "KAKI";
+            answer2 = "KAKI";
             clavier1 = "O";
             clavier2 = "Q";
             clavier3 = "K";
@@ -444,8 +435,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.2xn") || levelS.equals("level=3x.2xw")){
             image.setBackgroundResource(R.mipmap.level_3_2);
-
-            answer = "FILS";
+            answer1 = "FILS";
+            answer2 = "FILS";
             clavier1 = "T";
             clavier2 = "K";
             clavier3 = "M";
@@ -467,8 +458,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.3xn") || levelS.equals("level=3x.3xw")){
             image.setBackgroundResource(R.mipmap.level_3_3);
-
-            answer = "QUOI";
+            answer1 = "QUOI";
+            answer2 = "QUOI";
             clavier1 = "Q";
             clavier2 = "T";
             clavier3 = "P";
@@ -490,8 +481,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.4xn") || levelS.equals("level=3x.4xw")){
             image.setBackgroundResource(R.mipmap.level_3_4);
-
-            answer = "JAZZ";
+            answer1 = "JAZZ";
+            answer2 = "JAZZ";
             clavier1 = "Z";
             clavier2 = "T";
             clavier3 = "P";
@@ -513,8 +504,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.5xn") || levelS.equals("level=3x.5xw")){
             image.setBackgroundResource(R.mipmap.level_3_5);
-
-            answer = "SODA";
+            answer1 = "SODA";
+            answer2 = "ADOS";
             clavier1 = "T";
             clavier2 = "F";
             clavier3 = "M";
@@ -536,8 +527,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.6xn") || levelS.equals("level=3x.6xw")){
             image.setBackgroundResource(R.mipmap.level_3_6);
-
-            answer = "PUNK";
+            answer1 = "PUNK";
+            answer2 = "PUNK";
             clavier1 = "T";
             clavier2 = "M";
             clavier3 = "Q";
@@ -559,8 +550,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.7xn") || levelS.equals("level=3x.7xw")){
             image.setBackgroundResource(R.mipmap.level_3_7);
-
-            answer = "IDEE";
+            answer1 = "IDEE";
+            answer2 = "IDEE";
             clavier1 = "P";
             clavier2 = "E";
             clavier3 = "M";
@@ -582,8 +573,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.8xn") || levelS.equals("level=3x.8xw")){
             image.setBackgroundResource(R.mipmap.level_3_8);
-
-            answer = "JUPE";
+            answer1 = "JUPE";
+            answer2 = "JUPE";
             clavier1 = "T";
             clavier2 = "M";
             clavier3 = "R";
@@ -605,8 +596,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.9xn") || levelS.equals("level=3x.9xw")){
             image.setBackgroundResource(R.mipmap.level_3_9);
-
-            answer = "JOLI";
+            answer1 = "JOLI";
+            answer2 = "JOLI";
             clavier1 = "T";
             clavier2 = "M";
             clavier3 = "R";
@@ -628,8 +619,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }else if(levelS.equals("level=3x.10n") || levelS.equals("level=3x.10w")){
             image.setBackgroundResource(R.mipmap.level_3_10);
-
-            answer = "SORT";
+            answer1 = "SORT";
+            answer2 = "ROTS";
             clavier1 = "T";
             clavier2 = "M";
             clavier3 = "R";
@@ -1268,14 +1259,41 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+
+
+                if(levelS.charAt(6) == '2'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "2");
+                    Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else{
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "3");
+                    Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }
             }
         });
 
         clue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nbOfClues == 0){
+                if(clueMode == true) {
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    updateSaisie();
+                    usedClues = usedClues - 1;
+                    nbOfClues++;
+                    clueMode = false;
+                    setClueNb(nbOfClues, pass);
+                    setClueButtonBackground(usedClues, nbOfClues);
+                }else if(nbOfClues == 0){
 
                 }else if(usedClues < 2){
                     saisie1.setBackgroundResource(R.mipmap.button_blue_enabled);
@@ -1287,12 +1305,12 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                     saisie4.setBackgroundResource(R.mipmap.button_blue_enabled);
                     saisie4.setText("?");
                     clueMode = true;
+
                     usedClues++;
                     nbOfClues = nbOfClues - 1;
                     setClueNb(nbOfClues, pass);
                     setClueButtonBackground(usedClues, nbOfClues);
                 }else{
-
                 }
             }
         });
@@ -1317,7 +1335,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
                 }else{
                     clueMode = false;
-                    saisie[0] = answer.charAt(0);
+                    saisie[0] = answer1.charAt(0);
                     saisie1.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1349,7 +1367,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
                 }else{
                     clueMode = false;
-                    saisie[1] = answer.charAt(1);
+                    saisie[1] = answer1.charAt(1);
                     saisie2.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1368,9 +1386,9 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                 if(clueMode == false){
                     char carac;
-                    if(saisie2.getText().charAt(0) != ' '){
-                        carac = saisie2.getText().charAt(0);
-                        saisie[1] = ' ';
+                    if(saisie3.getText().charAt(0) != ' '){
+                        carac = saisie3.getText().charAt(0);
+                        saisie[2] = ' ';
                         releaseButton(carac);
                         updateSaisie();
                         determineFocusSaisie();
@@ -1379,8 +1397,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
                 }else{
                     clueMode = false;
-                    saisie[1] = answer.charAt(1);
-                    saisie2.setTextColor(Color.GRAY);
+                    saisie[2] = answer1.charAt(2);
+                    saisie3.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
                     saisie3.setBackgroundResource(R.mipmap.button_blue);
@@ -1409,11 +1427,12 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
                 }else{
                     clueMode = false;
-                    saisie[3] = answer.charAt(3);
+                    saisie[3] = answer1.charAt(3);
                     saisie4.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
                     saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
                     determineFocusSaisie();
                     isWon();
@@ -1559,6 +1578,8 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         Intent defineIntent = new Intent(FourLettersLevel.this, WinActivity.class);
         // objet qui vas nous permettre de passe des variables ici la variable passInfo
         Bundle objetbunble = new Bundle();
+
+
         objetbunble.putString("passInfo", levelS);
         // on passe notre objet a notre activities
         defineIntent.putExtras(objetbunble );
@@ -1569,12 +1590,13 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
 
 
-
     }
 
     public void isWon(){
         boolean isWon;
-        if(saisie[0] == answer.charAt(0) && saisie[1] == answer.charAt(1) && saisie[2] == answer.charAt(2) && saisie[3] == answer.charAt(3)){
+        if(saisie[0] == answer1.charAt(0) && saisie[1] == answer1.charAt(1) && saisie[2] == answer1.charAt(2) && saisie[3] == answer1.charAt(3)){
+            win();
+        }else if(saisie[0] == answer2.charAt(0) && saisie[1] == answer2.charAt(1) && saisie[2] == answer2.charAt(2) && saisie[3] == answer2.charAt(3)){
             win();
         }else{
 
@@ -1586,9 +1608,10 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
     }
 
 
+
     public void setClueButtonBackground(int usedClues,int nbOfClues){
         boolean isEnabled;
-        if(usedClues <= 2){
+        if(usedClues < 2){
             isEnabled = true;
         }else{
             isEnabled = false;
@@ -1653,16 +1676,19 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
     }
 
-
     public void setClueNb(int nbOfClues, String param){
 
 
+        System.out.println(param);
+
+        String pass = null;
         FileOutputStream output = null;
-        String clueNb = new String("" + nbOfClues);
+        String clueNb = new String("//clue=" + nbOfClues);
 
         // Traitement clueNb
-        if(nbOfClues < 10){
-            clueNb = clueNb +"xx";
+
+        if(nbOfClues < 10) {
+            clueNb = clueNb + "xx";
         }else if(nbOfClues < 100){
             clueNb = clueNb + "x";
         }else{
@@ -1671,13 +1697,12 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
 
         // Traitement param
-        param = param.substring(0, param.length() - 3);
-        param = param + clueNb;
+        pass = param + clueNb;
 
 
         try {
             output = openFileOutput("USERINFOS", MODE_PRIVATE);
-            output.write(param.getBytes());
+            output.write(pass.getBytes());
             if(output != null)
                 output.close();
         } catch (FileNotFoundException e) {
@@ -1686,14 +1711,12 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
             e.printStackTrace();
         }
 
-
     }
 
     public int getClueNb(){
 
         FileInputStream input = null;
         String read = null;
-        String clueNb = null;
         int nbOfClues = 0;
         char[] readBuffer = new char[26];
         InputStreamReader isr = null;
@@ -1719,9 +1742,9 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         }
 
         // Traitement pour obtenir nbOfClues //
-        clueNb = read.substring(23);
+        String clueNb = new String(read.substring(23));
         if(clueNb.charAt(2) != 'x'){
-            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
         }else if(clueNb.charAt(1) != 'x'){
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
         }else{

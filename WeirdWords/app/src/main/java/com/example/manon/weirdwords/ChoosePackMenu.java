@@ -10,18 +10,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
     private ImageButton undo_button = null;
     private ImageButton clue_button = null;
     private ImageButton param_button = null;
-    private ImageButton level_0_button = null;
-    private ImageButton level_1_button = null;
-    private ImageButton level_2_button = null;
-    private ImageButton level_3_button = null;
-    private ImageButton level_4_button = null;
-    private ImageButton level_5_button = null;
+
+
+    private ImageButton level_0_arrow = null;
+    private ImageButton level_1_arrow = null;
+    private ImageButton level_2_arrow = null;
+    private ImageButton level_3_arrow = null;
+    private ImageButton level_4_arrow = null;
+    private ImageButton level_5_arrow = null;
+
 
 
 
@@ -36,12 +45,12 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         param_button = (ImageButton)findViewById(R.id.param_button);
 
         //Init boutons menu
-        level_0_button = (ImageButton)findViewById(R.id.arrow_button_0);
-        level_1_button = (ImageButton)findViewById(R.id.arrow_button_1);
-        level_2_button = (ImageButton)findViewById(R.id.arrow_button_2);
-        level_3_button = (ImageButton)findViewById(R.id.arrow_button_3);
-        level_4_button = (ImageButton)findViewById(R.id.arrow_button_4);
-        level_5_button = (ImageButton)findViewById(R.id.arrow_button_5);
+        level_0_arrow = (ImageButton)findViewById(R.id.arrow_button_0);
+        level_1_arrow = (ImageButton)findViewById(R.id.arrow_button_1);
+        level_2_arrow = (ImageButton)findViewById(R.id.arrow_button_2);
+        level_3_arrow = (ImageButton)findViewById(R.id.arrow_button_3);
+        level_4_arrow = (ImageButton)findViewById(R.id.arrow_button_4);
+        level_5_arrow = (ImageButton)findViewById(R.id.arrow_button_5);
 
         // Activation bouton retour
         undo_button.setOnClickListener(new View.OnClickListener() {
@@ -54,17 +63,20 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
 
 
-        // Activation boutons menu
 
-        level_0_button.setOnClickListener(new View.OnClickListener() {
+
+
+        // Activation boutons men
+
+        level_0_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent level0 = new Intent(ChoosePackMenu.this, DidacticielMenu.class);
+                Intent level0 = new Intent(ChoosePackMenu.this, Didacticiel.class);
                 startActivity(level0);
             }
         });
 
-        level_1_button.setOnClickListener(new View.OnClickListener() {
+        level_1_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle objetbunble = new Bundle();
@@ -75,7 +87,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             }
         });
 
-        level_2_button.setOnClickListener(new View.OnClickListener() {
+        level_2_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle objetbunble = new Bundle();
@@ -86,7 +98,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             }
         });
 
-        level_3_button.setOnClickListener(new View.OnClickListener() {
+        level_3_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle objetbunble = new Bundle();
@@ -98,7 +110,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             }
         });
 
-        level_4_button.setOnClickListener(new View.OnClickListener() {
+        level_4_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle objetbunble = new Bundle();
@@ -109,7 +121,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             }
         });
 
-        level_5_button.setOnClickListener(new View.OnClickListener() {
+        level_5_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle objetbunble = new Bundle();

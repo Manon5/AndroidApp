@@ -77,12 +77,10 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
     private char[] saisie = {' ', ' ', ' '};
     private String answer1;
     private String answer2;
-    private int level;
     private ImageView image = null;
     private int nbOfClues;
     private int usedClues;
     private boolean clueMode;
-    private int clueChoice;
 
     private boolean isSaisie1Locked = false;
     private boolean isSaisie2Locked = false;
@@ -111,9 +109,6 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
     private String levelS;
     private String pass;
-    private String pass2;
-    private String clueInfo;
-    private String clueCarac;
 
     static ThreeLettersLevel ThreeLettersLevel;
 
@@ -191,10 +186,10 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         }
 
 
+
+
         // Personnalisation image
         if(levelS.equals("level=1x.1xn") || levelS.equals("level=1x.1xw") || levelS.equals(null)){
-
-            nbOfClues = nbOfClues + 5;
             answer1 = "BAR";
             answer2 = "BAR";
             image.setBackgroundResource(R.mipmap.level_1_1);
@@ -1057,24 +1052,35 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         clue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nbOfClues == 0){
-
-                }else if(usedClues < 2){
-                    saisie1.setBackgroundResource(R.mipmap.button_blue_enabled);
-                    saisie1.setText("?");
-                    saisie2.setBackgroundResource(R.mipmap.button_blue_enabled);
-                    saisie2.setText("?");
-                    saisie3.setBackgroundResource(R.mipmap.button_blue_enabled);
-                    saisie3.setText("?");
-                    clueMode = true;
-
-                    usedClues++;
-                    nbOfClues = nbOfClues - 1;
+                if(clueMode == true) {
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    updateSaisie();
+                    usedClues = usedClues - 1;
+                    nbOfClues++;
+                    clueMode = false;
                     setClueNb(nbOfClues, pass);
                     setClueButtonBackground(usedClues, nbOfClues);
-                }else{
+                }else if(nbOfClues == 0){
+
+                    }else if(usedClues < 2){
+                        saisie1.setBackgroundResource(R.mipmap.button_blue_enabled);
+                        saisie1.setText("?");
+                        saisie2.setBackgroundResource(R.mipmap.button_blue_enabled);
+                        saisie2.setText("?");
+                        saisie3.setBackgroundResource(R.mipmap.button_blue_enabled);
+                        saisie3.setText("?");
+                        clueMode = true;
+
+                        usedClues++;
+                        nbOfClues = nbOfClues - 1;
+                        setClueNb(nbOfClues, pass);
+                        setClueButtonBackground(usedClues, nbOfClues);
+                    }else{
+                    }
                 }
-            }
+
         });
 
 
@@ -1339,7 +1345,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
     public void setClueButtonBackground(int usedClues,int nbOfClues){
         boolean isEnabled;
-        if(usedClues <= 2){
+        if(usedClues < 2){
             isEnabled = true;
         }else{
             isEnabled = false;
@@ -1473,7 +1479,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         // Traitement pour obtenir nbOfClues //
          String clueNb = new String(read.substring(23));
         if(clueNb.charAt(2) != 'x'){
-            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
         }else if(clueNb.charAt(1) != 'x'){
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
         }else{
@@ -1485,6 +1491,60 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         setClueButtonBackground(usedClues, nbOfClues);
 
         return nbOfClues;
+
+    }
+
+    public boolean isLevelMax(int nb1_1, int nb2_1){
+
+        char nb1_carac;
+        char nb2_carac;
+        int nb1_2;
+        int nb2_2;
+        boolean bool;
+
+        // Recuperer la valeur de la memoire interne
+
+        FileInputStream input = null;
+        String read = null;
+        int nbOfClues = 0;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Traitement des donnees
+        nb1_carac = read.charAt(10);
+        nb2_carac = read.charAt(13);
+        nb2_1 = Integer.parseInt("" + nb1_carac);
+        nb2_2 = Integer.parseInt("" + nb2_carac);
+
+        // FIN
+
+        if(nb1_1 < nb2_1){
+            bool = false;
+        }else{
+            bool = true;
+        }
+
+        return bool;
 
     }
 

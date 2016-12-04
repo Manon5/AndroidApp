@@ -130,6 +130,10 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(levelS.equals("level=4x.7xw") || levelS.equals("level=4x.7xn")){
             levelS2="level=4x.8xw";
         }else if(levelS.equals("level=4x.8xw") || levelS.equals("level=4x.8xn")){
+            levelS2="level=4x.9xw";
+        }else if(levelS.equals("level=4x.9xw") || levelS.equals("level=4x.9xn")){
+            levelS2="level=4x.10w";
+        }else if(levelS.equals("level=4x.10w") || levelS.equals("level=4x.10n")){
             levelS2="level=5x.1xw";
         }else if(levelS.equals("level=5x.1xw") || levelS.equals("level=5x.1xn")){
             levelS2="level=5x.2xw";
@@ -161,22 +165,29 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(clueInfo.length() == 9){
             clueInfo = clueInfo + "x";
         }else{
-            clueInfo = clueInfo + "xxxxxxx";
         }
 
         memoryInfo = levelMax + clueInfo;
 
-        FileOutputStream output = null;
-        try {
-            output = openFileOutput("USERINFOS", MODE_PRIVATE);
-            output.write(memoryInfo.getBytes());
-            if(output != null)
-                output.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        boolean bool;
+        bool = isLevelMax(levelS2.charAt(7), levelS2.charAt(10));
+        if(bool == true){
+            FileOutputStream output = null;
+            try {
+                output = openFileOutput("USERINFOS", MODE_PRIVATE);
+                output.write(memoryInfo.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+
         }
+
+
 
 
         next_level_button = (Button)findViewById(R.id.next_level_button);
@@ -266,7 +277,59 @@ public class WinActivity extends Activity implements View.OnClickListener{
         return nbOfClues;
     }
 
+    public boolean isLevelMax(int nb1_1, int nb2_1){
 
+        char nb1_carac;
+        char nb2_carac;
+        int nb1_2;
+        int nb2_2;
+        boolean bool;
+
+        // Recuperer la valeur de la memoire interne
+
+        FileInputStream input = null;
+        String read = null;
+        int nbOfClues = 0;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Traitement des donnees
+        nb1_carac = read.charAt(10);
+        nb2_carac = read.charAt(13);
+        nb1_2 = Integer.parseInt("" + nb1_carac);
+        nb2_2 = Integer.parseInt("" + nb2_carac);
+
+        // FIN
+
+        if(nb1_1 <= nb1_2){
+            bool = false;
+        }else{
+            bool = true;
+        }
+
+        return bool;
+
+    }
 
 
     }

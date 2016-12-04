@@ -43,7 +43,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
         //////////////// TEST //////////////
         FileOutputStream output = null;
-        String param = "level_max=1x.1xn//clue=6xx";
+        String param = "level_max=4x.5xn//clue=6xx";
 
         try {
             output = openFileOutput("USERINFOS", MODE_PRIVATE);

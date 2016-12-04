@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.manon.weirdwords">
+    package="com.example.manon.weirdwords" >
 
     <application
         android:allowBackup="true"
@@ -8,8 +8,8 @@
         android:label="@string/app_name"
         android:launchMode="singleTop"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainMenu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,7 @@
             android:name=".ChoosePackMenu"
             android:label="@string/title_activity_choose_pack_menu"
             android:parentActivityName=".MainMenu"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manon.weirdwords.MainMenu" />
@@ -29,7 +29,7 @@
             android:name=".ChooseLevelMenu"
             android:label="@string/title_activity_choose_level_menu"
             android:parentActivityName=".MainMenu"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manon.weirdwords.MainMenu" />
@@ -45,7 +45,7 @@
             android:name=".ChooseLevelMenu3"
             android:label="@string/title_activity_choose_level_menu3"
             android:parentActivityName=".MainMenu"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manon.weirdwords.MainMenu" />
@@ -68,7 +68,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".DidacticielMenu"></activity>
+        <activity android:name=".DidacticielMenu" />
+        <activity android:name=".Didacticiel" >
+        </activity>
     </application>
 
 </manifest>

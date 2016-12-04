@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.manon.weirdwords.Didacticiel"
+    android:background="@mipmap/background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@mipmap/toolbar">
+
+        <ImageButton
+            android:id="@+id/undo_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@mipmap/icone_undo"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageButton
+            android:id="@+id/help_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_aide"
+            android:layout_toLeftOf="@+id/param_button"/>
+
+        <ImageButton
+            android:id="@+id/param_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_param"
+            android:layout_toLeftOf="@+id/clue_button"/>
+
+        <ImageButton
+            android:id="@+id/clue_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_indice"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="85dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        >
+
+        <ImageButton
+            android:layout_width="300dp"
+            android:layout_height="125dp"
+            android:background="@mipmap/large_menu_item"
+            android:layout_margin="7dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@mipmap/small_menu_item"
+                android:layout_margin="7dp"
+                />
+
+            <ImageButton
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@mipmap/small_menu_item"
+                android:layout_margin="7dp"
+                />
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="300dp"
+            android:layout_height="125dp"
+            android:background="@mipmap/large_menu_item"
+            android:layout_margin="7dp"
+            />
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
