@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context="com.example.manon.weirdwords.SecondStep">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@mipmap/toolbar">
+
+        <ImageButton
+            android:id="@+id/undo_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@mipmap/icone_undo"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageButton
+            android:id="@+id/help_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_aide"
+            android:layout_toLeftOf="@+id/param_button"/>
+
+        <ImageButton
+            android:id="@+id/param_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_param"
+            android:layout_toLeftOf="@+id/clue_button"/>
+
+        <ImageButton
+            android:id="@+id/clue_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:background="@mipmap/icone_indice"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="15dp"
+        android:text="En cas de difficulté, il est possible de demander un indice, en cliquant sur l'icône représentée ci-dessous. "
+        android:textSize="25sp"
+        android:textColor="#375c77"
+        android:textAlignment="center"/>
+
+
+
+    <ImageView
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="70dp"
+        android:background="@mipmap/second_step_picture"/>
+
+
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="405dp"
+        android:layout_marginLeft="15dp"
+        android:text= "Chaque passage au niveau supérieur rapporte 5 indices supplémentaires"
+        android:textSize="25sp"
+        android:textColor="#d0c1a4"
+        android:textAlignment="center"/>
+
+
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@mipmap/suivant"
+        android:layout_marginTop="530dp"
+        android:layout_marginLeft="225dp"
+        android:text="Suivant"/>
+
+
+
+
+</RelativeLayout>

@@ -120,7 +120,7 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
 
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
-        clue_button = (ImageButton)findViewById(R.id.indice_button);
+        clue_button = (ImageButton)findViewById(R.id.clue_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
 
         if(levelS.charAt(9) == 'w'){

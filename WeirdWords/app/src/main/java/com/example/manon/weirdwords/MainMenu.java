@@ -31,7 +31,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
-        clue_button = (ImageButton)findViewById(R.id.indice_button);
+        clue_button = (ImageButton)findViewById(R.id.clue_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
 
         // Initialisation 3 boutons menu

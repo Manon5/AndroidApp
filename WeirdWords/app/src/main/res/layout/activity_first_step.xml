@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.manon.weirdwords.DidacticielMenu">
+    tools:context="com.example.manon.weirdwords.FirstStep"
+    android:background="@mipmap/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +42,49 @@
             android:layout_margin="5dp"
             android:background="@mipmap/icone_indice"
             android:layout_alignParentRight="true"/>
-
-
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="15dp"
+        android:text="Toutes les lettres ont été mélangées ! A toi de retrouver le mot original dans chaque niveau."
+        android:textSize="25sp"
+        android:textColor="#375c77"
+        android:textAlignment="center"/>
+
+
+
+        <ImageView
+            android:layout_width="215dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="60dp"
+        android:background="@mipmap/didacticiel"/>
+
+
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="15dp"
+        android:text= "Dans cet exemple, on repère les lettres D, I et N, qui forment le mot NID. Parfois, plusieurs réponses sont possibles !"
+        android:textSize="25sp"
+        android:textColor="#d0c1a4"
+        android:textAlignment="center"/>
+
+
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@mipmap/suivant"
+        android:layout_marginTop="530dp"
+        android:layout_marginLeft="225dp"
+        android:text="Suivant"/>
+
+
 </RelativeLayout>
