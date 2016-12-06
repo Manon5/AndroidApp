@@ -181,15 +181,22 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         if(levelS.charAt(11) == 'w'){
             WinActivity.getInstance().finish();
-        }else{
+        }else if(levelS.charAt(11) == 'n'){
             ChooseLevelMenu.getInstance().finish();
+        }else{
+            FirstStep.getInstance().finish();
+            SecondStep.getInstance().finish();
+            ThirdStep.getInstance().finish();
+            FourthStep.getInstance().finish();
+            FifthStep.getInstance().finish();
+            levelS = levelS.substring(0, 11) + "w";
         }
 
 
 
 
         // Personnalisation image
-        if(levelS.equals("level=1x.1xn") || levelS.equals("level=1x.1xw") || levelS.equals(null)){
+        if(levelS.equals("level=1x.1xn") || levelS.equals("level=1x.1xw") || levelS.equals(null) || levelS.equals("level=1x.1xd")){
             answer1 = "BAR";
             answer2 = "BAR";
             image.setBackgroundResource(R.mipmap.level_1_1);

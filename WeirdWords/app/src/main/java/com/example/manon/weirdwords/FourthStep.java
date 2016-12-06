@@ -7,39 +7,38 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class FirstStep extends AppCompatActivity implements View.OnClickListener{
+public class FourthStep extends AppCompatActivity implements View.OnClickListener{
 
-    static FirstStep FirstStep;
-    private Button next = null;
+    static FourthStep FourthStep;
+    private Button next;
     private ImageButton back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_step);
-        FirstStep = this;
+        setContentView(R.layout.activity_fourth_step);
+
+        FourthStep = this;
 
 
-        next = (Button)findViewById(R.id.next);
+        next = (Button) findViewById(R.id.next);
         back = (ImageButton)findViewById(R.id.undo_button);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent next = new Intent(FirstStep.this, SecondStep.class);
+                Intent next = new Intent(FourthStep.this, FifthStep.class);
                 startActivity(next);
             }
         });
 
 
-
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirstStep.getInstance().finish();
+                FourthStep.getInstance().finish();
             }
         });
     }
-
 
     @Override
     public void onClick(View view) {
@@ -47,7 +46,7 @@ public class FirstStep extends AppCompatActivity implements View.OnClickListener
     }
 
 
-    public static FirstStep getInstance(){
-        return FirstStep;
+    public static FourthStep getInstance(){
+        return FourthStep;
     }
 }

@@ -72,7 +72,9 @@
         <activity android:name=".Didacticiel" />
         <activity android:name=".FirstStep" />
         <activity android:name=".SecondStep" />
-        <activity android:name=".ThirdStep"></activity>
+        <activity android:name=".ThirdStep" />
+        <activity android:name=".FourthStep" />
+        <activity android:name=".FifthStep"></activity>
     </application>
 
 </manifest>
