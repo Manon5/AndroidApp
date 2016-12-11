@@ -74,7 +74,8 @@
         <activity android:name=".SecondStep" />
         <activity android:name=".ThirdStep" />
         <activity android:name=".FourthStep" />
-        <activity android:name=".FifthStep"></activity>
+        <activity android:name=".FifthStep" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>

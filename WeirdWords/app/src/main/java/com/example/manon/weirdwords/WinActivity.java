@@ -74,6 +74,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(levelS.equals("level=1x.9xw") || levelS.equals("level=1x.9xn")){
             levelS2="level=1x.10w";
         }else if(levelS.equals("level=1x.10w") || levelS.equals("level=1x.10n")){
+            nbOfClues = nbOfClues + 5;
             levelS2="level=2x.1xw";
         }else if(levelS.equals("level=2x.1xw") || levelS.equals("level=2x.1xn")){
             levelS2="level=2x.2xw";
@@ -94,6 +95,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(levelS.equals("level=2x.9xw") || levelS.equals("level=2x.9xn")){
             levelS2="level=2x.10w";
         }else if(levelS.equals("level=2x.10w") || levelS.equals("level=2x.10n")){
+            nbOfClues = nbOfClues + 5;
             levelS2="level=3x.1xw";
         }else if(levelS.equals("level=3x.1xw") || levelS.equals("level=3x.1xn")){
             levelS2="level=3x.2xw";
@@ -114,6 +116,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(levelS.equals("level=3x.9xw") || levelS.equals("level=3x.9xn")){
             levelS2="level=3x.10w";
         }else if(levelS.equals("level 3x.10w") || levelS.equals("level=3x.10n")){
+            nbOfClues = nbOfClues + 5;
             levelS2="level=4x.1xw";
         }else if(levelS.equals("level=4x.1xw") || levelS.equals("level=4x.1xn")){
             levelS2="level=4x.2xw";
@@ -134,6 +137,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(levelS.equals("level=4x.9xw") || levelS.equals("level=4x.9xn")){
             levelS2="level=4x.10w";
         }else if(levelS.equals("level=4x.10w") || levelS.equals("level=4x.10n")){
+            nbOfClues = nbOfClues + 5;
             levelS2="level=5x.1xw";
         }else if(levelS.equals("level=5x.1xw") || levelS.equals("level=5x.1xn")){
             levelS2="level=5x.2xw";
@@ -170,7 +174,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         memoryInfo = levelMax + clueInfo;
 
         boolean bool;
-        bool = isLevelMax(levelS2.charAt(7), levelS2.charAt(10));
+        bool = isLevelMax(levelS);
         if(bool == true){
             FileOutputStream output = null;
             try {
@@ -277,13 +281,69 @@ public class WinActivity extends Activity implements View.OnClickListener{
         return nbOfClues;
     }
 
-    public boolean isLevelMax(int nb1_1, int nb2_1){
+    public boolean isLevelMax(String levelTest){
 
-        char nb1_carac;
-        char nb2_carac;
-        int nb1_2;
-        int nb2_2;
-        boolean bool;
+
+        // TRaitement levelTest
+
+        String levelTestNb1 = new String(levelTest.substring(6, 8));
+        String levelTestNb2 = new String(levelTest.substring(9, 11));
+        int nbTest1;
+        int nbTest2;
+
+        if(levelTestNb1.equals("1x")){
+            nbTest1 = 1;
+        }else if(levelTestNb1.equals("2x")){
+            nbTest1 = 2;
+        }else if(levelTestNb1.equals("3x")){
+            nbTest1 = 3;
+        }else if(levelTestNb1.equals("4x")){
+            nbTest1 = 4;
+        }else if(levelTestNb1.equals("5x")){
+            nbTest1 = 5;
+        }else if(levelTestNb1.equals("6x")){
+            nbTest1 = 6;
+        }else if(levelTestNb1.equals("7x")){
+            nbTest1 = 7;
+        }else if(levelTestNb1.equals("8x")){
+            nbTest1 = 8;
+        }else if(levelTestNb1.equals("9x")){
+            nbTest1 = 9;
+        }else if(levelTestNb1.equals("10")){
+            nbTest1 = 10;
+        }else{
+            nbTest1 = 0;
+        }
+
+        if(levelTestNb2.equals("1x")){
+            nbTest2 = 1;
+        }else if(levelTestNb2.equals("2x")){
+            nbTest2 = 2;
+        }else if(levelTestNb2.equals("3x")){
+            nbTest2 = 3;
+        }else if(levelTestNb2.equals("4x")){
+            nbTest2 = 4;
+        }else if(levelTestNb2.equals("5x")){
+            nbTest2 = 5;
+        }else if(levelTestNb2.equals("6x")){
+            nbTest2 = 6;
+        }else if(levelTestNb2.equals("7x")){
+            nbTest2 = 7;
+        }else if(levelTestNb2.equals("8x")){
+            nbTest2 = 8;
+        }else if(levelTestNb2.equals("9x")){
+            nbTest2 = 9;
+        }else if(levelTestNb2.equals("10")){
+            nbTest2 = 10;
+        }else{
+            nbTest2 = 0;
+        }
+
+
+        // FIN
+
+
+
 
         // Recuperer la valeur de la memoire interne
 
@@ -313,20 +373,76 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
         }
 
-        // Traitement des donnees
-        nb1_carac = read.charAt(10);
-        nb2_carac = read.charAt(13);
-        nb1_2 = Integer.parseInt("" + nb1_carac);
-        nb2_2 = Integer.parseInt("" + nb2_carac);
+        // Traitement levelMax
+        String levelMax = new String(read);
+        String levelMaxNb1 = new String(levelMax.substring(10,12));
+        String levelMaxNb2 = new String(levelMax.substring(13, 15));
+        int nbMax1;
+        int nbMax2;
 
-        // FIN
-
-        if(nb1_1 <= nb1_2){
-            bool = false;
+        if(levelMaxNb1.equals("1x")){
+            nbMax1 = 1;
+        }else if(levelMaxNb1.equals("2x")){
+            nbMax1 = 2;
+        }else if(levelMaxNb1.equals("3x")){
+            nbMax1 = 3;
+        }else if(levelMaxNb1.equals("4x")){
+            nbMax1 = 4;
+        }else if(levelMaxNb1.equals("5x")){
+            nbMax1 = 5;
+        }else if(levelMaxNb1.equals("6x")){
+            nbMax1 = 6;
+        }else if(levelMaxNb1.equals("7x")){
+            nbMax1 = 7;
+        }else if(levelMaxNb1.equals("8x")){
+            nbMax1 = 8;
+        }else if(levelMaxNb1.equals("9x")){
+            nbMax1 = 9;
+        }else if(levelMaxNb1.equals("10")){
+            nbMax1 = 10;
         }else{
-            bool = true;
+            nbMax1 = 0;
         }
 
+        if(levelMaxNb2.equals("1x")){
+            nbMax2 = 1;
+        }else if(levelMaxNb2.equals("2x")){
+            nbMax2 = 2;
+        }else if(levelMaxNb2.equals("3x")){
+            nbMax2 = 3;
+        }else if(levelMaxNb2.equals("4x")){
+            nbMax2 = 4;
+        }else if(levelMaxNb2.equals("5x")){
+            nbMax2 = 5;
+        }else if(levelMaxNb2.equals("6x")){
+            nbMax2 = 6;
+        }else if(levelMaxNb2.equals("7x")){
+            nbMax2 = 7;
+        }else if(levelMaxNb2.equals("8x")){
+            nbMax2 = 8;
+        }else if(levelMaxNb2.equals("9x")){
+            nbMax2 = 9;
+        }else if(levelMaxNb2.equals("10")){
+            nbMax2 = 10;
+        }else{
+            nbMax2 = 0;
+        }
+
+        //FIN
+
+
+
+        // Test final
+        boolean bool = false;
+
+        if(nbMax1 == nbTest1 && nbMax2 == nbTest2){
+            bool = true;
+        }else{
+            bool = false;
+        }
+
+
+        //
         return bool;
 
     }

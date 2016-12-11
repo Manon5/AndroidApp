@@ -1,57 +1,41 @@
 package com.example.manon.weirdwords;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ChoosePackMenu extends Activity implements View.OnClickListener{
+public class Settings extends AppCompatActivity implements View.OnClickListener{
 
-    private ImageButton undo_button = null;
-    private ImageButton clue_button = null;
-    private ImageButton param_button = null;
-
-
-    private ImageButton level_0_arrow = null;
-    private ImageButton level_1_arrow = null;
-    private ImageButton level_2_arrow = null;
-    private ImageButton level_3_arrow = null;
-    private ImageButton level_4_arrow = null;
-    private ImageButton level_5_arrow = null;
-
+    private Button reinit;
+    private boolean reinit_mode = false;
     private int nbOfClues;
-
-
-
-
+    private ImageButton undo_button;
+    private ImageButton clue_button;
+    private ImageButton help_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_pack_menu);
+        setContentView(R.layout.activity_settings);
 
-        // Init boutons toolbar
+        reinit = (Button)findViewById(R.id.reinit_button);
         undo_button = (ImageButton)findViewById(R.id.undo_button);
         clue_button = (ImageButton)findViewById(R.id.clue_button);
-        param_button = (ImageButton)findViewById(R.id.param_button);
+        help_button = (ImageButton)findViewById(R.id.help_button);
 
-        //Init boutons menu
-        level_0_arrow = (ImageButton)findViewById(R.id.arrow_button_0);
-        level_1_arrow = (ImageButton)findViewById(R.id.arrow_button_1);
-        level_2_arrow = (ImageButton)findViewById(R.id.arrow_button_2);
-        level_3_arrow = (ImageButton)findViewById(R.id.arrow_button_3);
-        level_4_arrow = (ImageButton)findViewById(R.id.arrow_button_4);
-        level_5_arrow = (ImageButton)findViewById(R.id.arrow_button_5);
 
 
         nbOfClues = getClueNb();
         setClueButtonBackground(0, nbOfClues);
-        // Activation bouton retour
+
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,102 +44,44 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         });
 
 
-        param_button.setOnClickListener(new View.OnClickListener() {
+
+        reinit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent appel = new Intent(ChoosePackMenu.this, Settings.class);
-                startActivity(appel);
+                if(reinit_mode == false){
+                    reinit_mode = true;
+                    reinit.setBackgroundResource(R.mipmap.large_menu_item_red);
+                    reinit.setText("Ceci effacera tout votre avancement. Continuer ?");
+                }else{
+                    reinit_mode = false;
+                    reinit.setBackgroundResource(R.mipmap.large_menu_item);
+                    reinit();
+                    reinit.setText("Jeu réinitialisé !");
+                }
             }
         });
-
-
-
-
-
-        // Activation boutons men
-
-        level_0_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent level0 = new Intent(ChoosePackMenu.this, FirstStep.class);
-                startActivity(level0);
-            }
-        });
-
-        level_1_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "1");
-                Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                level1.putExtras(objetbunble);
-                startActivity(level1);
-            }
-        });
-
-        level_2_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "2");
-                Intent level2 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                level2.putExtras(objetbunble);
-                startActivity(level2);
-            }
-        });
-
-        level_3_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "3");
-                Intent level3 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                level3.putExtras(objetbunble);
-                startActivity(level3);
-
-            }
-        });
-
-        level_4_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "4");
-                Intent level4 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                level4.putExtras(objetbunble);
-                startActivity(level4);
-            }
-        });
-
-        level_5_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "5");
-                Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                level5.putExtras(objetbunble);
-                startActivity(level5);
-            }
-        });
-
-
-
-
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
     }
 
-    @Override
-    protected void onResume() {
+    public void reinit(){
+        FileOutputStream output = null;
+        String param = "level_max=1x.1xn//clue=8xx";
 
-        super.onResume();
-        this.onCreate(null);
+        try {
+            output = openFileOutput("USERINFOS", MODE_PRIVATE);
+            output.write(param.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
 
     public void setClueButtonBackground(int usedClues,int nbOfClues){
         boolean isEnabled;
@@ -268,6 +194,4 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
         return nbOfClues;
     }
-
-
 }

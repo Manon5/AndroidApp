@@ -73,6 +73,11 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
     private android.widget.Button saisie3;
     private android.widget.Button saisie4;
 
+    private boolean isSaisie1Locked = false;
+    private boolean isSaisie2Locked = false;
+    private boolean isSaisie3Locked = false;
+    private boolean isSaisie4Locked = false;
+
     // Parametrage zone de saisie
     private int focusSaisie = 0;
     private char[] saisie = {' ', ' ', ' ', ' '};
@@ -1324,7 +1329,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                 if(clueMode == false){
                     char carac;
-                    if (saisie1.getText().charAt(0) != ' ' && usedClues == 0) {
+                    if (saisie1.getText().charAt(0) != ' ' && isSaisie1Locked == false) {
                         carac = saisie1.getText().charAt(0);
                         saisie[0] = ' ';
                         releaseButton(carac);
@@ -1336,6 +1341,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                 }else{
                     clueMode = false;
                     saisie[0] = answer1.charAt(0);
+                    isSaisie1Locked = true;
                     saisie1.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1356,7 +1362,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                 if(clueMode == false){
                     char carac;
-                    if(saisie2.getText().charAt(0) != ' '){
+                    if(saisie2.getText().charAt(0) != ' ' && isSaisie2Locked == false){
                         carac = saisie2.getText().charAt(0);
                         saisie[1] = ' ';
                         releaseButton(carac);
@@ -1369,6 +1375,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                     clueMode = false;
                     saisie[1] = answer1.charAt(1);
                     saisie2.setTextColor(Color.GRAY);
+                    isSaisie2Locked = true;
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
                     saisie3.setBackgroundResource(R.mipmap.button_blue);
@@ -1386,7 +1393,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                 if(clueMode == false){
                     char carac;
-                    if(saisie3.getText().charAt(0) != ' '){
+                    if(saisie3.getText().charAt(0) != ' ' && isSaisie3Locked == false){
                         carac = saisie3.getText().charAt(0);
                         saisie[2] = ' ';
                         releaseButton(carac);
@@ -1398,6 +1405,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                 }else{
                     clueMode = false;
                     saisie[2] = answer1.charAt(2);
+                    isSaisie3Locked = true;
                     saisie3.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1416,7 +1424,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                 if(clueMode == false){
                     char carac;
-                    if (saisie4.getText().charAt(0) != ' ') {
+                    if (saisie4.getText().charAt(0) != ' ' && isSaisie4Locked == false) {
                         carac = saisie3.getText().charAt(0);
                         saisie[3] = ' ';
                         releaseButton(carac);
@@ -1428,6 +1436,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                 }else{
                     clueMode = false;
                     saisie[3] = answer1.charAt(3);
+                    isSaisie4Locked = true;
                     saisie4.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);

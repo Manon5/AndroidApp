@@ -1091,6 +1091,16 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         });
 
 
+        param_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent appel = new Intent(ThreeLettersLevel.this, Settings.class);
+                startActivity(appel);
+            }
+        });
+
+
 
 
         saisie1.setOnClickListener(new View.OnClickListener() {

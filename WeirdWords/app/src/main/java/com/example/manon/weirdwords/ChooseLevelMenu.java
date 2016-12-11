@@ -28,6 +28,8 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
     private ImageButton undo_button = null;
     private ImageButton help_button = null;
     private ImageButton param_button = null;
+    private ImageButton clue_button = null;
+
 
     private String passInfo = null;
     private String clueInfo = null;
@@ -43,6 +45,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
     private int nb2 = 1;
     private int opacity;
     private int test;
+    private  int nbOfClues;
 
     private ImageButton level1 = null;
     private ImageButton level2 = null;
@@ -69,6 +72,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
         undo_button = (ImageButton) findViewById(R.id.undo_button);
         help_button = (ImageButton) findViewById(R.id.help_button);
         param_button = (ImageButton) findViewById(R.id.param_button);
+        clue_button = (ImageButton) findViewById(R.id.clue_button);
 
         // Activation boutons toolbar
         undo_button.setOnClickListener(new View.OnClickListener() {
@@ -88,10 +92,13 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
         param_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                finish();
+                Intent appel = new Intent(ChooseLevelMenu.this, Settings.class);
+                startActivity(appel);
             }
         });
 
+        nbOfClues = getClueNb();
+        setClueButtonBackground(0, nbOfClues);
 
 
 
@@ -244,7 +251,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level9.getBackground().setAlpha(255);
             level10.getBackground().setAlpha(255);
             test = 10;
-        }else if(nb2 <= 1){
+        }else if(nb2 == 1){
             test = 2;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(opacity);
@@ -256,7 +263,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(opacity);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 2){
+        }else if(nb2 == 2){
             test = 3;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -268,7 +275,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(opacity);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 3){
+        }else if(nb2 == 3){
             test = 4;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -280,7 +287,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(opacity);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 4){
+        }else if(nb2 == 4){
             test = 5;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -292,7 +299,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(opacity);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 5){
+        }else if(nb2 == 5){
             test = 6;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -304,7 +311,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(opacity);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 6){
+        }else if(nb2 == 6){
             test = 7;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -316,7 +323,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(opacity);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 7){
+        }else if(nb2 == 7){
             test = 8;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -328,7 +335,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(opacity);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 8){
+        }else if(nb2 == 8){
             test = 9;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -340,7 +347,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             level8.getBackground().setAlpha(255);
             level9.getBackground().setAlpha(opacity);
             level10.getBackground().setAlpha(opacity);
-        }else if(nb2 <= 9) {
+        }else if(nb2 == 9) {
             test = 10;
             level1.getBackground().setAlpha(255);
             level2.getBackground().setAlpha(255);
@@ -692,7 +699,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
         level10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(test > 10){
+                if(test >= 10){
 
                     // objet qui vas nous permettre de passe des variables ici la variable passInfo
                     Bundle objetbunble = new Bundle();
@@ -782,4 +789,128 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
     public static ChooseLevelMenu getInstance(){
         return ChooseLevelMenu;
     }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+        this.onCreate(null);
+    }
+
+
+
+    public void setClueButtonBackground(int usedClues,int nbOfClues){
+        boolean isEnabled;
+        if(usedClues < 2){
+            isEnabled = true;
+        }else{
+            isEnabled = false;
+        }
+
+
+        if(isEnabled == true){
+            // Bouton normal
+            if(nbOfClues == 0){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_0);
+            }else if(nbOfClues == 1){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_1);
+            }else if(nbOfClues == 2){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_2);
+            }else if(nbOfClues == 3){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_3);
+            }else if(nbOfClues == 4){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_4);
+            }else if(nbOfClues == 5){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_5);
+            }else if(nbOfClues == 6){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_6);
+            }else if(nbOfClues == 7){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_7);
+            }else if(nbOfClues == 8){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_8);
+            }else if(nbOfClues == 9){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_9);
+            }else{
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_10);
+            }
+
+
+        }else{
+            // Bouton desactive
+
+
+            if(nbOfClues == 0){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_0);
+            }else if(nbOfClues == 1){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_1);
+            }else if(nbOfClues == 2){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_2);
+            }else if(nbOfClues == 3){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_3);
+            }else if(nbOfClues == 4){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_4);
+            }else if(nbOfClues == 5){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_5);
+            }else if(nbOfClues == 6){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_6);
+            }else if(nbOfClues == 7){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_7);
+            }else if(nbOfClues == 8){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_8);
+            }else if(nbOfClues == 9){
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_9);
+            }else{
+                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_10);
+            }
+        }
+
+    }
+
+    public int getClueNb() {
+
+        FileInputStream input = null;
+        String read = null;
+        String clueNb = null;
+        int nbOfClues = 0;
+        char[] readBuffer = new char[26];
+        InputStreamReader isr = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input = openFileInput("USERINFOS");
+
+            isr = new InputStreamReader(input);
+            isr.read(readBuffer);
+            read = new String(readBuffer);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Traitement pour obtenir nbOfClues //
+        clueNb = read.substring(23);
+        if (clueNb.charAt(2) != 'x') {
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
+        } else if (clueNb.charAt(1) != 'x') {
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
+        } else {
+            clueNb = "" + clueNb.charAt(0);
+        }
+
+        // Determiner nbOfClues et adapter le bouton
+        nbOfClues = Integer.parseInt(clueNb);
+
+        return nbOfClues;
+    }
+
 }
+
+
