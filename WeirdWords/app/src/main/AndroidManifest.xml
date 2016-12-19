@@ -7,9 +7,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:launchMode="singleTop"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
+        <activity
+            android:name=".MainMenu"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,6 +23,7 @@
             android:name=".ChoosePackMenu"
             android:label="@string/title_activity_choose_pack_menu"
             android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -29,22 +33,29 @@
             android:name=".ChooseLevelMenu"
             android:label="@string/title_activity_choose_level_menu"
             android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manon.weirdwords.MainMenu" />
         </activity>
-        <activity android:name=".ThreeLettersLevel" />
-        <activity android:name=".WinActivity" />
+        <activity
+            android:name=".ThreeLettersLevel"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WinActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ChooseLevelMenu2"
             android:label="@string/title_activity_choose_level_menu2"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".FourLettersLevel" />
         <activity
             android:name=".ChooseLevelMenu3"
             android:label="@string/title_activity_choose_level_menu3"
             android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -53,11 +64,13 @@
         <activity
             android:name=".ChooseLevelMenu4"
             android:label="@string/title_activity_choose_level_menu4"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".FiveLettersLevel" />
         <activity
             android:name=".ChooseLevelMenu5"
             android:label="@string/title_activity_choose_level_menu5"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".SixLettersLevel" />
         <!--
@@ -68,14 +81,41 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".DidacticielMenu" />
-        <activity android:name=".Didacticiel" />
-        <activity android:name=".FirstStep" />
-        <activity android:name=".SecondStep" />
-        <activity android:name=".ThirdStep" />
-        <activity android:name=".FourthStep" />
-        <activity android:name=".FifthStep" />
-        <activity android:name=".Settings"></activity>
+        <activity
+            android:name=".DidacticielMenu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Didacticiel"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FirstStep"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SecondStep"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ThirdStep"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FourthStep"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FifthStep"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChoosePackMenu2"
+            android:label="@string/title_activity_choose_pack_menu2"
+            android:parentActivityName=".MainMenu"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.manon.weirdwords.MainMenu" />
+        </activity>
+        <activity android:name=".Help"
+         android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>

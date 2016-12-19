@@ -142,20 +142,19 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
 
 
-        //////////////// Recup valeur memoire interne ///////////////////
-
-        FileInputStream input = null;
-        String read = null;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        // LEVELMAX
+        FileInputStream input1 = null;
+        String read1 = null;
+        char[] readBuffer1 = new char[26];
+        InputStreamReader isr1 = null;
 
         try {
 
-            input = openFileInput("USERINFOS");
+            input1 = openFileInput("LEVELMAX");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr1 = new InputStreamReader(input1);
+            isr1.read(readBuffer1);
+            read1 = new String(readBuffer1);
 
 
         } catch (FileNotFoundException e) {
@@ -168,13 +167,17 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
         }
 
-        pass = read.substring(0, 16);
+        pass = read1.substring(0, 16);
+
+
+
         //////////////// FIN //////////////
 
         clueMode = false;
         usedClues = 0;
 
         nbOfClues = getClueNb();
+        setClueButtonBackground(0, nbOfClues);
 
 
         if(levelS.charAt(11) == 'w'){
@@ -1296,7 +1299,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                     usedClues = usedClues - 1;
                     nbOfClues++;
                     clueMode = false;
-                    setClueNb(nbOfClues, pass);
+                    setClueNb(nbOfClues);
                     setClueButtonBackground(usedClues, nbOfClues);
                 }else if(nbOfClues == 0){
 
@@ -1313,7 +1316,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
                     usedClues++;
                     nbOfClues = nbOfClues - 1;
-                    setClueNb(nbOfClues, pass);
+                    setClueNb(nbOfClues);
                     setClueButtonBackground(usedClues, nbOfClues);
                 }else{
                 }
@@ -1465,7 +1468,6 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
     public void onClick(android.view.View v){
     }
 
-
     public void releaseButton(char carac){
         if(button1.getText().charAt(0) == carac && isButton1Pressed == true){
             button1.setBackgroundResource(R.mipmap.small_button);
@@ -1524,7 +1526,6 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         }
     }
 
-
     public void determineFocusSaisie(){
         int focus = 0;
         if(saisie[0] == ' '){
@@ -1540,7 +1541,6 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         }
         focusSaisie = focus;
     }
-
 
     public void updateSaisie(){
         String string0 = Character.toString(saisie[0]);
@@ -1561,7 +1561,6 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
     }
 
-
     public void removeCharacter(android.widget.Button button){
 
         // Chercher le caractere a supprimer
@@ -1579,7 +1578,6 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         saisie[index] = ' ';
 
     }
-
 
     public void win(){
 
@@ -1616,7 +1614,39 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         return FourLettersLevel;
     }
 
+    public void setClueNb(int nbOfClues){
 
+        String param;
+
+        FileOutputStream output = null;
+        String clueNb = new String("" + nbOfClues);
+
+        // Traitement clueNb
+        if(nbOfClues < 10){
+            clueNb = clueNb +"xx";
+        }else if(nbOfClues < 100){
+            clueNb = clueNb + "x";
+        }else{
+
+        }
+        param = "clue=" + clueNb;
+
+
+
+
+        try {
+            output = openFileOutput("CLUENB", MODE_PRIVATE);
+            output.write(param.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     public void setClueButtonBackground(int usedClues,int nbOfClues){
         boolean isEnabled;
@@ -1685,59 +1715,23 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
 
     }
 
-    public void setClueNb(int nbOfClues, String param){
+    public int getClueNb() {
 
-
-        System.out.println(param);
-
-        String pass = null;
-        FileOutputStream output = null;
-        String clueNb = new String("//clue=" + nbOfClues);
-
-        // Traitement clueNb
-
-        if(nbOfClues < 10) {
-            clueNb = clueNb + "xx";
-        }else if(nbOfClues < 100){
-            clueNb = clueNb + "x";
-        }else{
-
-        }
-
-
-        // Traitement param
-        pass = param + clueNb;
-
-
-        try {
-            output = openFileOutput("USERINFOS", MODE_PRIVATE);
-            output.write(pass.getBytes());
-            if(output != null)
-                output.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public int getClueNb(){
-
-        FileInputStream input = null;
-        String read = null;
+        FileInputStream input2 = null;
+        String read2 = null;
+        String clueNb = null;
         int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        char[] readBuffer2 = new char[8];
+        InputStreamReader isr2 = null;
 
         // Recuperation de la valeur
         try {
 
-            input = openFileInput("USERINFOS");
+            input2 = openFileInput("CLUENB");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr2 = new InputStreamReader(input2);
+            isr2.read(readBuffer2);
+            read2 = new String(readBuffer2);
 
 
         } catch (FileNotFoundException e) {
@@ -1751,22 +1745,22 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
         }
 
         // Traitement pour obtenir nbOfClues //
-        String clueNb = new String(read.substring(23));
-        if(clueNb.charAt(2) != 'x'){
+        clueNb = read2.substring(5);
+        if (clueNb.charAt(2) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
-        }else if(clueNb.charAt(1) != 'x'){
+        } else if (clueNb.charAt(1) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
-        }else{
+        } else {
             clueNb = "" + clueNb.charAt(0);
         }
 
         // Determiner nbOfClues et adapter le bouton
         nbOfClues = Integer.parseInt(clueNb);
-        setClueButtonBackground(usedClues, nbOfClues);
 
         return nbOfClues;
-
     }
+
+
 
 
 

@@ -10,7 +10,7 @@
 
 
 
-    <include layout="@layout/content_choose_pack_menu" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,6 +54,29 @@
                 android:background="@mipmap/icone_indice"
                 android:layout_alignParentRight="true"/>
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@mipmap/toolbar">
+
+            <Button
+                android:id="@+id/classic_button"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:text="Niveaux classiques"/>
+
+            <Button
+                android:id="@+id/special_button"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:text="Niveaux spéciaux"/>
+
+            </RelativeLayout>
+
+        <include layout="@layout/content_choose_pack_menu" />
 
 
 

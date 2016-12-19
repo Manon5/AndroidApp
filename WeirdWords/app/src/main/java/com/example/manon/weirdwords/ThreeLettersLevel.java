@@ -137,18 +137,21 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         //////////////// Recup valeur memoire interne ///////////////////
 
-        FileInputStream input = null;
-        String read = null;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+
+
+        // LEVELMAX
+        FileInputStream input1 = null;
+        String read1 = null;
+        char[] readBuffer1 = new char[26];
+        InputStreamReader isr1 = null;
 
         try {
 
-            input = openFileInput("USERINFOS");
+            input1 = openFileInput("LEVELMAX");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr1 = new InputStreamReader(input1);
+            isr1.read(readBuffer1);
+            read1 = new String(readBuffer1);
 
 
         } catch (FileNotFoundException e) {
@@ -161,7 +164,9 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
         }
 
-        pass = read.substring(0, 16);
+        pass = read1.substring(0, 16);
+
+
 
         //////////////// FIN //////////////
 
@@ -169,28 +174,32 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         usedClues = 0;
 
         nbOfClues = getClueNb();
+        setClueButtonBackground(0, nbOfClues);
 
 
 
 
 
+        String levelSTest = new String(levelS + "xxxxxxxxxxxx");
 
 
 
 
-
-        if(levelS.charAt(11) == 'w'){
+        if(levelSTest.charAt(11) == 'w' || levelSTest.charAt(13) == 'w'){
             WinActivity.getInstance().finish();
-        }else if(levelS.charAt(11) == 'n'){
+        }else if(levelSTest.charAt(11) == 'n' || levelSTest.charAt(13) == 'n'){
             ChooseLevelMenu.getInstance().finish();
-        }else{
+        }else if(levelSTest.charAt(11) == 'd'){
             FirstStep.getInstance().finish();
             SecondStep.getInstance().finish();
             ThirdStep.getInstance().finish();
             FourthStep.getInstance().finish();
             FifthStep.getInstance().finish();
             levelS = levelS.substring(0, 11) + "w";
+        }else{
+
         }
+
 
 
 
@@ -429,6 +438,258 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier16 = "U";
             clavier17 = "M";
             clavier18 = "O";
+
+        }else if(levelS.equals("english=1x.1xn") || levelS.equals("english=1x.1xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_1_ang);
+
+            answer1 = "SEA";
+            answer2 = "SEA";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "Q";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "E";
+            clavier17 = "P";
+            clavier18 = "E";
+
+        }else if(levelS.equals("english=1x.2xn") || levelS.equals("english=1x.2xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_2_ang);
+
+            answer1 = "ICE";
+            answer2 = "ICE";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "I";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "C";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "E";
+            clavier17 = "P";
+            clavier18 = "E";
+
+        }else if(levelS.equals("english=1x.3xn") || levelS.equals("english=1x.3xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_3_ang);
+
+            answer1 = "JAM";
+            answer2 = "JAM";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "M";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "A";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "E";
+            clavier17 = "P";
+            clavier18 = "E";
+
+        }else if(levelS.equals("english=1x.4xn") || levelS.equals("english=1x.4xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_4_ang);
+
+            answer1 = "BOY";
+            answer2 = "BOY";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "Q";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "E";
+            clavier17 = "Y";
+            clavier18 = "E";
+
+        }else if(levelS.equals("english=1x.5xn") || levelS.equals("english=1x.5xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_5_ang);
+
+            answer1 = "KID";
+            answer2 = "KID";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "D";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "K";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "E";
+            clavier17 = "P";
+            clavier18 = "E";
+
+        }else if(levelS.equals("english=1x.6xn") || levelS.equals("english=1x.6xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_6_ang);
+
+            answer1 = "RUN";
+            answer2 = "RUN";
+            clavier1 = "N";
+            clavier2 = "O";
+            clavier3 = "Q";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "R";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "P";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "U";
+            clavier17 = "P";
+            clavier18 = "W";
+
+        }else if(levelS.equals("english=1x.7xn") || levelS.equals("english=1x.7xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_7_ang);
+
+            answer1 = "BED";
+            answer2 = "BED";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "Q";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "D";
+            clavier16 = "E";
+            clavier17 = "P";
+            clavier18 = "E";
+
+
+        }else if(levelS.equals("english=1x.8xn") || levelS.equals("english=1x.8xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_8_ang);
+
+            answer1 = "LEG";
+            answer2 = "GEL";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "U";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "W";
+            clavier10 = "H";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "G";
+            clavier17 = "P";
+            clavier18 = "E";
+
+        }else if(levelS.equals("english=1x.9xn") || levelS.equals("english=1x.9xw")){
+
+            image.setBackgroundResource(R.mipmap.level_1_9_ang);
+
+            answer1 = "BEE";
+            answer2 = "BEE";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "Q";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "B";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "S";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "E";
+            clavier17 = "P";
+            clavier18 = "E";
+
+        }else if(levelS.equals("english=1x.10n") || levelS.equals("english=1x.10w")){
+
+            image.setBackgroundResource(R.mipmap.level_1_10_ang);
+
+            answer1 = "HUG";
+            answer2 = "HUG";
+            clavier1 = "E";
+            clavier2 = "O";
+            clavier3 = "U";
+            clavier4 = "E";
+            clavier5 = "T";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "S";
+            clavier9 = "W";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "H";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "R";
+            clavier16 = "E";
+            clavier17 = "G";
+            clavier18 = "E";
+
         }else{
 
         }
@@ -1047,12 +1308,23 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle objetbunble = new Bundle();
-                objetbunble.putString("passInfo", "1");
-                Intent undo = new Intent(ThreeLettersLevel.this, ChooseLevelMenu.class);
-                undo.putExtras(objetbunble);
-                startActivity(undo);
-                finish();
+                if(levelS.substring(0, 7).equals("english")){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "ang1");
+                    Intent undo = new Intent(ThreeLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else if(levelS.substring(0, 5).equals("level")){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "1");
+                    Intent undo = new Intent(ThreeLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else{
+
+                }
             }
         });
 
@@ -1067,7 +1339,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     usedClues = usedClues - 1;
                     nbOfClues++;
                     clueMode = false;
-                    setClueNb(nbOfClues, pass);
+                    setClueNb(nbOfClues);
                     setClueButtonBackground(usedClues, nbOfClues);
                 }else if(nbOfClues == 0){
 
@@ -1082,7 +1354,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
                         usedClues++;
                         nbOfClues = nbOfClues - 1;
-                        setClueNb(nbOfClues, pass);
+                        setClueNb(nbOfClues);
                         setClueButtonBackground(usedClues, nbOfClues);
                     }else{
                     }
@@ -1359,6 +1631,39 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         return ThreeLettersLevel;
     }
 
+    public void setClueNb(int nbOfClues){
+
+        String param;
+
+        FileOutputStream output = null;
+        String clueNb = new String("" + nbOfClues);
+
+        // Traitement clueNb
+        if(nbOfClues < 10){
+            clueNb = clueNb +"xx";
+        }else if(nbOfClues < 100){
+            clueNb = clueNb + "x";
+        }else{
+
+        }
+        param = "clue=" + clueNb;
+
+
+
+
+        try {
+            output = openFileOutput("CLUENB", MODE_PRIVATE);
+            output.write(param.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     public void setClueButtonBackground(int usedClues,int nbOfClues){
         boolean isEnabled;
@@ -1427,60 +1732,23 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
     }
 
+    public int getClueNb() {
 
-    public void setClueNb(int nbOfClues, String param){
-
-        System.out.println(param);
-
-        String pass = null;
-        FileOutputStream output = null;
-        String clueNb = new String("//clue=" + nbOfClues);
-
-        // Traitement clueNb
-
-        if(nbOfClues < 10) {
-            clueNb = clueNb + "xx";
-        }else if(nbOfClues < 100){
-            clueNb = clueNb + "x";
-        }else{
-
-        }
-
-
-        // Traitement param
-        pass = param + clueNb;
-
-
-        try {
-            output = openFileOutput("USERINFOS", MODE_PRIVATE);
-            output.write(pass.getBytes());
-            if(output != null)
-                output.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public int getClueNb(){
-
-        FileInputStream input = null;
-        String read = null;
+        FileInputStream input2 = null;
+        String read2 = null;
+        String clueNb = null;
         int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        char[] readBuffer2 = new char[8];
+        InputStreamReader isr2 = null;
 
         // Recuperation de la valeur
         try {
 
-            input = openFileInput("USERINFOS");
+            input2 = openFileInput("CLUENB");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr2 = new InputStreamReader(input2);
+            isr2.read(readBuffer2);
+            read2 = new String(readBuffer2);
 
 
         } catch (FileNotFoundException e) {
@@ -1494,21 +1762,19 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
         }
 
         // Traitement pour obtenir nbOfClues //
-         String clueNb = new String(read.substring(23));
-        if(clueNb.charAt(2) != 'x'){
+        clueNb = read2.substring(5);
+        if (clueNb.charAt(2) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
-        }else if(clueNb.charAt(1) != 'x'){
+        } else if (clueNb.charAt(1) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
-        }else{
+        } else {
             clueNb = "" + clueNb.charAt(0);
         }
 
         // Determiner nbOfClues et adapter le bouton
         nbOfClues = Integer.parseInt(clueNb);
-        setClueButtonBackground(usedClues, nbOfClues);
 
         return nbOfClues;
-
     }
 
     public boolean isLevelMax(int nb1_1, int nb2_1){

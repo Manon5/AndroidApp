@@ -44,20 +44,20 @@ public class MainMenu extends Activity implements View.OnClickListener{
         credits_button = (Button)findViewById(R.id.credits_button);
 
 
-        FileInputStream input = null;
-        String read = null;
-        int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        // LEVELMAX
+        FileInputStream input1 = null;
+        String read1 = null;
+        char[] readBuffer1 = new char[26];
+        InputStreamReader isr1 = null;
 
         // Recuperation de la valeur
         try {
 
-            input = openFileInput("USERINFOS");
+            input1 = openFileInput("LEVELMAX");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr1 = new InputStreamReader(input1);
+            isr1.read(readBuffer1);
+            read1 = new String(readBuffer1);
 
 
         } catch (FileNotFoundException e) {
@@ -70,12 +70,12 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
         }
 
-        if(read == null){
+        if(read1 == null){
             FileOutputStream output = null;
-            String param = "level_max=1x.8xn//clue=8xx";
+            String param = "level_max=2x.8xn";
 
             try {
-                output = openFileOutput("USERINFOS", MODE_PRIVATE);
+                output = openFileOutput("LEVELMAX", MODE_PRIVATE);
                 output.write(param.getBytes());
                 if(output != null)
                     output.close();
@@ -87,6 +87,151 @@ public class MainMenu extends Activity implements View.OnClickListener{
         }else{
 
         }
+
+        // FIN LEVELMAX
+
+        // CLUENB
+        FileInputStream input2 = null;
+        String read2 = null;
+        int nbOfClues = 0;
+        char[] readBuffer2 = new char[26];
+        InputStreamReader isr2 = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input2 = openFileInput("CLUENB");
+
+            isr2 = new InputStreamReader(input2);
+            isr2.read(readBuffer2);
+            read2 = new String(readBuffer2);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        if(read2 == null){
+            FileOutputStream output = null;
+            String param = "clue=8xx";
+
+            try {
+                output = openFileOutput("CLUENB", MODE_PRIVATE);
+                output.write(param.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+
+        }
+        // FIN CLUENB
+
+
+
+        // ENGLISHMAX
+        FileInputStream input3 = null;
+        String read3 = null;
+        char[] readBuffer3 = new char[26];
+        InputStreamReader isr3 = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input3 = openFileInput("ENGLISHMAX");
+
+            isr3 = new InputStreamReader(input3);
+            isr3.read(readBuffer3);
+            read3 = new String(readBuffer3);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        if(read3 == null){
+            FileOutputStream output = null;
+            String param = "english_max=1x.4xn";
+
+            try {
+                output = openFileOutput("ENGLISHMAX", MODE_PRIVATE);
+                output.write(param.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+
+        }
+        // FIN ENGLISHMAX
+
+
+
+        // NAMESMAX
+        FileInputStream input4 = null;
+        String read4 = null;
+        char[] readBuffer4 = new char[26];
+        InputStreamReader isr4 = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input4 = openFileInput("NAMESMAX");
+
+            isr4 = new InputStreamReader(input4);
+            isr4.read(readBuffer4);
+            read4 = new String(readBuffer4);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        if(read4 == null){
+            FileOutputStream output = null;
+            String param = "names_max=1x.4xn";
+
+            try {
+                output = openFileOutput("NAMESMAX", MODE_PRIVATE);
+                output.write(param.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+
+        }
+
+
+
+
 
         nbOfClues = getClueNb();
         setClueButtonBackground(0, nbOfClues);
@@ -113,8 +258,13 @@ public class MainMenu extends Activity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
 
+                Bundle objetbunble = new Bundle();
+                objetbunble.putString("passInfo", "false");
                 Intent appel = new Intent(MainMenu.this, ChoosePackMenu.class);
+                appel.putExtras(objetbunble);
                 startActivity(appel);
+
+
             }
         });
 
@@ -130,7 +280,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
 
-                Intent appel = new Intent(MainMenu.this, Settings.class);
+                Intent appel = new Intent(MainMenu.this, Help.class);
                 startActivity(appel);
             }
         });
@@ -226,21 +376,21 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
     public int getClueNb() {
 
-        FileInputStream input = null;
-        String read = null;
+        FileInputStream input2 = null;
+        String read2 = null;
         String clueNb = null;
         int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        char[] readBuffer2 = new char[26];
+        InputStreamReader isr2 = null;
 
         // Recuperation de la valeur
         try {
 
-            input = openFileInput("USERINFOS");
+            input2 = openFileInput("CLUENB");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr2 = new InputStreamReader(input2);
+            isr2.read(readBuffer2);
+            read2 = new String(readBuffer2);
 
 
         } catch (FileNotFoundException e) {
@@ -254,7 +404,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
         }
 
         // Traitement pour obtenir nbOfClues //
-        clueNb = read.substring(23);
+        clueNb = read2.substring(5);
         if (clueNb.charAt(2) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
         } else if (clueNb.charAt(1) != 'x') {

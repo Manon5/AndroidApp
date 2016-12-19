@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.manon.weirdwords.ChoosePackMenu"
+    tools:showIn="@layout/activity_choose_pack_menu"
+    android:background="@mipmap/background_2">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:text="Langues étrangères"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp"/>
+
+        <RelativeLayout
+            android:id="@+id/sbutton1"
+            android:layout_width="320dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/menu_item">
+
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/anglais_1"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Anglais 1"
+                    android:textStyle="italic"
+                    android:textSize="37sp"
+                    android:textColor="#e5d8c0"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Trois lettres - Très facile"
+                    android:textSize="15dp"
+                    android:textColor="#ab1d39"
+                    android:textStyle="normal"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/arrow_anglais_1"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:background="@mipmap/navigate_arrow"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/anglais2"
+            android:layout_width="320dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/menu_item">
+
+
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/anglais_2"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Anglais 2"
+                    android:textStyle="italic"
+                    android:textSize="37sp"
+                    android:textColor="#e5d8c0"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Quatre lettres - Moyen"
+                    android:textSize="15dp"
+                    android:textColor="#ab1d39"
+                    android:textStyle="normal"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/arrow_anglais_2"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:background="@mipmap/navigate_arrow"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/anglais3"
+            android:layout_width="320dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/menu_item">
+
+
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/anglais_3"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Anglais 3"
+                    android:textStyle="italic"
+                    android:textSize="37sp"
+                    android:textColor="#e5d8c0"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Six lettres - Difficile"
+                    android:textSize="15dp"
+                    android:textColor="#ab1d39"
+                    android:textStyle="normal"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/arrow_anglais_3"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:background="@mipmap/navigate_arrow"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:text="Prénoms"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp"/>
+
+        <RelativeLayout
+            android:id="@+id/prenom1"
+            android:layout_width="320dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/menu_item">
+
+
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/prenom_1"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Prénoms 1"
+                    android:textStyle="italic"
+                    android:textSize="37sp"
+                    android:textColor="#e5d8c0"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Quatre lettres - Facile"
+                    android:textSize="15dp"
+                    android:textColor="#ab1d39"
+                    android:textStyle="normal"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/arrow_prenom_1"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:background="@mipmap/navigate_arrow"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/prenom2"
+            android:layout_width="320dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/menu_item">
+
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/prenom_2"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Prénoms 2"
+                    android:textStyle="italic"
+                    android:textSize="37sp"
+                    android:textColor="#e5d8c0"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Cinq lettres - Moyen"
+                    android:textSize="15dp"
+                    android:textColor="#ab1d39"
+                    android:textStyle="normal"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/arrow_prenom_2"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:background="@mipmap/navigate_arrow"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

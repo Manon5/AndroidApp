@@ -74,17 +74,21 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
     private android.widget.Button saisie4;
     private android.widget.Button saisie5;
 
+    private boolean isSaisie1Locked = false;
+    private boolean isSaisie2Locked = false;
+    private boolean isSaisie3Locked = false;
+    private boolean isSaisie4Locked = false;
+    private boolean isSaisie5Locked = false;
 
     // Parametrage zone de saisie
     private int focusSaisie = 0;
     private char[] saisie = {' ', ' ', ' ', ' ', ' '};
-    private String answer;
-    private int level;
+    private String answer1;
+    private String answer2;
     private ImageView image = null;
     private int nbOfClues;
     private int usedClues;
     private boolean clueMode;
-    private int clueChoice;
 
 
     //Clavier
@@ -109,9 +113,6 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
 
     private String levelS =" "  ;
     private String pass;
-    private String pass2;
-    private String clueInfo;
-    private String clueCarac;
 
     static FiveLettersLevel FiveLettersLevel;
 
@@ -123,18 +124,12 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_five_letters_level);
         FiveLettersLevel = this;
 
-
-        image = (ImageView)findViewById(R.id.level_image);
-
-
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
         clue_button = (ImageButton)findViewById(R.id.clue_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
 
         image = (ImageView)findViewById(R.id.level_image);
-
-nbOfClues = getClueNb();
 
 
         ///////////// Recup valeur niveau ///////////////////
@@ -168,29 +163,28 @@ nbOfClues = getClueNb();
         } catch (IOException e) {
 
             e.printStackTrace();
-
         }
-
-        pass = read;
 
         //////////////// FIN //////////////
 
         clueMode = false;
         usedClues = 0;
 
+        nbOfClues = getClueNb();
 
 
-        if(levelS.charAt(9) == 'w'){
+        if(levelS.charAt(11) == 'w'){
             WinActivity.getInstance().finish();
         }else{
-
+            ChooseLevelMenu.getInstance().finish();
         }
 
 
         // Personnalisation image
         if(levelS.equals("level=4x.1xn") || levelS.equals("level=4x.1xw") || levelS.equals(null)){
 
-            answer = "STYLO";
+            answer1 = "STYLO";
+            answer2 = "STYLO";
             image.setBackgroundResource(R.mipmap.level_4_1);
 
             clavier1 = "L";
@@ -215,7 +209,8 @@ nbOfClues = getClueNb();
 
         }else if(levelS.equals("level=4x.2xn") || levelS.equals("level=4x.2xw")) {
             image.setBackgroundResource(R.mipmap.level_4_2);
-            answer = "VIVRE";
+            answer1 = "VIVRE";
+            answer2 = "VIVRE";
             clavier1 = "P";
             clavier2 = "S";
             clavier3 = "A";
@@ -239,7 +234,8 @@ nbOfClues = getClueNb();
 
             image.setBackgroundResource(R.mipmap.level_4_3);
 
-            answer = "KAYAK";
+            answer1 = "KAYAK";
+            answer2 = "KAYAK";
             clavier1 = "F";
             clavier2 = "O";
             clavier3 = "A";
@@ -263,7 +259,8 @@ nbOfClues = getClueNb();
 
             image.setBackgroundResource(R.mipmap.level_4_4);
 
-            answer = "CHIOT";
+            answer1 = "CHIOT";
+            answer2 = "CHIOT";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "S";
@@ -284,7 +281,8 @@ nbOfClues = getClueNb();
             clavier18 = "I";
         }else if(levelS.equals("level=4x.5xn") || levelS.equals("level=4x.5xw")){
             image.setBackgroundResource(R.mipmap.level_4_5);
-            answer = "PANDA";
+            answer1 = "PANDA";
+            answer2 = "PANDA";
             clavier1 = "B";
             clavier2 = "T";
             clavier3 = "D";
@@ -306,7 +304,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=4x.6xn") || levelS.equals("level=4x.6xw")){
             image.setBackgroundResource(R.mipmap.level_4_6);
 
-            answer = "TARTE";
+            answer1 = "TARTE";
+            answer2 = "RATTE";
             clavier1 = "M";
             clavier2 = "A";
             clavier3 = "I";
@@ -327,7 +326,8 @@ nbOfClues = getClueNb();
             clavier18 = "J";
         }else if(levelS.equals("level=4x.7xn") || levelS.equals("level=4x.7xw")){
             image.setBackgroundResource(R.mipmap.level_4_7);
-            answer = "ATOME";
+            answer1 = "ATOME";
+            answer2 = "ATOME";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "D";
@@ -349,7 +349,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=4x.8xn") || levelS.equals("level=4x.8xw")){
             image.setBackgroundResource(R.mipmap.level_4_8);
 
-            answer = "BULLE";
+            answer1 = "BULLE";
+            answer2 = "BULLE";
             clavier1 = "T";
             clavier2 = "L";
             clavier3 = "M";
@@ -372,7 +373,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.1xn") || levelS.equals("level=5x.1xw")){
             image.setBackgroundResource(R.mipmap.level_5_1);
 
-            answer = "SATAN";
+            answer1 = "SATAN";
+            answer2 = "SATAN";
             clavier1 = "W";
             clavier2 = "N";
             clavier3 = "T";
@@ -395,7 +397,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.2xn") || levelS.equals("level=5x.2xw")){
             image.setBackgroundResource(R.mipmap.level_5_2);
 
-            answer = "CAJOU";
+            answer1 = "CAJOU";
+            answer2 = "CAJOU";
             clavier1 = "T";
             clavier2 = "K";
             clavier3 = "M";
@@ -418,7 +421,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.3xn") || levelS.equals("level=5x.3xw")){
             image.setBackgroundResource(R.mipmap.level_5_3);
 
-            answer = "FOLIE";
+            answer1 = "FOLIE";
+            answer2 = "FOLIE";
             clavier1 = "S";
             clavier2 = "T";
             clavier3 = "F";
@@ -441,7 +445,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.4xn") || levelS.equals("level=5x.4xw")){
             image.setBackgroundResource(R.mipmap.level_5_4);
 
-            answer = "FRUIT";
+            answer1 = "FRUIT";
+            answer2 = "FRUIT";
             clavier1 = "Z";
             clavier2 = "R";
             clavier3 = "P";
@@ -464,7 +469,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.5xn") || levelS.equals("level=5x.5xw")){
             image.setBackgroundResource(R.mipmap.level_5_5);
 
-            answer = "DINDE";
+            answer1 = "DINDE";
+            answer2 = "DINDE";
             clavier1 = "I";
             clavier2 = "F";
             clavier3 = "M";
@@ -487,7 +493,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.6xn") || levelS.equals("level=5x.6xw")){
             image.setBackgroundResource(R.mipmap.level_5_6);
 
-            answer = "IGLOO";
+            answer1 = "IGLOO";
+            answer2 = "IGLOO";
             clavier1 = "T";
             clavier2 = "M";
             clavier3 = "I";
@@ -510,7 +517,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.7xn") || levelS.equals("level=5x.7xw")){
             image.setBackgroundResource(R.mipmap.level_5_7);
 
-            answer = "BALAI";
+            answer1 = "BALAI";
+            answer2 = "BALAI";
             clavier1 = "P";
             clavier2 = "A";
             clavier3 = "L";
@@ -533,7 +541,8 @@ nbOfClues = getClueNb();
         }else if(levelS.equals("level=5x.8xn") || levelS.equals("level=5x.8xw")){
             image.setBackgroundResource(R.mipmap.level_5_8);
 
-            answer = "TISSU";
+            answer1 = "TISSU";
+            answer2 = "TISSU";
             clavier1 = "T";
             clavier2 = "M";
             clavier3 = "R";
@@ -602,7 +611,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View v){
                 char carac;
-                if(isButton1Pressed == false){
+                if(isButton1Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button1.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton1Pressed = true;
@@ -611,16 +620,17 @@ nbOfClues = getClueNb();
                         updateSaisie();
                         determineFocusSaisie();
                         isWon();
-                    }else{
+                    }else {
                         // Rien ne se passe : zone de saisie pleine
                     }
-
-                }else{
+                }else if(clueMode == false){
                     button1.setBackgroundResource(R.mipmap.small_button);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
 
             }
@@ -631,7 +641,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton2Pressed == false){
+                if(isButton2Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button2.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton2Pressed = true;
@@ -645,12 +655,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
+                }else if(clueMode == false){
                     button2.setBackgroundResource(R.mipmap.small_button);
                     isButton2Pressed = false;
                     removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -660,7 +672,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton3Pressed == false){
+                if(isButton3Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button3.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton3Pressed = true;
@@ -674,12 +686,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button3.setBackgroundResource(R.mipmap.small_button);
-                    isButton3Pressed = false;
-                    removeCharacter(button3);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -689,7 +703,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton4Pressed == false){
+                if(isButton4Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button4.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton4Pressed = true;
@@ -703,12 +717,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button4.setBackgroundResource(R.mipmap.small_button);
-                    isButton4Pressed = false;
-                    removeCharacter(button4);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -719,7 +735,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton5Pressed == false){
+                if(isButton5Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button5.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton5Pressed = true;
@@ -733,12 +749,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button5.setBackgroundResource(R.mipmap.small_button);
-                    isButton5Pressed = false;
-                    removeCharacter(button5);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -748,7 +766,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton6Pressed == false){
+                if(isButton6Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button6.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton6Pressed = true;
@@ -762,12 +780,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button6.setBackgroundResource(R.mipmap.small_button);
-                    isButton6Pressed = false;
-                    removeCharacter(button6);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -777,7 +797,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton7Pressed == false){
+                if(isButton7Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button7.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton7Pressed = true;
@@ -791,12 +811,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button7.setBackgroundResource(R.mipmap.small_button);
-                    isButton7Pressed = false;
-                    removeCharacter(button7);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -806,7 +828,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton8Pressed == false){
+                if(isButton8Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button8.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton8Pressed = true;
@@ -820,12 +842,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button8.setBackgroundResource(R.mipmap.small_button);
-                    isButton8Pressed = false;
-                    removeCharacter(button8);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -835,7 +859,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton9Pressed == false){
+                if(isButton9Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button9.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton9Pressed = true;
@@ -849,12 +873,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button9.setBackgroundResource(R.mipmap.small_button);
-                    isButton9Pressed = false;
-                    removeCharacter(button9);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -864,7 +890,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton10Pressed == false){
+                if(isButton10Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button10.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton10Pressed = true;
@@ -878,12 +904,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button10.setBackgroundResource(R.mipmap.small_button);
-                    isButton10Pressed = false;
-                    removeCharacter(button10);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -893,7 +921,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton11Pressed == false){
+                if(isButton11Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button11.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton11Pressed = true;
@@ -907,12 +935,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button11.setBackgroundResource(R.mipmap.small_button);
-                    isButton11Pressed = false;
-                    removeCharacter(button11);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -922,7 +952,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton12Pressed == false){
+                if(isButton12Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button12.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton12Pressed = true;
@@ -936,12 +966,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button12.setBackgroundResource(R.mipmap.small_button);
-                    isButton12Pressed = false;
-                    removeCharacter(button12);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -951,7 +983,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton13Pressed == false){
+                if(isButton13Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button13.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton13Pressed = true;
@@ -965,12 +997,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button13.setBackgroundResource(R.mipmap.small_button);
-                    isButton13Pressed = false;
-                    removeCharacter(button13);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -980,7 +1014,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton14Pressed == false){
+                if(isButton14Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button14.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton14Pressed = true;
@@ -994,12 +1028,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button14.setBackgroundResource(R.mipmap.small_button);
-                    isButton14Pressed = false;
-                    removeCharacter(button14);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -1009,7 +1045,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton15Pressed == false){
+                if(isButton15Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button15.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton15Pressed = true;
@@ -1023,12 +1059,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button15.setBackgroundResource(R.mipmap.small_button);
-                    isButton15Pressed = false;
-                    removeCharacter(button15);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -1038,7 +1076,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton16Pressed == false){
+                if(isButton16Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button16.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton16Pressed = true;
@@ -1052,12 +1090,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button16.setBackgroundResource(R.mipmap.small_button);
-                    isButton16Pressed = false;
-                    removeCharacter(button16);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -1067,7 +1107,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton17Pressed == false){
+                if(isButton17Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button17.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton17Pressed = true;
@@ -1081,12 +1121,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button17.setBackgroundResource(R.mipmap.small_button);
-                    isButton17Pressed = false;
-                    removeCharacter(button17);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -1096,7 +1138,7 @@ nbOfClues = getClueNb();
             @Override
             public void onClick(View view) {
                 char carac;
-                if(isButton18Pressed == false){
+                if(isButton18Pressed == false && clueMode == false){
                     if(focusSaisie < 5){
                         button18.setBackgroundResource(R.mipmap.small_button_pressed);
                         isButton18Pressed = true;
@@ -1110,12 +1152,14 @@ nbOfClues = getClueNb();
                         // Rien ne se passe : zone de saisie pleine
                     }
 
-                }else{
-                    button18.setBackgroundResource(R.mipmap.small_button);
-                    isButton18Pressed = false;
-                    removeCharacter(button18);
+                }else if(clueMode == false){
+                    button2.setBackgroundResource(R.mipmap.small_button);
+                    isButton2Pressed = false;
+                    removeCharacter(button2);
                     updateSaisie();
                     determineFocusSaisie();
+                }else{
+
                 }
             }
         });
@@ -1137,14 +1181,40 @@ nbOfClues = getClueNb();
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if(levelS.charAt(6) == '2'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "4");
+                    Intent undo = new Intent(FiveLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else{
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "5");
+                    Intent undo = new Intent(FiveLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }
             }
         });
 
         clue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nbOfClues == 0){
+                if(clueMode == true) {
+                    saisie1.setBackgroundResource(R.mipmap.button_blue);
+                    saisie2.setBackgroundResource(R.mipmap.button_blue);
+                    saisie3.setBackgroundResource(R.mipmap.button_blue);
+                    saisie4.setBackgroundResource(R.mipmap.button_blue);
+                    saisie5.setBackgroundResource(R.mipmap.button_blue);
+                    updateSaisie();
+                    usedClues = usedClues - 1;
+                    nbOfClues++;
+                    clueMode = false;
+                    setClueNb(nbOfClues);
+                    setClueButtonBackground(usedClues, nbOfClues);
+                }else if(nbOfClues == 0){
 
                 }else if(usedClues < 2){
                     saisie1.setBackgroundResource(R.mipmap.button_blue_enabled);
@@ -1158,9 +1228,10 @@ nbOfClues = getClueNb();
                     saisie5.setBackgroundResource(R.mipmap.button_blue_enabled);
                     saisie5.setText("?");
                     clueMode = true;
+
                     usedClues++;
                     nbOfClues = nbOfClues - 1;
-                    setClueNb(nbOfClues, pass);
+                    setClueNb(nbOfClues);
                     setClueButtonBackground(usedClues, nbOfClues);
                 }else{
 
@@ -1176,7 +1247,7 @@ nbOfClues = getClueNb();
             public void onClick(View v) {
                 if(clueMode == false){
                     char carac;
-                    if (saisie1.getText().charAt(0) != ' ' && usedClues == 0) {
+                    if (saisie1.getText().charAt(0) != ' ' && isSaisie1Locked == false) {
                         carac = saisie1.getText().charAt(0);
                         saisie[0] = ' ';
                         releaseButton(carac);
@@ -1187,12 +1258,11 @@ nbOfClues = getClueNb();
                     }
                 }else{
                     clueMode = false;
-                    saisie[0] = answer.charAt(0);
+                    saisie[0] = answer1.charAt(0);
                     saisie1.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
                     saisie3.setBackgroundResource(R.mipmap.button_blue);
-                    saisie4.setBackgroundResource(R.mipmap.button_blue);
                     saisie4.setBackgroundResource(R.mipmap.button_blue);
                     saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
@@ -1207,7 +1277,7 @@ nbOfClues = getClueNb();
             public void onClick(View v) {
                 if(clueMode == false){
                     char carac;
-                    if(saisie2.getText().charAt(0) != ' '){
+                    if(saisie2.getText().charAt(0) != ' ' && isSaisie2Locked == false){
                         carac = saisie2.getText().charAt(0);
                         saisie[1] = ' ';
                         releaseButton(carac);
@@ -1218,12 +1288,11 @@ nbOfClues = getClueNb();
                     }
                 }else{
                     clueMode = false;
-                    saisie[1] = answer.charAt(1);
+                    saisie[1] = answer1.charAt(1);
                     saisie2.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
                     saisie3.setBackgroundResource(R.mipmap.button_blue);
-                    saisie4.setBackgroundResource(R.mipmap.button_blue);
                     saisie4.setBackgroundResource(R.mipmap.button_blue);
                     saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
@@ -1240,7 +1309,7 @@ nbOfClues = getClueNb();
             public void onClick(View v) {
                 if(clueMode == false){
                     char carac;
-                    if(saisie3.getText().charAt(0) != ' '){
+                    if(saisie3.getText().charAt(0) != ' ' && isSaisie3Locked == false){
                         carac = saisie3.getText().charAt(0);
                         saisie[2] = ' ';
                         releaseButton(carac);
@@ -1251,12 +1320,11 @@ nbOfClues = getClueNb();
                     }
                 }else{
                     clueMode = false;
-                    saisie[2] = answer.charAt(2);
+                    saisie[2] = answer1.charAt(2);
                     saisie2.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
                     saisie3.setBackgroundResource(R.mipmap.button_blue);
-                    saisie4.setBackgroundResource(R.mipmap.button_blue);
                     saisie4.setBackgroundResource(R.mipmap.button_blue);
                     saisie5.setBackgroundResource(R.mipmap.button_blue);
                     updateSaisie();
@@ -1271,7 +1339,7 @@ nbOfClues = getClueNb();
             public void onClick(View v) {
                 if(clueMode == false){
                     char carac;
-                    if (saisie4.getText().charAt(0) != ' ') {
+                    if (saisie4.getText().charAt(0) != ' ' && isSaisie4Locked == false) {
                         carac = saisie4.getText().charAt(0);
                         saisie[3] = ' ';
                         releaseButton(carac);
@@ -1282,7 +1350,7 @@ nbOfClues = getClueNb();
                     }
                 }else{
                     clueMode = false;
-                    saisie[3] = answer.charAt(3);
+                    saisie[3] = answer1.charAt(3);
                     saisie4.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1301,7 +1369,7 @@ nbOfClues = getClueNb();
             public void onClick(View v) {
                 if(clueMode == false){
                     char carac;
-                    if (saisie5.getText().charAt(0) != ' ') {
+                    if (saisie5.getText().charAt(0) != ' ' && isSaisie5Locked == false) {
                         carac = saisie5.getText().charAt(0);
                         saisie[4] = ' ';
                         releaseButton(carac);
@@ -1312,7 +1380,7 @@ nbOfClues = getClueNb();
                     }
                 }else{
                     clueMode = false;
-                    saisie[4] = answer.charAt(4);
+                    saisie[4] = answer1.charAt(4);
                     saisie5.setTextColor(Color.GRAY);
                     saisie1.setBackgroundResource(R.mipmap.button_blue);
                     saisie2.setBackgroundResource(R.mipmap.button_blue);
@@ -1341,7 +1409,6 @@ nbOfClues = getClueNb();
     @Override
     public void onClick(android.view.View v){
     }
-
 
     public void releaseButton(char carac){
         if(button1.getText().charAt(0) == carac && isButton1Pressed == true){
@@ -1401,7 +1468,6 @@ nbOfClues = getClueNb();
         }
     }
 
-
     public void determineFocusSaisie(){
         int focus = 0;
         if(saisie[0] == ' '){
@@ -1419,7 +1485,6 @@ nbOfClues = getClueNb();
         }
         focusSaisie = focus;
     }
-
 
     public void updateSaisie(){
         String string0 = Character.toString(saisie[0]);
@@ -1443,7 +1508,6 @@ nbOfClues = getClueNb();
 
     }
 
-
     public void removeCharacter(android.widget.Button button){
 
         // Chercher le caractere a supprimer
@@ -1461,7 +1525,6 @@ nbOfClues = getClueNb();
         saisie[index] = ' ';
 
     }
-
 
     public void win(){
 
@@ -1484,21 +1547,23 @@ nbOfClues = getClueNb();
 
     public void isWon(){
         boolean isWon;
-        if(saisie[0] == answer.charAt(0) && saisie[1] == answer.charAt(1) && saisie[2] == answer.charAt(2) && saisie[3] == answer.charAt(3) && saisie[4] == answer.charAt(4)){
+        if(saisie[0] == answer1.charAt(0) && saisie[1] == answer1.charAt(1) && saisie[2] == answer1.charAt(2) && saisie[3] == answer1.charAt(3) && saisie[4] == answer1.charAt(4)){
             win();
+        }else if(saisie[0] == answer2.charAt(0) && saisie[1] == answer2.charAt(1) && saisie[2] == answer2.charAt(2) && saisie[3] == answer2.charAt(3) && saisie[4] == answer2.charAt(4)){
+            win();
+
         }else{
 
-        }
+            }
     }
 
     public static FiveLettersLevel getInstance(){
         return FiveLettersLevel;
     }
 
+    public void setClueNb(int nbOfClues){
 
-
-    public void setClueNb(int nbOfClues, String param){
-
+        String param;
 
         FileOutputStream output = null;
         String clueNb = new String("" + nbOfClues);
@@ -1511,15 +1576,13 @@ nbOfClues = getClueNb();
         }else{
 
         }
+        param = "clue=" + clueNb;
 
 
-        // Traitement param
-        param = param.substring(0, param.length() - 3);
-        param = param + clueNb;
 
 
         try {
-            output = openFileOutput("USERINFOS", MODE_PRIVATE);
+            output = openFileOutput("CLUENB", MODE_PRIVATE);
             output.write(param.getBytes());
             if(output != null)
                 output.close();
@@ -1532,56 +1595,9 @@ nbOfClues = getClueNb();
 
     }
 
-    public int getClueNb(){
-
-        FileInputStream input = null;
-        String read = null;
-        String clueNb = null;
-        int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
-
-        // Recuperation de la valeur
-        try {
-
-            input = openFileInput("USERINFOS");
-
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
-
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
-
-        // Traitement pour obtenir nbOfClues //
-        clueNb = read.substring(23);
-        if(clueNb.charAt(2) != 'x'){
-            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueInfo.charAt(2);
-        }else if(clueNb.charAt(1) != 'x'){
-            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
-        }else{
-            clueNb = "" + clueNb.charAt(0);
-        }
-
-        // Determiner nbOfClues et adapter le bouton
-        nbOfClues = Integer.parseInt(clueNb);
-        setClueButtonBackground(usedClues, nbOfClues);
-
-        return nbOfClues;
-
-    }
-
     public void setClueButtonBackground(int usedClues,int nbOfClues){
         boolean isEnabled;
-        if(usedClues <= 2){
+        if(usedClues < 2){
             isEnabled = true;
         }else{
             isEnabled = false;
@@ -1644,6 +1660,51 @@ nbOfClues = getClueNb();
             }
         }
 
+    }
+
+    public int getClueNb() {
+
+        FileInputStream input2 = null;
+        String read2 = null;
+        String clueNb = null;
+        int nbOfClues = 0;
+        char[] readBuffer2 = new char[8];
+        InputStreamReader isr2 = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input2 = openFileInput("CLUENB");
+
+            isr2 = new InputStreamReader(input2);
+            isr2.read(readBuffer2);
+            read2 = new String(readBuffer2);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Traitement pour obtenir nbOfClues //
+        clueNb = read2.substring(5);
+        if (clueNb.charAt(2) != 'x') {
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
+        } else if (clueNb.charAt(1) != 'x') {
+            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
+        } else {
+            clueNb = "" + clueNb.charAt(0);
+        }
+
+        // Determiner nbOfClues et adapter le bouton
+        nbOfClues = Integer.parseInt(clueNb);
+
+        return nbOfClues;
     }
 
 

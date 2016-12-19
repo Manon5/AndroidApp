@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,6 +18,7 @@ import java.io.InputStreamReader;
 public class WinActivity extends Activity implements View.OnClickListener{
 
     private Button next_level_button = null;
+    private TextView textArea = null;
     private String levelS;
     private String pass2;
     private String levelS2;
@@ -25,6 +27,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
     private String levelMax;
     private int i;
     private int nbOfClues;
+    private int specialLevel = 0;
 
 
     static WinActivity WinActivity;
@@ -50,6 +53,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
         // Recuperer le nb d'indices
         nbOfClues = getClueNb();
+        setClueNb(nbOfClues);
 
 
 
@@ -117,6 +121,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=3x.10w";
         }else if(levelS.equals("level 3x.10w") || levelS.equals("level=3x.10n")){
             nbOfClues = nbOfClues + 5;
+            specialLevel = 1;
             levelS2="level=4x.1xw";
         }else if(levelS.equals("level=4x.1xw") || levelS.equals("level=4x.1xn")){
             levelS2="level=4x.2xw";
@@ -138,6 +143,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=4x.10w";
         }else if(levelS.equals("level=4x.10w") || levelS.equals("level=4x.10n")){
             nbOfClues = nbOfClues + 5;
+            specialLevel = 2;
             levelS2="level=5x.1xw";
         }else if(levelS.equals("level=5x.1xw") || levelS.equals("level=5x.1xn")){
             levelS2="level=5x.2xw";
@@ -156,40 +162,33 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else if(levelS.equals("level=5x.8xw") || levelS.equals("level=5x.8xn")){
             levelS2="level=5x.9xw";
         }else if(levelS.equals("level=5x.9xw") || levelS.equals("level=5x.9xn")){
-            levelS2="level=5x.10xw";
+            levelS2="level=5x.10w";
+
+
+        }else if(levelS.equals("english=1x.1xw") || levelS.equals("english=1x.1xn")){
+            levelS2="english=1x.2xw";
+        }else if(levelS.equals("english=1x.2xw") || levelS.equals("english=1x.2xn")){
+            levelS2="english=1x.3xw";
+        }else if(levelS.equals("english=1x.3xw") || levelS.equals("english=1x.3xn")){
+            levelS2="english=1x.4xw";
+        }else if(levelS.equals("english=1x.4xw") || levelS.equals("english=1x.4xn")){
+            levelS2="english=1x.5xw";
+        }else if(levelS.equals("english=1x.5xw") || levelS.equals("english=1x.5xn")){
+            levelS2="english=1x.6xw";
+        }else if(levelS.equals("english=1x.6xw") || levelS.equals("english=1x.6xn")){
+            levelS2="english=1x.7xw";
+        }else if(levelS.equals("english=1x.7xw") || levelS.equals("english=1x.7xn")){
+            levelS2="english=1x.8xw";
+        }else if(levelS.equals("english=1x.8xw") || levelS.equals("english=1x.8xn")){
+            levelS2="english=1x.9xw";
+        }else if(levelS.equals("english=1x.9xw") || levelS.equals("english=1x.9xn")){
+            levelS2="english=1x.10xw";
         }else{
 
         }
 
-        levelMax = levelS2.substring(0, 5) + "_max" + levelS2.substring(5);
-        clueInfo = "//clue=" + nbOfClues;
 
-        if(clueInfo.length() == 8) {
-            clueInfo = clueInfo + "xx";
-        }else if(clueInfo.length() == 9){
-            clueInfo = clueInfo + "x";
-        }else{
-        }
 
-        memoryInfo = levelMax + clueInfo;
-
-        boolean bool;
-        bool = isLevelMax(levelS);
-        if(bool == true){
-            FileOutputStream output = null;
-            try {
-                output = openFileOutput("USERINFOS", MODE_PRIVATE);
-                output.write(memoryInfo.getBytes());
-                if(output != null)
-                    output.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else{
-
-        }
 
 
 
@@ -209,17 +208,140 @@ public class WinActivity extends Activity implements View.OnClickListener{
                     appel = new Intent(WinActivity.this, FiveLettersLevel.class);
                 }
 
-
-
                 // FIN
                 Bundle objetbunble = new Bundle();
                 objetbunble.putString("passInfo", levelS2);
                 appel.putExtras(objetbunble);
                 startActivity(appel);
 
-
             }
         });
+
+        textArea = (TextView)findViewById(R.id.textArea);
+
+
+
+        if(specialLevel == 1){
+            // DEBLOQUER PACK LANGUES ETRANGERES
+            FileOutputStream output = null;
+            String param = "english_max=1x.1xn";
+
+            try {
+                output = openFileOutput("ENGLISHMAX", MODE_PRIVATE);
+                output.write(param.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+
+
+        }else if(specialLevel == 2){
+
+
+            // DEBLOQUER PACK PRENOMS
+
+            FileOutputStream output = null;
+            String param = "names_max=1x.1xn";
+
+            try {
+                output = openFileOutput("NAMESMAX", MODE_PRIVATE);
+                output.write(param.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+
+
+        }else{
+
+        }
+
+        if(levelS2.substring(0, 5).equals("level")){
+            levelMax = levelS2.substring(0, 5) + "_max" + levelS2.substring(5);
+
+            // LEVELMAX
+
+            boolean bool;
+            bool = isLevelMax(levelS);
+            if(bool == true){
+                FileOutputStream output = null;
+                try {
+                    output = openFileOutput("LEVELMAX", MODE_PRIVATE);
+                    output.write(levelMax.getBytes());
+                    if(output != null)
+                        output.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+
+            }
+
+        }else if(levelS2.substring(0, 7).equals("english")){
+
+            levelMax = levelS2.substring(0, 7) + "_max" + levelS2.substring(7);
+
+            FileOutputStream output = null;
+
+            try {
+                output = openFileOutput("ENGLISHMAX", MODE_PRIVATE);
+                output.write(levelMax.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            next_level_button = (Button)findViewById(R.id.next_level_button);
+            next_level_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent appel;
+                    if(levelS2.charAt(8) == '1'){
+                        appel = new Intent(WinActivity.this, ThreeLettersLevel.class);
+                    }else if(levelS2.charAt(8) == '2'){
+                        appel = new Intent(WinActivity.this, FourLettersLevel.class);
+                    }else  if(levelS2.charAt(8) == '3'){
+                        appel = new Intent(WinActivity.this, FiveLettersLevel.class);
+                    }else{
+                        appel = new Intent(WinActivity.this, FiveLettersLevel.class);
+                    }
+
+
+
+                    // FIN
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", levelS2);
+                    appel.putExtras(objetbunble);
+                    startActivity(appel);
+
+
+                }
+            });
+
+
+        }else{
+
+        }
+
+
     }
 
     @Override
@@ -234,25 +356,23 @@ public class WinActivity extends Activity implements View.OnClickListener{
         return WinActivity;
     }
 
-
-
     public int getClueNb() {
 
-        FileInputStream input = null;
-        String read = null;
+        FileInputStream input2 = null;
+        String read2 = null;
         String clueNb = null;
         int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        char[] readBuffer2 = new char[26];
+        InputStreamReader isr2 = null;
 
         // Recuperation de la valeur
         try {
 
-            input = openFileInput("USERINFOS");
+            input2 = openFileInput("CLUENB");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr2 = new InputStreamReader(input2);
+            isr2.read(readBuffer2);
+            read2 = new String(readBuffer2);
 
 
         } catch (FileNotFoundException e) {
@@ -266,7 +386,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }
 
         // Traitement pour obtenir nbOfClues //
-        clueNb = read.substring(23);
+        clueNb = read2.substring(5);
         if (clueNb.charAt(2) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
         } else if (clueNb.charAt(1) != 'x') {
@@ -347,20 +467,20 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
         // Recuperer la valeur de la memoire interne
 
-        FileInputStream input = null;
-        String read = null;
+        FileInputStream input1 = null;
+        String read1 = null;
         int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        char[] readBuffer1 = new char[26];
+        InputStreamReader isr1 = null;
 
         // Recuperation de la valeur
         try {
 
-            input = openFileInput("USERINFOS");
+            input1 = openFileInput("LEVELMAX");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr1 = new InputStreamReader(input1);
+            isr1.read(readBuffer1);
+            read1 = new String(readBuffer1);
 
 
         } catch (FileNotFoundException e) {
@@ -374,7 +494,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }
 
         // Traitement levelMax
-        String levelMax = new String(read);
+        String levelMax = new String(read1);
         String levelMaxNb1 = new String(levelMax.substring(10,12));
         String levelMaxNb2 = new String(levelMax.substring(13, 15));
         int nbMax1;
@@ -447,6 +567,38 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
     }
 
+    public void setClueNb(int nbOfClues){
 
+        String param;
+
+        FileOutputStream output = null;
+        String clueNb = new String("" + nbOfClues);
+
+        // Traitement clueNb
+        if(nbOfClues < 10){
+            clueNb = clueNb +"xx";
+        }else if(nbOfClues < 100){
+            clueNb = clueNb + "x";
+        }else{
+
+        }
+        param = "clue=" + clueNb;
+
+
+
+
+        try {
+            output = openFileOutput("CLUENB", MODE_PRIVATE);
+            output.write(param.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
     }
 

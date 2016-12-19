@@ -97,4 +97,5 @@
     <string name="title_activity_choose_level_menu4">ChooseLevelMenu4</string>
     <string name="title_activity_choose_pack_menu5">ChoosePackMenu5</string>
     <string name="title_activity_choose_level_menu5">ChooseLevelMenu5</string>
+    <string name="title_activity_choose_pack_menu2">ChoosePackMenu2</string>
 </resources>

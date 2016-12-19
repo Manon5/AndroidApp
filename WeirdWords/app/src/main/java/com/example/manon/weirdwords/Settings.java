@@ -69,11 +69,13 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
 
     public void reinit(){
         FileOutputStream output = null;
-        String param = "level_max=1x.1xn//clue=8xx";
+        String param1 = "level_max=1x.1xn";
+        String param2 = "clue=8xx";
 
+        // LEVELMAX
         try {
-            output = openFileOutput("USERINFOS", MODE_PRIVATE);
-            output.write(param.getBytes());
+            output = openFileOutput("LEVELMAX", MODE_PRIVATE);
+            output.write(param1.getBytes());
             if(output != null)
                 output.close();
         } catch (FileNotFoundException e) {
@@ -81,7 +83,38 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        // CLUENB
+        try {
+            output = openFileOutput("CLUENB", MODE_PRIVATE);
+            output.write(param2.getBytes());
+            if(output != null)
+                output.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+            FileOutputStream output1 = null;
+            String param = "english_max=0x.0xn";
+
+            try {
+                output1 = openFileOutput("ENGLISHMAX", MODE_PRIVATE);
+                output1.write(param.getBytes());
+                if(output1 != null)
+                    output1.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
     }
+
+
 
     public void setClueButtonBackground(int usedClues,int nbOfClues){
         boolean isEnabled;
@@ -152,21 +185,21 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
 
     public int getClueNb() {
 
-        FileInputStream input = null;
-        String read = null;
+        FileInputStream input2 = null;
+        String read2 = null;
         String clueNb = null;
         int nbOfClues = 0;
-        char[] readBuffer = new char[26];
-        InputStreamReader isr = null;
+        char[] readBuffer2 = new char[26];
+        InputStreamReader isr2 = null;
 
         // Recuperation de la valeur
         try {
 
-            input = openFileInput("USERINFOS");
+            input2 = openFileInput("CLUENB");
 
-            isr = new InputStreamReader(input);
-            isr.read(readBuffer);
-            read = new String(readBuffer);
+            isr2 = new InputStreamReader(input2);
+            isr2.read(readBuffer2);
+            read2 = new String(readBuffer2);
 
 
         } catch (FileNotFoundException e) {
@@ -180,7 +213,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         }
 
         // Traitement pour obtenir nbOfClues //
-        clueNb = read.substring(23);
+        clueNb = read2.substring(5);
         if (clueNb.charAt(2) != 'x') {
             clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
         } else if (clueNb.charAt(1) != 'x') {
