@@ -19,18 +19,15 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
     private ImageButton clue_button = null;
     private ImageButton param_button = null;
 
-    private ImageButton level_0_arrow = null;
-    private ImageButton level_1_arrow = null;
-    private ImageButton level_2_arrow = null;
-    private ImageButton level_3_arrow = null;
-    private ImageButton level_4_arrow = null;
-    private ImageButton level_5_arrow = null;
 
-    private ImageButton anglais_1_arrow = null;
-    private ImageButton anglais_2_arrow = null;
-    private ImageButton anglais_3_arrow = null;
-    private ImageButton prenom_1_arrow = null;
-    private ImageButton prenom_2_arrow = null;
+    private ImageButton anglais_1 = null;
+    private ImageButton anglais_2 = null;
+    private ImageButton allemand_1 = null;
+    private ImageButton allemand_2 = null;
+    private ImageButton italien_1 = null;
+    private ImageButton italien_2 = null;
+    private ImageButton prenoms_1 = null;
+    private ImageButton prenoms_2 = null;
     private Button classic = null;
     private Button special = null;
     private ImageButton button0 = null;
@@ -40,6 +37,12 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
     private ImageButton button4 = null;
     private ImageButton button5 = null;
     private ImageButton button6 = null;
+    private ImageButton button7 = null;
+    private ImageButton button8 = null;
+    private ImageButton button9 = null;
+    private ImageButton button10 = null;
+    private ImageButton button11 = null;
+    private ImageButton button12 = null;
 
     private int level_max = 0;
     private String passInfo;
@@ -71,11 +74,21 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             param_button = (ImageButton)findViewById(R.id.param_button);
 
             //Init boutons menu
-            anglais_1_arrow = (ImageButton)findViewById(R.id.arrow_anglais_1);
-            anglais_2_arrow = (ImageButton)findViewById(R.id.arrow_anglais_2);
-            anglais_3_arrow = (ImageButton)findViewById(R.id.arrow_anglais_3);
-            prenom_1_arrow = (ImageButton)findViewById(R.id.arrow_prenom_1);
-            prenom_2_arrow = (ImageButton)findViewById(R.id.arrow_prenom_2);
+            anglais_1 = (ImageButton)findViewById(R.id.anglais1);
+            anglais_2 = (ImageButton)findViewById(R.id.anglais2);
+
+            allemand_1 = (ImageButton)findViewById(R.id.allemand1);
+            allemand_2 = (ImageButton)findViewById(R.id.allemand2);
+
+            italien_1 = (ImageButton)findViewById(R.id.italien1);
+            italien_2 = (ImageButton)findViewById(R.id.italien2);
+
+            prenoms_1 = (ImageButton)findViewById(R.id.prenoms1);
+            prenoms_2 = (ImageButton)findViewById(R.id.prenoms2);
+
+
+
+            // Gérer l'opacité
 
             classic = (Button)findViewById(R.id.classic_button);
             special = (Button)findViewById(R.id.special_button);
@@ -93,7 +106,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            anglais_1_arrow.setOnClickListener(new View.OnClickListener() {
+            anglais_1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -104,7 +117,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            anglais_2_arrow.setOnClickListener(new View.OnClickListener() {
+            anglais_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -115,7 +128,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            anglais_3_arrow.setOnClickListener(new View.OnClickListener() {
+            allemand_1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -126,7 +139,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            prenom_1_arrow.setOnClickListener(new View.OnClickListener() {
+            allemand_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -137,7 +150,40 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            prenom_2_arrow.setOnClickListener(new View.OnClickListener() {
+            italien_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "nom2");
+                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level1.putExtras(objetbunble);
+                    startActivity(level1);
+                }
+            });
+
+            italien_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "nom2");
+                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level1.putExtras(objetbunble);
+                    startActivity(level1);
+                }
+            });
+
+            prenoms_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "nom2");
+                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level1.putExtras(objetbunble);
+                    startActivity(level1);
+                }
+            });
+
+            prenoms_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -160,12 +206,20 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             param_button = (ImageButton)findViewById(R.id.param_button);
 
             //Init boutons menu
-            level_0_arrow = (ImageButton)findViewById(R.id.arrow_button_0);
-            level_1_arrow = (ImageButton)findViewById(R.id.arrow_button_1);
-            level_2_arrow = (ImageButton)findViewById(R.id.arrow_button_2);
-            level_3_arrow = (ImageButton)findViewById(R.id.arrow_button_3);
-            level_4_arrow = (ImageButton)findViewById(R.id.arrow_button_4);
-            level_5_arrow = (ImageButton)findViewById(R.id.arrow_button_5);
+            button0 = (ImageButton)findViewById(R.id.button0);
+            button1 = (ImageButton)findViewById(R.id.button1);
+            button2 = (ImageButton)findViewById(R.id.button2);
+            button3 = (ImageButton)findViewById(R.id.button3);
+            button4 = (ImageButton)findViewById(R.id.button4);
+            button5 = (ImageButton)findViewById(R.id.button5);
+            button6 = (ImageButton)findViewById(R.id.button6);
+            button7 = (ImageButton)findViewById(R.id.button7);
+            button8 = (ImageButton)findViewById(R.id.button8);
+            button9 = (ImageButton)findViewById(R.id.button9);
+            button10 = (ImageButton)findViewById(R.id.button10);
+            button11 = (ImageButton)findViewById(R.id.button11);
+            button12 = (ImageButton)findViewById(R.id.button12);
+
 
 
 
@@ -219,7 +273,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
             // Activation boutons men
 
-            level_0_arrow.setOnClickListener(new View.OnClickListener() {
+            button0.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent level0 = new Intent(ChoosePackMenu.this, FirstStep.class);
@@ -227,7 +281,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            level_1_arrow.setOnClickListener(new View.OnClickListener() {
+            button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -238,7 +292,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            level_2_arrow.setOnClickListener(new View.OnClickListener() {
+            button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -249,7 +303,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            level_3_arrow.setOnClickListener(new View.OnClickListener() {
+            button3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -261,7 +315,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            level_4_arrow.setOnClickListener(new View.OnClickListener() {
+            button4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -272,7 +326,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            level_5_arrow.setOnClickListener(new View.OnClickListener() {
+            button5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle objetbunble = new Bundle();
@@ -282,6 +336,85 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                     startActivity(level5);
                 }
             });
+
+            button6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "6");
+                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level5.putExtras(objetbunble);
+                    startActivity(level5);
+                }
+            });
+
+            button7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "7");
+                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level5.putExtras(objetbunble);
+                    startActivity(level5);
+                }
+            });
+
+            button8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "8");
+                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level5.putExtras(objetbunble);
+                    startActivity(level5);
+                }
+            });
+
+            button9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "9");
+                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level5.putExtras(objetbunble);
+                    startActivity(level5);
+                }
+            });
+
+            button10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "10");
+                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level5.putExtras(objetbunble);
+                    startActivity(level5);
+                }
+            });
+
+            button11.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "11");
+                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level5.putExtras(objetbunble);
+                    startActivity(level5);
+                }
+            });
+
+            button12.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "12");
+                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                    level5.putExtras(objetbunble);
+                    startActivity(level5);
+                }
+            });
+
+
         }
 
 

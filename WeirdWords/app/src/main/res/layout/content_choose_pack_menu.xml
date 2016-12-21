@@ -16,652 +16,148 @@
         android:orientation="vertical">
 
 
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button0"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/didacticiel1">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:orientation="vertical"
-                android:layout_marginLeft="30dp">
-
-                <TextView
-                    android:id="@+id/niveau_0"
-                    android:layout_width="175dp"
-                    android:layout_height="40dp"
-                    android:text="Didacticiel"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Trois lettres - Initiation"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_0"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-            
-        </RelativeLayout>
-
-
-
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button1"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau1">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:orientation="vertical"
-                android:layout_marginLeft="30dp">
-
-                <TextView
-                    android:id="@+id/niveau_1"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 1"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Trois lettres - Initiation"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_1"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button2"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau2">
+       </ImageButton>
 
-
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_2"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 2"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Quatre lettres - Très facile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_2"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button3"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau3">
+        </ImageButton>
 
-
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_3"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 3"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Quatre lettres - Facile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_3"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button4"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau4">
+        </ImageButton>
 
-
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_4"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 4"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Cinq lettres - Moyen"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_4"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button5"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau5">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_5"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 5"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Cinq lettres - Assez difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_5"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button6"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau6">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_6"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 6"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Cinq lettres - Difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button7"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau7">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_7"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 7"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Cinq lettres - Très difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_7"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button8"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau8">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_8"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 8"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Six lettres - Assez difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_8"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button9"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau9">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_9"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 9"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Six lettres - Difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_9"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button10"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau10">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_10"
-                    android:layout_width="160dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 10"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Six lettres - Très difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_10"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button11"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
+            android:background="@mipmap/niveau11">
+        </ImageButton>
 
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_11"
-                    android:layout_width="165dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 11"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Sept lettres - Difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_11"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
+        <ImageButton
             android:id="@+id/button12"
-            android:layout_width="320dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="305dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/menu_item">
-
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="80dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/niveau_12"
-                    android:layout_width="165dp"
-                    android:layout_height="40dp"
-                    android:text="Niveau 12"
-                    android:textStyle="italic"
-                    android:textSize="37sp"
-                    android:textColor="#e5d8c0"/>
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text="Sept lettres - Très difficile"
-                    android:textSize="15dp"
-                    android:textColor="#ab1d39"
-                    android:textStyle="normal"
-                    android:layout_marginTop="3dp"/>
-            </LinearLayout>
-
-
-            <ImageButton
-                android:id="@+id/arrow_button_12"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/navigate_arrow"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
-
-
+            android:background="@mipmap/niveau12">
+        </ImageButton>
 
 
 

@@ -208,7 +208,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
             // Gerer l'affichage
 
-            if(levelC == '1'){
+            if(levelS.equals("1")){
                 level1.setBackgroundResource(R.mipmap.level_1_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_1_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_1_3_mini);
@@ -219,7 +219,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_1_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_1_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_1_10_mini);
-            }else if(levelC == '2'){
+            }else if(levelS.equals("2")){
                 level1.setBackgroundResource(R.mipmap.level_2_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_2_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_2_3_mini);
@@ -230,7 +230,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_2_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_2_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_2_10_mini);
-            }else if(levelC == '3'){
+            }else if(levelS.equals("3")){
                 level1.setBackgroundResource(R.mipmap.level_3_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_3_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_3_3_mini);
@@ -241,7 +241,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_3_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_3_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_3_10_mini);
-            }else if(levelC == '4'){
+            }else if(levelS.equals("4")){
                 level1.setBackgroundResource(R.mipmap.level_4_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_4_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_4_3_mini);
@@ -252,7 +252,84 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_4_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_4_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_4_10_mini);
-            }else if(levelC == '5'){
+            }else if(levelS.equals("5")){
+                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("6")){
+                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("7")){
+                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("8")){
+                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("9")){
+                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("10")){
+                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("11")){
+                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("12")){
                 level1.setBackgroundResource(R.mipmap.level_5_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_5_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_5_3_mini);
