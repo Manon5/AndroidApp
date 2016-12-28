@@ -44,6 +44,10 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
     private ImageButton button11 = null;
     private ImageButton button12 = null;
 
+    private String passMax;
+    private String levelMax;
+    private int levelI;
+
     private int level_max = 0;
     private String passInfo;
     private int opacity = 150;
@@ -205,6 +209,11 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             clue_button = (ImageButton)findViewById(R.id.clue_button);
             param_button = (ImageButton)findViewById(R.id.param_button);
 
+
+            // Recup niv max
+
+
+
             //Init boutons menu
             button0 = (ImageButton)findViewById(R.id.button0);
             button1 = (ImageButton)findViewById(R.id.button1);
@@ -263,8 +272,235 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
 
 
+            // LEVELMAX
+            FileInputStream input1 = null;
+            String read1 = null;
+            char[] readBuffer1 = new char[26];
+            InputStreamReader isr1 = null;
+
+            try {
+
+                input1 = openFileInput("LEVELMAX");
+
+                isr1 = new InputStreamReader(input1);
+                isr1.read(readBuffer1);
+                read1 = new String(readBuffer1);
 
 
+            } catch (FileNotFoundException e) {
+
+                e.printStackTrace();
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+            passMax = read1;
+            levelMax = passMax.substring(0, 16);
+
+            levelMax = levelMax.charAt(10) + "" + passMax.charAt(11);
+
+
+            if(levelMax.length() == 1){
+            }else{
+                levelMax = levelMax.charAt(0) + "";
+
+            }
+
+            levelI = Integer.parseInt(levelMax);
+
+
+
+            // Opacity
+            int opacity = 180;
+
+            if(levelI == 0){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(opacity);
+                button2.getBackground().setAlpha(opacity);
+                button3.getBackground().setAlpha(opacity);
+                button4.getBackground().setAlpha(opacity);
+                button5.getBackground().setAlpha(opacity);
+                button6.getBackground().setAlpha(opacity);
+                button7.getBackground().setAlpha(opacity);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 1){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(opacity);
+                button3.getBackground().setAlpha(opacity);
+                button4.getBackground().setAlpha(opacity);
+                button5.getBackground().setAlpha(opacity);
+                button6.getBackground().setAlpha(opacity);
+                button7.getBackground().setAlpha(opacity);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 2){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(opacity);
+                button4.getBackground().setAlpha(opacity);
+                button5.getBackground().setAlpha(opacity);
+                button6.getBackground().setAlpha(opacity);
+                button7.getBackground().setAlpha(opacity);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 3){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(opacity);
+                button5.getBackground().setAlpha(opacity);
+                button6.getBackground().setAlpha(opacity);
+                button7.getBackground().setAlpha(opacity);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 4){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(opacity);
+                button6.getBackground().setAlpha(opacity);
+                button7.getBackground().setAlpha(opacity);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 5){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(opacity);
+                button7.getBackground().setAlpha(opacity);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 6){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(255);
+                button7.getBackground().setAlpha(opacity);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 7){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(255);
+                button7.getBackground().setAlpha(255);
+                button8.getBackground().setAlpha(opacity);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 8){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(255);
+                button7.getBackground().setAlpha(255);
+                button8.getBackground().setAlpha(255);
+                button9.getBackground().setAlpha(opacity);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 9){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(255);
+                button7.getBackground().setAlpha(255);
+                button8.getBackground().setAlpha(255);
+                button9.getBackground().setAlpha(255);
+                button10.getBackground().setAlpha(opacity);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 10){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(255);
+                button7.getBackground().setAlpha(255);
+                button8.getBackground().setAlpha(255);
+                button9.getBackground().setAlpha(255);
+                button10.getBackground().setAlpha(255);
+                button11.getBackground().setAlpha(opacity);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 11){
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(255);
+                button7.getBackground().setAlpha(255);
+                button8.getBackground().setAlpha(255);
+                button9.getBackground().setAlpha(255);
+                button10.getBackground().setAlpha(255);
+                button11.getBackground().setAlpha(255);
+                button12.getBackground().setAlpha(opacity);
+            }else if(levelI == 12) {
+                button0.getBackground().setAlpha(255);
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(255);
+                button7.getBackground().setAlpha(255);
+                button8.getBackground().setAlpha(255);
+                button9.getBackground().setAlpha(255);
+                button10.getBackground().setAlpha(255);
+                button11.getBackground().setAlpha(255);
+                button12.getBackground().setAlpha(255);
+            }else{
+
+            }
 
 
 
@@ -276,41 +512,59 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             button0.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent level0 = new Intent(ChoosePackMenu.this, FirstStep.class);
-                    startActivity(level0);
+                    if(levelI >= 0){
+                        Intent level0 = new Intent(ChoosePackMenu.this, FirstStep.class);
+                        startActivity(level0);
+                    }else{
+
+                    }
                 }
             });
 
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "1");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
+                    if(levelI >= 1){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "1");
+                        Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level1.putExtras(objetbunble);
+                        startActivity(level1);
+                    }else{
+
+                    }
+
                 }
             });
 
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "2");
-                    Intent level2 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level2.putExtras(objetbunble);
-                    startActivity(level2);
+                    if(levelI >= 2){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "2");
+                        Intent level2 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level2.putExtras(objetbunble);
+                        startActivity(level2);
+                    }else{
+
+                    }
+
                 }
             });
 
             button3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "3");
-                    Intent level3 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level3.putExtras(objetbunble);
-                    startActivity(level3);
+                    if(levelI >= 3){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "3");
+                        Intent level3 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level3.putExtras(objetbunble);
+                        startActivity(level3);
+                    }else{
+
+                    }
 
                 }
             });
@@ -318,99 +572,135 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             button4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "4");
-                    Intent level4 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level4.putExtras(objetbunble);
-                    startActivity(level4);
+                    if(levelI >= 4){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "4");
+                        Intent level4 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level4.putExtras(objetbunble);
+                        startActivity(level4);
+                    }else{
+
+                    }
                 }
             });
 
             button5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "5");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 5){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "5");
+                        Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level5.putExtras(objetbunble);
+                        startActivity(level5);
+                    }else{
+
+                    }
                 }
             });
 
             button6.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "6");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 6){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "6");
+                        Intent level6 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level6.putExtras(objetbunble);
+                        startActivity(level6);
+                    }else{
+
+                    }
                 }
             });
 
             button7.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "7");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 7){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "7");
+                        Intent level7 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level7.putExtras(objetbunble);
+                        startActivity(level7);
+                    }else{
+
+                    }
                 }
             });
 
             button8.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "8");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 8){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "8");
+                        Intent level8 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level8.putExtras(objetbunble);
+                        startActivity(level8);
+                    }else{
+
+                    }
                 }
             });
 
             button9.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "9");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 9){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "9");
+                        Intent level9 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level9.putExtras(objetbunble);
+                        startActivity(level9);
+                    }else{
+
+                    }
                 }
             });
 
             button10.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "10");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 10){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "10");
+                        Intent level10 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level10.putExtras(objetbunble);
+                        startActivity(level10);
+                    }else{
+
+                    }
                 }
             });
 
             button11.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "11");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 11){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "11");
+                        Intent level11 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level11.putExtras(objetbunble);
+                        startActivity(level11);
+                    }else{
+
+                    }
                 }
             });
 
             button12.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "12");
-                    Intent level5 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level5.putExtras(objetbunble);
-                    startActivity(level5);
+                    if(levelI >= 12){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "12");
+                        Intent level12 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level12.putExtras(objetbunble);
+                        startActivity(level12);
+                    }else{
+
+                    }
                 }
             });
 

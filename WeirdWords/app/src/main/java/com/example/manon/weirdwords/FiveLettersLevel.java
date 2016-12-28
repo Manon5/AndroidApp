@@ -369,6 +369,52 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier16 = "E";
             clavier17 = "H";
             clavier18 = "L";
+        }else if(levelS.equals("level=4x.9xn") || levelS.equals("level=4x.9xw")){
+            image.setBackgroundResource(R.mipmap.level_4_9);
+
+            answer1 = "CLOWN";
+            answer2 = "CLOWN";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=4x.10n") || levelS.equals("level=4x.10w")){
+            image.setBackgroundResource(R.mipmap.level_4_10);
+
+            answer1 = "NIAIS";
+            answer2 = "NIAIS";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
 
         }else if(levelS.equals("level=5x.1xn") || levelS.equals("level=5x.1xw")){
             image.setBackgroundResource(R.mipmap.level_5_1);
@@ -561,6 +607,283 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
             clavier16 = "E";
             clavier17 = "S";
             clavier18 = "L";
+        }else if(levelS.equals("level=5x.9xn") || levelS.equals("level=5x.9xw")){
+            image.setBackgroundResource(R.mipmap.level_5_9);
+
+            answer1 = "HERBE";
+            answer2 = "HERBE";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=5x.10n") || levelS.equals("level=5x.10w")){
+            image.setBackgroundResource(R.mipmap.level_5_10);
+
+            answer1 = "CHILI";
+            answer2 = "CHILI";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.1xn") || levelS.equals("level=6x.1xw")){
+            image.setBackgroundResource(R.mipmap.level_6_1);
+
+            answer1 = "GOMME";
+            answer2 = "GOMME";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.2xn") || levelS.equals("level=6x.2xw")){
+            image.setBackgroundResource(R.mipmap.level_6_2);
+
+            answer1 = "VIDEO";
+            answer2 = "VIDEO";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.3xn") || levelS.equals("level=6x.3xw")){
+            image.setBackgroundResource(R.mipmap.level_6_3);
+
+            answer1 = "MAJOR";
+            answer2 = "MAJOR";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.4xn") || levelS.equals("level=6x.4xw")){
+            image.setBackgroundResource(R.mipmap.level_6_4);
+
+            answer1 = "LIVRE";
+            answer2 = "LIVRE";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.5xn") || levelS.equals("level=6x.5xw")){
+            image.setBackgroundResource(R.mipmap.level_6_5);
+
+            answer1 = "CORPS";
+            answer2 = "CORPS";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.6xn") || levelS.equals("level=6x.6xw")){
+            image.setBackgroundResource(R.mipmap.level_6_6);
+
+            answer1 = "BONUS";
+            answer2 = "BONUS";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.7xn") || levelS.equals("level=6x.7xw")){
+            image.setBackgroundResource(R.mipmap.level_6_7);
+
+            answer1 = "COTON";
+            answer2 = "COTON";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.8xn") || levelS.equals("level=6x.8xw")){
+            image.setBackgroundResource(R.mipmap.level_6_8);
+
+            answer1 = "BARIL";
+            answer2 = "BARIL";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.9xn") || levelS.equals("level=6x.9xw")){
+            image.setBackgroundResource(R.mipmap.level_6_9);
+
+            answer1 = "SOUPE";
+            answer2 = "SOUPE";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+        }else if(levelS.equals("level=6x.10n") || levelS.equals("level=6x.10w")){
+            image.setBackgroundResource(R.mipmap.level_6_10);
+
+            answer1 = "BARRE";
+            answer2 = "BARRE";
+            clavier1 = "T";
+            clavier2 = "L";
+            clavier3 = "M";
+            clavier4 = "U";
+            clavier5 = "P";
+            clavier6 = "J";
+            clavier7 = "A";
+            clavier8 = "O";
+            clavier9 = "M";
+            clavier10 = "A";
+            clavier11 = "I";
+            clavier12 = "R";
+            clavier13 = "B";
+            clavier14 = "L";
+            clavier15 = "U";
+            clavier16 = "E";
+            clavier17 = "H";
+            clavier18 = "L";
+
         }else{
 
         }

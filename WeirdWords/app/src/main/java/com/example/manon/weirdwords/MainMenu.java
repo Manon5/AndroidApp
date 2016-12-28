@@ -72,7 +72,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
         if(read1 == null){
             FileOutputStream output = null;
-            String param = "level_max=2x.8xn";
+            String param = "level_max=9x.8xn";
 
             try {
                 output = openFileOutput("LEVELMAX", MODE_PRIVATE);

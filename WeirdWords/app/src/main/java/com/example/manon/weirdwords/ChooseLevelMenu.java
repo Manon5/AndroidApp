@@ -163,7 +163,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
         // récupération de la valeur
         levelS = objectbunble.getString("passInfo");
 
-        if(levelS.length() == 1){
+        if(levelS.length() == 1 || levelS.length() == 2){
 
             //////////////////////////////// NIVEAU CLASSIQUES ///////////////////////////////
 
@@ -195,9 +195,12 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
             passInfo = read1;
             levelInfo = passInfo.substring(0, 16);
 
-
-            levelC = levelS.charAt(0);
             levelI = Integer.parseInt(levelS);
+if(levelS.length() == 1){
+    levelS = levelS + "x";
+}else{
+
+}
 
 
             // Traitement pour obtenir levelMax
@@ -208,7 +211,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
             // Gerer l'affichage
 
-            if(levelS.equals("1")){
+            if(levelS.equals("1x")){
                 level1.setBackgroundResource(R.mipmap.level_1_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_1_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_1_3_mini);
@@ -219,7 +222,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_1_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_1_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_1_10_mini);
-            }else if(levelS.equals("2")){
+            }else if(levelS.equals("2x")){
                 level1.setBackgroundResource(R.mipmap.level_2_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_2_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_2_3_mini);
@@ -230,7 +233,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_2_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_2_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_2_10_mini);
-            }else if(levelS.equals("3")){
+            }else if(levelS.equals("3x")){
                 level1.setBackgroundResource(R.mipmap.level_3_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_3_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_3_3_mini);
@@ -241,7 +244,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_3_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_3_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_3_10_mini);
-            }else if(levelS.equals("4")){
+            }else if(levelS.equals("4x")){
                 level1.setBackgroundResource(R.mipmap.level_4_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_4_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_4_3_mini);
@@ -252,7 +255,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_4_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_4_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_4_10_mini);
-            }else if(levelS.equals("5")){
+            }else if(levelS.equals("5x")){
                 level1.setBackgroundResource(R.mipmap.level_5_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_5_2_mini);
                 level3.setBackgroundResource(R.mipmap.level_5_3_mini);
@@ -263,61 +266,61 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level8.setBackgroundResource(R.mipmap.level_5_8_mini);
                 level9.setBackgroundResource(R.mipmap.level_5_9_mini);
                 level10.setBackgroundResource(R.mipmap.level_5_10_mini);
-            }else if(levelS.equals("6")){
-                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
-                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
-                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
-                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
-                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
-                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
-                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
-                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
-                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
-                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
-            }else if(levelS.equals("7")){
-                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
-                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
-                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
-                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
-                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
-                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
-                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
-                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
-                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
-                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
-            }else if(levelS.equals("8")){
-                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
-                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
-                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
-                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
-                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
-                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
-                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
-                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
-                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
-                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
-            }else if(levelS.equals("9")){
-                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
-                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
-                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
-                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
-                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
-                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
-                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
-                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
-                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
-                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+            }else if(levelS.equals("6x")){
+                level1.setBackgroundResource(R.mipmap.level_6_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_6_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_6_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_6_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_6_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_6_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_6_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_6_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_6_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_6_10_mini);
+            }else if(levelS.equals("7x")){
+                level1.setBackgroundResource(R.mipmap.level_7_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_7_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_7_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_7_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_7_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_7_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_7_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_7_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_7_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_7_10_mini);
+            }else if(levelS.equals("8x")){
+                level1.setBackgroundResource(R.mipmap.level_8_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_8_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_8_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_8_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_8_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_8_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_8_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_8_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_8_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_8_10_mini);
+            }else if(levelS.equals("9x")){
+                level1.setBackgroundResource(R.mipmap.level_9_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_9_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_9_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_9_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_9_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_9_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_9_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_9_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_9_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_9_10_mini);
             }else if(levelS.equals("10")){
-                level1.setBackgroundResource(R.mipmap.level_5_1_mini);
-                level2.setBackgroundResource(R.mipmap.level_5_2_mini);
-                level3.setBackgroundResource(R.mipmap.level_5_3_mini);
-                level4.setBackgroundResource(R.mipmap.level_5_4_mini);
-                level5.setBackgroundResource(R.mipmap.level_5_5_mini);
-                level6.setBackgroundResource(R.mipmap.level_5_6_mini);
-                level7.setBackgroundResource(R.mipmap.level_5_7_mini);
-                level8.setBackgroundResource(R.mipmap.level_5_8_mini);
-                level9.setBackgroundResource(R.mipmap.level_5_9_mini);
-                level10.setBackgroundResource(R.mipmap.level_5_10_mini);
+                level1.setBackgroundResource(R.mipmap.level_10_1_mini);
+                level2.setBackgroundResource(R.mipmap.level_10_2_mini);
+                level3.setBackgroundResource(R.mipmap.level_10_3_mini);
+                level4.setBackgroundResource(R.mipmap.level_10_4_mini);
+                level5.setBackgroundResource(R.mipmap.level_10_5_mini);
+                level6.setBackgroundResource(R.mipmap.level_10_6_mini);
+                level7.setBackgroundResource(R.mipmap.level_10_7_mini);
+                level8.setBackgroundResource(R.mipmap.level_10_8_mini);
+                level9.setBackgroundResource(R.mipmap.level_10_9_mini);
+                level10.setBackgroundResource(R.mipmap.level_10_10_mini);
             }else if(levelS.equals("11")){
                 level1.setBackgroundResource(R.mipmap.level_5_1_mini);
                 level2.setBackgroundResource(R.mipmap.level_5_2_mini);
@@ -482,7 +485,7 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
                 level9.getBackground().setAlpha(255);
                 level10.getBackground().setAlpha(opacity);
             }else{
-
+test = 10;
             }
 
 
@@ -495,25 +498,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.1xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".1xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '4' || levelC == '5'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -540,25 +552,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.2xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".2xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -576,25 +597,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.3xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".3xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -611,25 +641,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.4xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".4xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -646,25 +685,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.5xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".5xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -682,25 +730,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.6xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".6xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -717,25 +774,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.7xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".7xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -752,25 +818,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.8xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".8xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -789,25 +864,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.9xn");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".9xn");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }
@@ -825,25 +909,34 @@ public class ChooseLevelMenu extends Activity implements View.OnClickListener {
 
                         // objet qui vas nous permettre de passe des variables ici la variable passInfo
                         Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "level=" + levelC + "x.10n");
+                        objetbunble.putString("passInfo", "level=" + levelS + ".10n");
 
                         //création de notre item
-                        if(levelC == '1'){
+                        if(levelS.equals("1x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, ThreeLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("2x") || levelS.equals("3x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FourLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-                        }else if(levelC == '2' || levelC == '3'){
+                        }else if(levelS.equals("4x") || levelS.equals("5x") || levelS.equals("6x")){
                             Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
                             defineIntent.putExtras(objetbunble);
                             // on appelle notre activité
                             startActivity(defineIntent);
-
+                        }else if(levelS.equals("7x") || levelS.equals("8x") || levelS.equals("9x")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, SixLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
+                        }else if(levelS.equals("10") || levelS.equals("11")){
+                            Intent defineIntent = new Intent(ChooseLevelMenu.this, FiveLettersLevel.class);
+                            defineIntent.putExtras(objetbunble);
+                            // on appelle notre activité
+                            startActivity(defineIntent);
                         }else{
 
                         }

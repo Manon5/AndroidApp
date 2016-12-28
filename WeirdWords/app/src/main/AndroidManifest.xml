@@ -114,8 +114,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.manon.weirdwords.MainMenu" />
         </activity>
-        <activity android:name=".Help"
-         android:theme="@android:style/Theme.Dialog"></activity>
+        <activity
+            android:name=".Help"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".SevenLettersLevel"></activity>
     </application>
 
 </manifest>
