@@ -22,15 +22,11 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
     private ImageButton anglais_1 = null;
     private ImageButton anglais_2 = null;
-    private ImageButton allemand_1 = null;
-    private ImageButton allemand_2 = null;
-    private ImageButton italien_1 = null;
-    private ImageButton italien_2 = null;
+    private ImageButton anglais_3 = null;
     private ImageButton prenoms_1 = null;
     private ImageButton prenoms_2 = null;
     private Button classic = null;
     private Button special = null;
-    private ImageButton button0 = null;
     private ImageButton button1 = null;
     private ImageButton button2 = null;
     private ImageButton button3 = null;
@@ -40,9 +36,15 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
     private ImageButton button7 = null;
     private ImageButton button8 = null;
     private ImageButton button9 = null;
-    private ImageButton button10 = null;
-    private ImageButton button11 = null;
-    private ImageButton button12 = null;
+
+    private int eng1;
+    private int eng2;
+    private int ger1;
+    private int ger2;
+    private int ita1;
+    private int ita2;
+    private int nom1;
+    private int nom2;
 
     private String passMax;
     private String levelMax;
@@ -50,7 +52,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
     private int level_max = 0;
     private String passInfo;
-    private int opacity = 150;
+    private int opacity = 130;
 
     private int nbOfClues;
     private String specialMode;
@@ -67,7 +69,9 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
         // récupération de la valeur
         specialMode = objetbunble.getString("passInfo");
 
-
+        ///////////////////////////////////////////////////////////////////////////
+        /////////////////// MODE SPECIAL //////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////
         if(specialMode.equals("true")){
 
             setContentView(R.layout.activity_choose_pack_menu2);
@@ -80,19 +84,259 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             //Init boutons menu
             anglais_1 = (ImageButton)findViewById(R.id.anglais1);
             anglais_2 = (ImageButton)findViewById(R.id.anglais2);
-
-            allemand_1 = (ImageButton)findViewById(R.id.allemand1);
-            allemand_2 = (ImageButton)findViewById(R.id.allemand2);
-
-            italien_1 = (ImageButton)findViewById(R.id.italien1);
-            italien_2 = (ImageButton)findViewById(R.id.italien2);
+            anglais_3 = (ImageButton)findViewById(R.id.anglais3);
+;
 
             prenoms_1 = (ImageButton)findViewById(R.id.prenoms1);
             prenoms_2 = (ImageButton)findViewById(R.id.prenoms2);
 
 
 
-            // Gérer l'opacité
+            ////// ENGLISHMAX ///////
+            FileInputStream input3 = null;
+            String read3 = null;
+            char[] readBuffer3 = new char[26];
+            InputStreamReader isr3 = null;
+
+            // Recuperation de la valeur
+            try {
+
+                input3 = openFileInput("ENGLISHMAX");
+
+                isr3 = new InputStreamReader(input3);
+                isr3.read(readBuffer3);
+                read3 = new String(readBuffer3);
+
+
+            } catch (FileNotFoundException e) {
+
+                e.printStackTrace();
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+            //Traitement
+            String engMax = new String(read3);
+            String Seng1 = "" + engMax.charAt(12) + engMax.charAt(13);
+            String Seng2 = "" + engMax.charAt(15) + engMax.charAt(16);
+
+            if(Seng1.charAt(1) == 'x'){
+                Seng1 = "" + Seng1.charAt(0);
+            }else{
+
+            }
+
+            if(Seng2.charAt(1) == 'x'){
+                Seng2 = "" + Seng2.charAt(0);
+            }else{
+
+            }
+
+            eng1 = Integer.parseInt(Seng1);
+            eng2 = Integer.parseInt(Seng2);
+
+            /////// FIN ENGLISHMAX /////////
+
+
+
+            /////// NAMESMAX ////////
+            FileInputStream input4 = null;
+            String read4 = null;
+            char[] readBuffer4 = new char[26];
+            InputStreamReader isr4 = null;
+
+            // Recuperation de la valeur
+            try {
+
+                input4 = openFileInput("NAMESMAX");
+
+                isr4 = new InputStreamReader(input4);
+                isr4.read(readBuffer4);
+                read4 = new String(readBuffer4);
+
+
+            } catch (FileNotFoundException e) {
+
+                e.printStackTrace();
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+            //Traitement
+            String nomMax = new String(read4);
+            String Snom1 = "" + nomMax.charAt(12) + nomMax.charAt(13);
+            String Snom2 = "" + nomMax.charAt(15) + nomMax.charAt(16);
+
+            if(Snom1.charAt(1) == 'x'){
+                Snom1 = "" + Snom1.charAt(0);
+            }else{
+
+            }
+
+            if(Snom2.charAt(1) == 'x'){
+                Snom2 = "" + Snom2.charAt(0);
+            }else{
+
+            }
+
+            nom1 = Integer.parseInt(Seng1);
+            nom2 = Integer.parseInt(Seng2);
+
+
+            /////// FIN NAMESMAX ////////
+
+
+
+
+            /////// GERMANMAX ///////////
+            FileInputStream input5 = null;
+            String read5 = null;
+            char[] readBuffer5 = new char[26];
+            InputStreamReader isr5 = null;
+
+            // Recuperation de la valeur
+            try {
+
+                input5 = openFileInput("GERMANMAX");
+
+                isr5 = new InputStreamReader(input5);
+                isr5.read(readBuffer5);
+                read5 = new String(readBuffer5);
+
+
+            } catch (FileNotFoundException e) {
+
+                e.printStackTrace();
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+            //Traitement
+            String gerMax = new String(read5);
+            String Sger1 = "" + gerMax.charAt(11) + gerMax.charAt(12);
+            String Sger2 = "" + gerMax.charAt(14) + gerMax.charAt(15);
+
+            if(Sger1.charAt(1) == 'x'){
+                Sger1 = "" + Sger1.charAt(0);
+            }else{
+
+            }
+
+            if(Sger2.charAt(1) == 'x'){
+                Sger2 = "" + Sger2.charAt(0);
+            }else{
+
+            }
+
+            ger1 = Integer.parseInt(Sger1);
+            ger2 = Integer.parseInt(Sger2);
+
+            ///////// FIN GERMANMAX /////////////
+
+
+
+            /////////// ITALIANMAX ////////////
+            FileInputStream input6 = null;
+            String read6 = null;
+            char[] readBuffer6 = new char[26];
+            InputStreamReader isr6 = null;
+
+            // Recuperation de la valeur
+            try {
+
+                input6 = openFileInput("ITALIANMAX");
+
+                isr6 = new InputStreamReader(input6);
+                isr6.read(readBuffer6);
+                read6 = new String(readBuffer6);
+
+
+            } catch (FileNotFoundException e) {
+
+                e.printStackTrace();
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+            //Traitement
+            String itaMax = new String(read6);
+            String Sita1 = "" + itaMax.charAt(12) + itaMax.charAt(13);
+            String Sita2 = "" + itaMax.charAt(15) + itaMax.charAt(16);
+
+            if(Sita1.charAt(1) == 'x'){
+                Sita1 = "" + Sita1.charAt(0);
+            }else{
+
+            }
+
+            if(Sita2.charAt(1) == 'x'){
+                Sita2 = "" + Sita2.charAt(0);
+            }else{
+
+            }
+
+            ita1 = Integer.parseInt(Sita1);
+            ita2 = Integer.parseInt(Sita2);
+
+            ///////// FIN ITALIANMAX /////////////
+
+
+
+            ////////// OPACITE //////////////
+            opacity = 100;
+
+
+            // anglais
+            if(eng1 == 0){
+                anglais_1.getBackground().setAlpha(opacity);
+                anglais_2.getBackground().setAlpha(opacity);
+                anglais_3.getBackground().setAlpha(opacity);
+            }else if(eng1 == 1){
+                anglais_1.getBackground().setAlpha(255);
+                anglais_2.getBackground().setAlpha(opacity);
+                anglais_3.getBackground().setAlpha(opacity);
+            }else if(eng1 == 2){
+                anglais_1.getBackground().setAlpha(255);
+                anglais_2.getBackground().setAlpha(255);
+                anglais_3.getBackground().setAlpha(opacity);
+            }else{
+                anglais_1.getBackground().setAlpha(255);
+                anglais_2.getBackground().setAlpha(255);
+                anglais_3.getBackground().setAlpha(255);
+            }
+
+
+
+            // prenoms
+            if(nom1 == 0){
+
+                prenoms_1.getBackground().setAlpha(opacity);
+                prenoms_2.getBackground().setAlpha(opacity);
+            }else if(nom1 == 1){
+                prenoms_1.getBackground().setAlpha(255);
+                prenoms_2.getBackground().setAlpha(opacity);
+            }else if(nom1 == 2){
+                prenoms_1.getBackground().setAlpha(255);
+                prenoms_2.getBackground().setAlpha(255);
+            }else{
+                prenoms_1.getBackground().setAlpha(25);
+                prenoms_2.getBackground().setAlpha(25);
+            }
+
+
+
+
 
             classic = (Button)findViewById(R.id.classic_button);
             special = (Button)findViewById(R.id.special_button);
@@ -113,93 +357,89 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             anglais_1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "ang1");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
+                    if(eng1 >= 1){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "ang1");
+                        Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level1.putExtras(objetbunble);
+                        startActivity(level1);
+                    }else{
+
+                    }
                 }
             });
 
             anglais_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "ang2");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
+                    if(eng1 >= 2){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "ang2");
+                        Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level1.putExtras(objetbunble);
+                        startActivity(level1);
+                    }else{
+
+                    }
+
                 }
             });
 
-            allemand_1.setOnClickListener(new View.OnClickListener() {
+            anglais_3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "ang3");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
+                    if(eng1 >= 3){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "ang3");
+                        Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level1.putExtras(objetbunble);
+                        startActivity(level1);
+                    }else{
+
+                    }
+
                 }
             });
 
-            allemand_2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "nom1");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
-                }
-            });
 
-            italien_1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "nom2");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
-                }
-            });
-
-            italien_2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "nom2");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
-                }
-            });
 
             prenoms_1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "nom2");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
+                    if(nom1 >= 1){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "nom1");
+                        Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level1.putExtras(objetbunble);
+                        startActivity(level1);
+                    }else{
+
+                    }
+
                 }
             });
 
             prenoms_2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "nom2");
-                    Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                    level1.putExtras(objetbunble);
-                    startActivity(level1);
+                    if(nom1 >= 2){
+                        Bundle objetbunble = new Bundle();
+                        objetbunble.putString("passInfo", "nom2");
+                        Intent level1 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
+                        level1.putExtras(objetbunble);
+                        startActivity(level1);
+                    }else{
+
+                    }
+
                 }
             });
 
 
 
+            ///////////////////////////////////////////////////////////////////////////
+            /////////////////// MODE NORMAL ///////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////
         }else{
 
             setContentView(R.layout.activity_choose_pack_menu);
@@ -215,7 +455,6 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
 
             //Init boutons menu
-            button0 = (ImageButton)findViewById(R.id.button0);
             button1 = (ImageButton)findViewById(R.id.button1);
             button2 = (ImageButton)findViewById(R.id.button2);
             button3 = (ImageButton)findViewById(R.id.button3);
@@ -225,9 +464,6 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             button7 = (ImageButton)findViewById(R.id.button7);
             button8 = (ImageButton)findViewById(R.id.button8);
             button9 = (ImageButton)findViewById(R.id.button9);
-            button10 = (ImageButton)findViewById(R.id.button10);
-            button11 = (ImageButton)findViewById(R.id.button11);
-            button12 = (ImageButton)findViewById(R.id.button12);
 
 
 
@@ -251,7 +487,6 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
 
             nbOfClues = getClueNb();
-            setClueButtonBackground(0, nbOfClues);
             // Activation bouton retour
             undo_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -300,12 +535,13 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
             passMax = read1;
             levelMax = passMax.substring(0, 16);
 
-            levelMax = levelMax.charAt(10) + "" + passMax.charAt(11);
+            levelMax = levelMax.charAt(10) + "" + levelMax.charAt(11);
 
 
-            if(levelMax.length() == 1){
-            }else{
+            //Enlever l'eventuel "x"
+            if(levelMax.charAt(1) == 'x'){
                 levelMax = levelMax.charAt(0) + "";
+            }else{
 
             }
 
@@ -314,10 +550,9 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
 
             // Opacity
-            int opacity = 180;
+            int opacity = 100;
 
             if(levelI == 0){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(opacity);
                 button2.getBackground().setAlpha(opacity);
                 button3.getBackground().setAlpha(opacity);
@@ -327,11 +562,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(opacity);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 1){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(opacity);
                 button3.getBackground().setAlpha(opacity);
@@ -341,11 +572,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(opacity);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 2){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(opacity);
@@ -355,11 +582,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(opacity);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 3){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -369,11 +592,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(opacity);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 4){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -383,11 +602,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(opacity);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 5){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -397,11 +612,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(opacity);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 6){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -411,11 +622,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(opacity);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 7){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -425,11 +632,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(255);
                 button8.getBackground().setAlpha(opacity);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 8){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -439,11 +642,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(255);
                 button8.getBackground().setAlpha(255);
                 button9.getBackground().setAlpha(opacity);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 9){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -453,11 +652,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(255);
                 button8.getBackground().setAlpha(255);
                 button9.getBackground().setAlpha(255);
-                button10.getBackground().setAlpha(opacity);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 10){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -467,11 +662,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(255);
                 button8.getBackground().setAlpha(255);
                 button9.getBackground().setAlpha(255);
-                button10.getBackground().setAlpha(255);
-                button11.getBackground().setAlpha(opacity);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 11){
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -481,11 +672,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(255);
                 button8.getBackground().setAlpha(255);
                 button9.getBackground().setAlpha(255);
-                button10.getBackground().setAlpha(255);
-                button11.getBackground().setAlpha(255);
-                button12.getBackground().setAlpha(opacity);
             }else if(levelI == 12) {
-                button0.getBackground().setAlpha(255);
                 button1.getBackground().setAlpha(255);
                 button2.getBackground().setAlpha(255);
                 button3.getBackground().setAlpha(255);
@@ -495,11 +682,17 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 button7.getBackground().setAlpha(255);
                 button8.getBackground().setAlpha(255);
                 button9.getBackground().setAlpha(255);
-                button10.getBackground().setAlpha(255);
-                button11.getBackground().setAlpha(255);
-                button12.getBackground().setAlpha(255);
             }else{
 
+                button1.getBackground().setAlpha(255);
+                button2.getBackground().setAlpha(255);
+                button3.getBackground().setAlpha(255);
+                button4.getBackground().setAlpha(255);
+                button5.getBackground().setAlpha(255);
+                button6.getBackground().setAlpha(opacity);
+                button7.getBackground().setAlpha(255);
+                button8.getBackground().setAlpha(255);
+                button9.getBackground().setAlpha(255);
             }
 
 
@@ -509,17 +702,7 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
 
             // Activation boutons men
 
-            button0.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(levelI >= 0){
-                        Intent level0 = new Intent(ChoosePackMenu.this, FirstStep.class);
-                        startActivity(level0);
-                    }else{
 
-                    }
-                }
-            });
 
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -659,50 +842,8 @@ public class ChoosePackMenu extends Activity implements View.OnClickListener{
                 }
             });
 
-            button10.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(levelI >= 10){
-                        Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "10");
-                        Intent level10 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                        level10.putExtras(objetbunble);
-                        startActivity(level10);
-                    }else{
 
-                    }
-                }
-            });
 
-            button11.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(levelI >= 11){
-                        Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "11");
-                        Intent level11 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                        level11.putExtras(objetbunble);
-                        startActivity(level11);
-                    }else{
-
-                    }
-                }
-            });
-
-            button12.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(levelI >= 12){
-                        Bundle objetbunble = new Bundle();
-                        objetbunble.putString("passInfo", "12");
-                        Intent level12 = new Intent(ChoosePackMenu.this, ChooseLevelMenu.class);
-                        level12.putExtras(objetbunble);
-                        startActivity(level12);
-                    }else{
-
-                    }
-                }
-            });
 
 
         }

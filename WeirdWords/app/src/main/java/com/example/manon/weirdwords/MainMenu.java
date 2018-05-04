@@ -35,7 +35,6 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
         // Init boutons toolbar
         undo_button = (ImageButton)findViewById(R.id.undo_button);
-        clue_button = (ImageButton)findViewById(R.id.clue_button);
         param_button = (ImageButton)findViewById(R.id.param_button);
 
         // Initialisation 3 boutons menu
@@ -72,7 +71,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
         if(read1 == null){
             FileOutputStream output = null;
-            String param = "level_max=9x.8xn";
+            String param = "level_max=10.8xn";
 
             try {
                 output = openFileOutput("LEVELMAX", MODE_PRIVATE);
@@ -166,7 +165,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
         if(read3 == null){
             FileOutputStream output = null;
-            String param = "english_max=1x.4xn";
+            String param = "english_max=0x.0xn";
 
             try {
                 output = openFileOutput("ENGLISHMAX", MODE_PRIVATE);
@@ -231,10 +230,104 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
 
 
+        // GERMANMAX
+        FileInputStream input5 = null;
+        String read5 = null;
+        char[] readBuffer5 = new char[26];
+        InputStreamReader isr5 = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input5 = openFileInput("GERMANMAX");
+
+            isr5 = new InputStreamReader(input5);
+            isr5.read(readBuffer5);
+            read5 = new String(readBuffer5);
 
 
-        nbOfClues = getClueNb();
-        setClueButtonBackground(0, nbOfClues);
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        if(read5 == null){
+            FileOutputStream output = null;
+            String param = "german_max=0x.0xn";
+
+            try {
+                output = openFileOutput("GERMANMAX", MODE_PRIVATE);
+                output.write(param.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+
+        }
+        // FIN GERMANMAX
+
+
+
+        // ITALIANMAX
+        FileInputStream input6 = null;
+        String read6 = null;
+        char[] readBuffer6 = new char[26];
+        InputStreamReader isr6 = null;
+
+        // Recuperation de la valeur
+        try {
+
+            input6 = openFileInput("ITALIANMAX");
+
+            isr6 = new InputStreamReader(input6);
+            isr6.read(readBuffer6);
+            read6 = new String(readBuffer6);
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        if(read6 == null){
+            FileOutputStream output = null;
+            String param = "italian_max=0x.0xn";
+
+            try {
+                output = openFileOutput("ITALIANMAX", MODE_PRIVATE);
+                output.write(param.getBytes());
+                if(output != null)
+                    output.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+
+        }
+
+        // FIN ITALIAN MAX
+
+
+
+
+
+
 
 
         // Activation toolbar
@@ -280,7 +373,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
 
-                Intent appel = new Intent(MainMenu.this, Help.class);
+                Intent appel = new Intent(MainMenu.this, Settings.class);
                 startActivity(appel);
             }
         });
@@ -307,117 +400,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
 
     }
 
-    public void setClueButtonBackground(int usedClues,int nbOfClues){
-        boolean isEnabled;
-        if(usedClues < 2){
-            isEnabled = true;
-        }else{
-            isEnabled = false;
-        }
 
-
-        if(isEnabled == true){
-            // Bouton normal
-            if(nbOfClues == 0){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_0);
-            }else if(nbOfClues == 1){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_1);
-            }else if(nbOfClues == 2){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_2);
-            }else if(nbOfClues == 3){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_3);
-            }else if(nbOfClues == 4){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_4);
-            }else if(nbOfClues == 5){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_5);
-            }else if(nbOfClues == 6){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_6);
-            }else if(nbOfClues == 7){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_7);
-            }else if(nbOfClues == 8){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_8);
-            }else if(nbOfClues == 9){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_9);
-            }else{
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_10);
-            }
-
-
-        }else{
-            // Bouton desactive
-
-
-            if(nbOfClues == 0){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_0);
-            }else if(nbOfClues == 1){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_1);
-            }else if(nbOfClues == 2){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_2);
-            }else if(nbOfClues == 3){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_3);
-            }else if(nbOfClues == 4){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_4);
-            }else if(nbOfClues == 5){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_5);
-            }else if(nbOfClues == 6){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_6);
-            }else if(nbOfClues == 7){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_7);
-            }else if(nbOfClues == 8){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_8);
-            }else if(nbOfClues == 9){
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_9);
-            }else{
-                clue_button.setBackgroundResource(R.mipmap.icone_indice_desactive_10);
-            }
-        }
-
-    }
-
-    public int getClueNb() {
-
-        FileInputStream input2 = null;
-        String read2 = null;
-        String clueNb = null;
-        int nbOfClues = 0;
-        char[] readBuffer2 = new char[26];
-        InputStreamReader isr2 = null;
-
-        // Recuperation de la valeur
-        try {
-
-            input2 = openFileInput("CLUENB");
-
-            isr2 = new InputStreamReader(input2);
-            isr2.read(readBuffer2);
-            read2 = new String(readBuffer2);
-
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
-
-        // Traitement pour obtenir nbOfClues //
-        clueNb = read2.substring(5);
-        if (clueNb.charAt(2) != 'x') {
-            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1) + clueNb.charAt(2);
-        } else if (clueNb.charAt(1) != 'x') {
-            clueNb = "" + clueNb.charAt(0) + clueNb.charAt(1);
-        } else {
-            clueNb = "" + clueNb.charAt(0);
-        }
-
-        // Determiner nbOfClues et adapter le bouton
-        nbOfClues = Integer.parseInt(clueNb);
-
-        return nbOfClues;
-    }
 
 
 }

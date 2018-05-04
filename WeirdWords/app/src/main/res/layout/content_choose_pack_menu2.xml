@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.manon.weirdwords.ChoosePackMenu"
     tools:showIn="@layout/activity_choose_pack_menu"
-    android:background="@mipmap/background_2">
+    android:background="@mipmap/background">
 
 
     <LinearLayout
@@ -17,79 +17,47 @@
 
 
         <TextView
-            android:layout_width="320dp"
+            android:layout_width="330dp"
             android:layout_height="70dp"
             android:text="Langues étrangères"
-            android:textSize="35sp"
+            android:textSize="37sp"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="25dp"/>
 
         <ImageButton
             android:id="@+id/anglais1"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/anglais1">
         </ImageButton>
 
         <ImageButton
             android:id="@+id/anglais2"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/anglais2">
         </ImageButton>
 
         <ImageButton
-            android:id="@+id/allemand1"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/allemand1">
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/allemand2"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:id="@+id/anglais3"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@mipmap/allemand2">
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/italien1"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/italien1">
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/italien2"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/italien2">
+            android:background="@mipmap/anglais3">
         </ImageButton>
 
 
@@ -98,7 +66,8 @@
             android:layout_width="320dp"
             android:layout_height="70dp"
             android:text="Prénoms"
-            android:textSize="35sp"
+            android:textSize="40sp"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
@@ -106,10 +75,10 @@
 
         <ImageButton
             android:id="@+id/prenoms1"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/prenoms1">
@@ -117,10 +86,10 @@
 
         <ImageButton
             android:id="@+id/prenoms2"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/prenoms2">
@@ -128,14 +97,16 @@
 
         <ImageButton
             android:id="@+id/prenoms3"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/prenoms3">
         </ImageButton>
+
+
 
 
 

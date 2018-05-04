@@ -29,12 +29,10 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         reinit = (Button)findViewById(R.id.reinit_button);
         undo_button = (ImageButton)findViewById(R.id.undo_button);
         clue_button = (ImageButton)findViewById(R.id.clue_button);
-        help_button = (ImageButton)findViewById(R.id.help_button);
 
 
 
         nbOfClues = getClueNb();
-        setClueButtonBackground(0, nbOfClues);
 
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,12 +49,10 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
                 if(reinit_mode == false){
                     reinit_mode = true;
                     reinit.setBackgroundResource(R.mipmap.large_menu_item_red);
-                    reinit.setText("Ceci effacera tout votre avancement. Continuer ?");
                 }else{
                     reinit_mode = false;
                     reinit.setBackgroundResource(R.mipmap.large_menu_item);
                     reinit();
-                    reinit.setText("Jeu réinitialisé !");
                 }
             }
         });
@@ -71,6 +67,10 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         FileOutputStream output = null;
         String param1 = "level_max=1x.1xn";
         String param2 = "clue=8xx";
+        String param3 = "english_max=0x.0xn";
+        String param4 = "names_max=0x.0xn";
+        String param5 = "german_max=0x.0xn";
+        String param6 = "italian_max=0x.0xn";
 
         // LEVELMAX
         try {
@@ -98,19 +98,66 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         }
 
 
-            FileOutputStream output1 = null;
-            String param = "english_max=0x.0xn";
+        // ENGLISHMAX
+            FileOutputStream output3 = null;
 
             try {
-                output1 = openFileOutput("ENGLISHMAX", MODE_PRIVATE);
-                output1.write(param.getBytes());
-                if(output1 != null)
-                    output1.close();
+                output3 = openFileOutput("ENGLISHMAX", MODE_PRIVATE);
+                output3.write(param3.getBytes());
+                if(output3 != null)
+                    output3.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
+        // NAMESMAX
+        FileOutputStream output4 = null;
+
+        try {
+            output4 = openFileOutput("NAMESMAX", MODE_PRIVATE);
+            output4.write(param4.getBytes());
+            if(output4 != null)
+                output4.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        // GERMANMAX
+        FileOutputStream output5 = null;
+
+        try {
+            output5 = openFileOutput("GERMANMAX", MODE_PRIVATE);
+            output5.write(param5.getBytes());
+            if(output5 != null)
+                output5.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        // ITALIANMAX
+        FileOutputStream output6 = null;
+
+        try {
+            output6 = openFileOutput("ITALIANMAX", MODE_PRIVATE);
+            output6.write(param6.getBytes());
+            if(output6 != null)
+                output6.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

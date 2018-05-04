@@ -42,9 +42,9 @@ public class WinActivity extends Activity implements View.OnClickListener{
         Bundle objetbunble  = this.getIntent().getExtras();
         // récupération de la valeur
         levelS = objetbunble.getString("passInfo");
-        if(levelS.charAt(6) == '1'){
+        if(levelS.charAt(6) == '1' || levelS.charAt(6) == '2'){
             ThreeLettersLevel.getInstance().finish();
-        }else if(levelS.charAt(6) == '2'){
+        }else if(levelS.charAt(6) == '3'){
             FourLettersLevel.getInstance().finish();
         }else{
 
@@ -198,14 +198,14 @@ public class WinActivity extends Activity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
                 Intent appel;
-                if(levelS2.charAt(6) == '1'){
+                if(levelS2.charAt(6) == '1' || levelS2.charAt(6) == '2'){
                     appel = new Intent(WinActivity.this, ThreeLettersLevel.class);
-                }else if(levelS2.charAt(6) == '2'){
+                }else if(levelS2.charAt(6) == '3'|| levelS2.charAt(6) == '4' || levelS2.charAt(6) == '5' ){
                     appel = new Intent(WinActivity.this, FourLettersLevel.class);
-                }else  if(levelS2.charAt(6) == '3'){
-                    appel = new Intent(WinActivity.this, FourLettersLevel.class);
-                }else{
+                }else  if(levelS2.charAt(6) == '6' || levelS2.charAt(6) == '7' || levelS2.charAt(6) == '8' || levelS2.charAt(6) == '9'){
                     appel = new Intent(WinActivity.this, FiveLettersLevel.class);
+                }else{
+                    appel = new Intent(WinActivity.this, ThreeLettersLevel.class);
                 }
 
                 // FIN
@@ -314,7 +314,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
                 @Override
                 public void onClick(View v) {
                     Intent appel;
-                    if(levelS2.charAt(8) == '1'){
+                    if(levelS2.charAt(8) == '1' || levelS2.charAt(8) == '2'){
                         appel = new Intent(WinActivity.this, ThreeLettersLevel.class);
                     }else if(levelS2.charAt(8) == '2'){
                         appel = new Intent(WinActivity.this, FourLettersLevel.class);

@@ -13,35 +13,16 @@
 
         <ImageButton
             android:id="@+id/undo_button"
-            android:layout_width="45dp"
+            android:layout_width="30dp"
             android:layout_height="45dp"
             android:background="@mipmap/icone_undo"
-            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
             android:layout_alignParentLeft="true" />
 
-        <ImageButton
-            android:id="@+id/help_button"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_margin="5dp"
-            android:background="@mipmap/icone_aide"
-            android:layout_toLeftOf="@+id/param_button"/>
 
-        <ImageButton
-            android:id="@+id/param_button"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_margin="5dp"
-            android:background="@mipmap/icone_param"
-            android:layout_toLeftOf="@+id/clue_button"/>
-
-        <ImageButton
-            android:id="@+id/clue_button"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_margin="5dp"
-            android:background="@mipmap/icone_indice"
-            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
     <TextView
@@ -51,7 +32,7 @@
         android:layout_marginLeft="15dp"
         android:text="Ce tutoriel est maintenant terminé, à vous de jouer et bonne chance !"
         android:textSize="35sp"
-        android:textColor="#375c77"
+        android:textColor="#303030"
         android:textAlignment="center"/>
 
 

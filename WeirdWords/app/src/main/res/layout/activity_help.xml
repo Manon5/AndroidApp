@@ -13,7 +13,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="@mipmap/small_button"
+        android:background="@mipmap/button_blue"
         android:layout_margin="20dp"
         android:text="Fermer"
         android:textSize="45sp"/>

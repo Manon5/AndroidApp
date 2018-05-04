@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.manon.weirdwords.ChoosePackMenu"
     tools:showIn="@layout/activity_choose_pack_menu"
-    android:background="@mipmap/background_2">
+    android:background="@mipmap/background">
 
 
     <LinearLayout
@@ -15,24 +15,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <ImageButton
-            android:id="@+id/button0"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/didacticiel1">
-        </ImageButton>
-
         <ImageButton
             android:id="@+id/button1"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau1">
@@ -40,10 +28,10 @@
 
         <ImageButton
             android:id="@+id/button2"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau2">
@@ -51,10 +39,10 @@
 
         <ImageButton
             android:id="@+id/button3"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau3">
@@ -62,10 +50,10 @@
 
         <ImageButton
             android:id="@+id/button4"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau4">
@@ -73,10 +61,10 @@
 
         <ImageButton
             android:id="@+id/button5"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau5">
@@ -84,10 +72,10 @@
 
         <ImageButton
             android:id="@+id/button6"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau6">
@@ -95,10 +83,10 @@
 
         <ImageButton
             android:id="@+id/button7"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau7">
@@ -106,10 +94,10 @@
 
         <ImageButton
             android:id="@+id/button8"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau8">
@@ -117,47 +105,18 @@
 
         <ImageButton
             android:id="@+id/button9"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@mipmap/niveau9">
         </ImageButton>
 
-        <ImageButton
-            android:id="@+id/button10"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/niveau10">
-        </ImageButton>
 
-        <ImageButton
-            android:id="@+id/button11"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/niveau11">
-        </ImageButton>
 
-        <ImageButton
-            android:id="@+id/button12"
-            android:layout_width="305dp"
-            android:layout_height="94dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@mipmap/niveau12">
-        </ImageButton>
+
 
 
 

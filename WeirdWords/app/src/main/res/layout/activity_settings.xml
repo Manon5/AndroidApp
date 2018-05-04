@@ -12,39 +12,34 @@
 
         <ImageButton
             android:id="@+id/undo_button"
-            android:layout_width="45dp"
+            android:layout_width="30dp"
             android:layout_height="45dp"
             android:background="@mipmap/icone_undo"
-            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
             android:layout_alignParentLeft="true" />
 
+
         <ImageButton
-            android:id="@+id/help_button"
+            android:id="@+id/param_button"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_margin="5dp"
-            android:background="@mipmap/icone_aide"
-            android:layout_toLeftOf="@+id/clue_button"/>
-
-
-        <ImageButton
-            android:id="@+id/clue_button"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_margin="5dp"
-            android:background="@mipmap/icone_indice"
+            android:background="@mipmap/icone_param"
             android:layout_alignParentRight="true"/>
+
     </RelativeLayout>
 
 
     <Button
         android:id="@+id/reinit_button"
         android:layout_width="250dp"
-        android:layout_height="125dp"
+        android:layout_height="175dp"
         android:layout_marginTop="90dp"
         android:layout_marginLeft="65dp"
-        android:text="Réinitialiser votre progression"
         android:textSize="25sp"
-        android:textColor="#99999999"
+        android:textColor="#e0e0e0"
         android:background="@mipmap/large_menu_item"/>
 </RelativeLayout>

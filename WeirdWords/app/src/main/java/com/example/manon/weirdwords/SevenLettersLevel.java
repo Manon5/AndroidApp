@@ -141,8 +141,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         // Personnalisation image
         if(levelS.equals("level=10.1xn") || levelS.equals("level=10.1xw") || levelS.equals(null)){
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "POISSON";
+            answer2 = "POISSON";
             image.setBackgroundResource(R.mipmap.level_10_1);
 
             clavier1 = "L";
@@ -168,8 +168,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=10.2xn") || levelS.equals("level=10.2xw")) {
             image.setBackgroundResource(R.mipmap.level_10_2);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "CRAVATE";
+            answer2 = "CRAVATE";
             clavier1 = "P";
             clavier2 = "S";
             clavier3 = "A";
@@ -193,8 +193,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_10_3);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "FAMILLE";
+            answer2 = "FAMILLE";
             clavier1 = "F";
             clavier2 = "O";
             clavier3 = "A";
@@ -218,8 +218,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_10_4);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "CLAVIER";
+            answer2 = "CLAVIER";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "S";
@@ -241,8 +241,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=10.5xn") || levelS.equals("level=10.5xw")){
             image.setBackgroundResource(R.mipmap.level_10_5);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "ALIMENT";
+            answer2 = "ALIMENT";
             clavier1 = "B";
             clavier2 = "T";
             clavier3 = "D";
@@ -264,8 +264,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=10.6xn") || levelS.equals("level=10.6xw")){
             image.setBackgroundResource(R.mipmap.level_10_6);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "POTERIE";
+            answer2 = "POTERIE";
             clavier1 = "M";
             clavier2 = "A";
             clavier3 = "I";
@@ -287,8 +287,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=10.7xn") || levelS.equals("level=10.7xw")){
             image.setBackgroundResource(R.mipmap.level_10_7);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "INSECTE";
+            answer2 = "INSECTE";
             clavier1 = "M";
             clavier2 = "T";
             clavier3 = "D";
@@ -310,8 +310,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=10.8xn") || levelS.equals("level=10.8xw")){
             image.setBackgroundResource(R.mipmap.level_10_8);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "ANALYSE";
+            answer2 = "ANALYSE";
             clavier1 = "T";
             clavier2 = "L";
             clavier3 = "M";
@@ -334,8 +334,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=10.9xn") || levelS.equals("level=10.9xw")){
             image.setBackgroundResource(R.mipmap.level_10_9);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "CHEMISE";
+            answer2 = "CHEMISE";
             clavier1 = "W";
             clavier2 = "N";
             clavier3 = "T";
@@ -358,8 +358,8 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
         }else if(levelS.equals("level=10.10n") || levelS.equals("level=10.10w")){
             image.setBackgroundResource(R.mipmap.level_10_10);
 
-            answer1 = "XXXXXXX";
-            answer2 = "XXXXXXX";
+            answer1 = "LANGAGE";
+            answer2 = "LANGAGE";
             clavier1 = "T";
             clavier2 = "K";
             clavier3 = "M";
@@ -672,7 +672,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton1Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button1.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button1.setBackgroundResource(R.mipmap.clavier_orange_pressed);
                         isButton1Pressed = true;
                         carac = button1.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -684,7 +684,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else{
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_orange);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -701,7 +701,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton2Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button2.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button2.setBackgroundResource(R.mipmap.clavier_jaune_pressed);
                         isButton2Pressed = true;
                         carac = button2.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -714,7 +714,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else{
-                    button2.setBackgroundResource(R.mipmap.small_button);
+                    button2.setBackgroundResource(R.mipmap.clavier_jaune);
                     isButton2Pressed = false;
                     removeCharacter(button2);
                     updateSaisie();
@@ -730,7 +730,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton3Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button3.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button3.setBackgroundResource(R.mipmap.clavier_vert_pressed);
                         isButton3Pressed = true;
                         carac = button3.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -743,7 +743,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else{
-                    button3.setBackgroundResource(R.mipmap.small_button);
+                    button3.setBackgroundResource(R.mipmap.clavier_vert);
                     isButton3Pressed = false;
                     removeCharacter(button3);
                     updateSaisie();
@@ -759,7 +759,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton4Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button4.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button4.setBackgroundResource(R.mipmap.clavier_orange_pressed);
                         isButton4Pressed = true;
                         carac = button4.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -772,7 +772,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else{
-                    button4.setBackgroundResource(R.mipmap.small_button);
+                    button4.setBackgroundResource(R.mipmap.clavier_orange);
                     isButton4Pressed = false;
                     removeCharacter(button4);
                     updateSaisie();
@@ -789,7 +789,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton5Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button5.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button5.setBackgroundResource(R.mipmap.clavier_jaune_pressed);
                         isButton5Pressed = true;
                         carac = button5.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -802,7 +802,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -820,7 +820,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton6Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button6.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button6.setBackgroundResource(R.mipmap.clavier_vert_pressed);
                         isButton6Pressed = true;
                         carac = button6.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -833,7 +833,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_vert);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -851,7 +851,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton7Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button7.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button7.setBackgroundResource(R.mipmap.clavier_jaune_pressed);
                         isButton7Pressed = true;
                         carac = button7.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -864,7 +864,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -882,7 +882,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton8Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button8.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button8.setBackgroundResource(R.mipmap.clavier_vert_pressed);
                         isButton8Pressed = true;
                         carac = button8.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -895,7 +895,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_vert);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -913,7 +913,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton9Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button9.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button9.setBackgroundResource(R.mipmap.clavier_orange_pressed);
                         isButton9Pressed = true;
                         carac = button9.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -926,7 +926,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_orange);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -944,7 +944,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton10Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button10.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button10.setBackgroundResource(R.mipmap.clavier_jaune_pressed);
                         isButton10Pressed = true;
                         carac = button10.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -957,7 +957,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -975,7 +975,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton11Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button11.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button11.setBackgroundResource(R.mipmap.clavier_vert_pressed);
                         isButton11Pressed = true;
                         carac = button11.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -988,7 +988,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_vert);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1006,7 +1006,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton12Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button12.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button12.setBackgroundResource(R.mipmap.clavier_orange_pressed);
                         isButton12Pressed = true;
                         carac = button12.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -1019,7 +1019,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_orange);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1037,7 +1037,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton13Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button13.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button13.setBackgroundResource(R.mipmap.clavier_vert_pressed);
                         isButton13Pressed = true;
                         carac = button13.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -1050,7 +1050,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_vert);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1068,7 +1068,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton14Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button14.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button14.setBackgroundResource(R.mipmap.clavier_orange_pressed);
                         isButton14Pressed = true;
                         carac = button14.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -1081,7 +1081,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_orange);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1099,7 +1099,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton15Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button15.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button15.setBackgroundResource(R.mipmap.clavier_jaune_pressed);
                         isButton15Pressed = true;
                         carac = button15.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -1112,7 +1112,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1130,7 +1130,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton16Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button16.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button16.setBackgroundResource(R.mipmap.clavier_vert_pressed);
                         isButton16Pressed = true;
                         carac = button16.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -1143,7 +1143,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_vert);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1161,7 +1161,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton17Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button17.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button17.setBackgroundResource(R.mipmap.clavier_orange_pressed);
                         isButton17Pressed = true;
                         carac = button17.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -1174,7 +1174,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_orange);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1192,7 +1192,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                 char carac;
                 if(isButton18Pressed == false && clueMode == false){
                     if(focusSaisie < 7){
-                        button18.setBackgroundResource(R.mipmap.small_button_pressed);
+                        button18.setBackgroundResource(R.mipmap.clavier_jaune_pressed);
                         isButton18Pressed = true;
                         carac = button18.getText().charAt(0);
                         saisie[focusSaisie] = carac;
@@ -1205,7 +1205,7 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.small_button);
+                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
                     isButton1Pressed = false;
                     removeCharacter(button1);
                     updateSaisie();
@@ -1430,58 +1430,58 @@ public class SevenLettersLevel extends AppCompatActivity implements View.OnClick
 
     public void releaseButton(char carac){
         if(button1.getText().charAt(0) == carac && isButton1Pressed == true){
-            button1.setBackgroundResource(R.mipmap.small_button);
+            button1.setBackgroundResource(R.mipmap.clavier_orange);
             isButton1Pressed = false;
         }else if(button2.getText().charAt(0) == carac && isButton2Pressed == true){
-            button2.setBackgroundResource(R.mipmap.small_button);
+            button2.setBackgroundResource(R.mipmap.clavier_jaune);
             isButton2Pressed = false;
         }else if(button3.getText().charAt(0) == carac && isButton3Pressed == true){
-            button3.setBackgroundResource(R.mipmap.small_button);
+            button3.setBackgroundResource(R.mipmap.clavier_vert);
             isButton3Pressed = false;
         }else if(button4.getText().charAt(0) == carac && isButton4Pressed == true){
-            button4.setBackgroundResource(R.mipmap.small_button);
+            button4.setBackgroundResource(R.mipmap.clavier_orange);
             isButton4Pressed = false;
         }else if(button5.getText().charAt(0) == carac && isButton5Pressed == true){
-            button5.setBackgroundResource(R.mipmap.small_button);
+            button5.setBackgroundResource(R.mipmap.clavier_jaune);
             isButton5Pressed = false;
         }else if(button6.getText().charAt(0) == carac && isButton6Pressed == true){
-            button6.setBackgroundResource(R.mipmap.small_button);
+            button6.setBackgroundResource(R.mipmap.clavier_vert);
             isButton6Pressed = false;
         }else if(button7.getText().charAt(0) == carac && isButton7Pressed == true){
-            button7.setBackgroundResource(R.mipmap.small_button);
+            button7.setBackgroundResource(R.mipmap.clavier_jaune);
             isButton7Pressed = false;
         }else if(button8.getText().charAt(0) == carac && isButton8Pressed == true){
-            button8.setBackgroundResource(R.mipmap.small_button);
+            button8.setBackgroundResource(R.mipmap.clavier_vert);
             isButton8Pressed = false;
         }else if(button9.getText().charAt(0) == carac && isButton9Pressed == true){
-            button9.setBackgroundResource(R.mipmap.small_button);
+            button9.setBackgroundResource(R.mipmap.clavier_orange);
             isButton9Pressed = false;
         }else if(button10.getText().charAt(0) == carac && isButton10Pressed == true){
-            button10.setBackgroundResource(R.mipmap.small_button);
+            button10.setBackgroundResource(R.mipmap.clavier_jaune);
             isButton10Pressed = false;
         }else if(button11.getText().charAt(0) == carac && isButton11Pressed == true){
-            button11.setBackgroundResource(R.mipmap.small_button);
+            button11.setBackgroundResource(R.mipmap.clavier_vert);
             isButton11Pressed = false;
         }else if(button12.getText().charAt(0) == carac && isButton12Pressed == true){
-            button12.setBackgroundResource(R.mipmap.small_button);
+            button12.setBackgroundResource(R.mipmap.clavier_orange);
             isButton12Pressed = false;
         }else if(button13.getText().charAt(0) == carac && isButton13Pressed == true){
-            button13.setBackgroundResource(R.mipmap.small_button);
+            button13.setBackgroundResource(R.mipmap.clavier_vert);
             isButton13Pressed = false;
         }else if(button14.getText().charAt(0) == carac && isButton14Pressed == true){
-            button14.setBackgroundResource(R.mipmap.small_button);
+            button14.setBackgroundResource(R.mipmap.clavier_orange);
             isButton14Pressed = false;
         }else if(button15.getText().charAt(0) == carac && isButton15Pressed == true){
-            button15.setBackgroundResource(R.mipmap.small_button);
+            button15.setBackgroundResource(R.mipmap.clavier_jaune);
             isButton15Pressed = false;
         }else if(button16.getText().charAt(0) == carac && isButton16Pressed == true){
-            button16.setBackgroundResource(R.mipmap.small_button);
+            button16.setBackgroundResource(R.mipmap.clavier_vert);
             isButton16Pressed = false;
         }else if(button17.getText().charAt(0) == carac && isButton17Pressed == true){
-            button17.setBackgroundResource(R.mipmap.small_button);
+            button17.setBackgroundResource(R.mipmap.clavier_orange);
             isButton17Pressed = false;
         }else{
-            button18.setBackgroundResource(R.mipmap.small_button);
+            button18.setBackgroundResource(R.mipmap.clavier_jaune);
             isButton18Pressed = false;
         }
     }
