@@ -715,8 +715,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_1_ang);
 
-            answer1 = "SEA";
-            answer2 = "SEA";
+            answer1 = "ICE";
+            answer2 = "ICE";
             clavier1 = "E";
             clavier2 = "O";
             clavier3 = "Q";
@@ -740,8 +740,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_2_ang);
 
-            answer1 = "ICE";
-            answer2 = "ICE";
+            answer1 = "RUN";
+            answer2 = "RUN";
             clavier1 = "E";
             clavier2 = "O";
             clavier3 = "I";
@@ -790,8 +790,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_4_ang);
 
-            answer1 = "BOY";
-            answer2 = "BOY";
+            answer1 = "BED";
+            answer2 = "BED";
             clavier1 = "E";
             clavier2 = "O";
             clavier3 = "Q";
@@ -840,8 +840,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_6_ang);
 
-            answer1 = "RUN";
-            answer2 = "RUN";
+            answer1 = "MAN";
+            answer2 = "MAN";
             clavier1 = "N";
             clavier2 = "O";
             clavier3 = "Q";
@@ -865,8 +865,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_7_ang);
 
-            answer1 = "BED";
-            answer2 = "BED";
+            answer1 = "LEG";
+            answer2 = "LEG";
             clavier1 = "E";
             clavier2 = "O";
             clavier3 = "Q";
@@ -891,8 +891,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_8_ang);
 
-            answer1 = "LEG";
-            answer2 = "GEL";
+            answer1 = "BEE";
+            answer2 = "BEE";
             clavier1 = "E";
             clavier2 = "O";
             clavier3 = "U";

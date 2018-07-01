@@ -67,7 +67,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         FileOutputStream output = null;
         String param1 = "level_max=1x.1xn";
         String param2 = "clue=8xx";
-        String param3 = "english_max=0x.0xn";
+        String param3 = "english_max=1x.1xn";
         String param4 = "names_max=0x.0xn";
         String param5 = "german_max=0x.0xn";
         String param6 = "italian_max=0x.0xn";

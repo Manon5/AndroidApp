@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.AppCompatButton;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -268,6 +269,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
         }
 
+        Log.d("myTag", "test");
         if(levelS2.substring(0, 5).equals("level")){
             levelMax = levelS2.substring(0, 5) + "_max" + levelS2.substring(5);
 
