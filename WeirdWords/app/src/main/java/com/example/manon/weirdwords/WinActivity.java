@@ -120,7 +120,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=3x.9xw";
         }else if(levelS.equals("level=3x.9xw") || levelS.equals("level=3x.9xn")){
             levelS2="level=3x.10w";
-        }else if(levelS.equals("level 3x.10w") || levelS.equals("level=3x.10n")){
+        }else if(levelS.equals("level=3x.10w") || levelS.equals("level=3x.10n")){
             nbOfClues = nbOfClues + 5;
             specialLevel = 1;
             levelS2="level=4x.1xw";
@@ -164,6 +164,8 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=5x.9xw";
         }else if(levelS.equals("level=5x.9xw") || levelS.equals("level=5x.9xn")){
             levelS2="level=5x.10w";
+        }else if(levelS.equals("level=5x.10w") || levelS.equals("level=5x.10n")){
+            levelS2="level=6x.1xw";
 
 
         }else if(levelS.equals("english=1x.1xw") || levelS.equals("english=1x.1xn")){
@@ -269,7 +271,6 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
         }
 
-        Log.d("myTag", "test");
         if(levelS2.substring(0, 5).equals("level")){
             levelMax = levelS2.substring(0, 5) + "_max" + levelS2.substring(5);
 

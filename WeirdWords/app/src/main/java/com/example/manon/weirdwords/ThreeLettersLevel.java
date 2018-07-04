@@ -722,10 +722,10 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier3 = "Q";
             clavier4 = "E";
             clavier5 = "T";
-            clavier6 = "J";
+            clavier6 = "G";
             clavier7 = "A";
             clavier8 = "S";
-            clavier9 = "W";
+            clavier9 = "Q";
             clavier10 = "A";
             clavier11 = "I";
             clavier12 = "S";
@@ -733,7 +733,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier14 = "L";
             clavier15 = "R";
             clavier16 = "E";
-            clavier17 = "P";
+            clavier17 = "C";
             clavier18 = "E";
 
         }else if(levelS.equals("english=1x.2xn") || levelS.equals("english=1x.2xw")){
@@ -742,24 +742,24 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             answer1 = "RUN";
             answer2 = "RUN";
-            clavier1 = "E";
+            clavier1 = "U";
             clavier2 = "O";
             clavier3 = "I";
             clavier4 = "E";
-            clavier5 = "T";
+            clavier5 = "R";
             clavier6 = "J";
             clavier7 = "A";
             clavier8 = "S";
             clavier9 = "W";
             clavier10 = "A";
             clavier11 = "I";
-            clavier12 = "S";
+            clavier12 = "N";
             clavier13 = "C";
             clavier14 = "L";
             clavier15 = "R";
-            clavier16 = "E";
-            clavier17 = "P";
-            clavier18 = "E";
+            clavier16 = "O";
+            clavier17 = "I";
+            clavier18 = "R";
 
         }else if(levelS.equals("english=1x.3xn") || levelS.equals("english=1x.3xw")){
 
@@ -775,15 +775,15 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier6 = "J";
             clavier7 = "A";
             clavier8 = "S";
-            clavier9 = "W";
+            clavier9 = "M";
             clavier10 = "A";
             clavier11 = "I";
             clavier12 = "S";
             clavier13 = "A";
-            clavier14 = "L";
+            clavier14 = "H";
             clavier15 = "R";
-            clavier16 = "E";
-            clavier17 = "P";
+            clavier16 = "Q";
+            clavier17 = "N";
             clavier18 = "E";
 
         }else if(levelS.equals("english=1x.4xn") || levelS.equals("english=1x.4xw")){
@@ -802,7 +802,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier8 = "S";
             clavier9 = "W";
             clavier10 = "A";
-            clavier11 = "I";
+            clavier11 = "D";
             clavier12 = "S";
             clavier13 = "B";
             clavier14 = "L";
@@ -817,11 +817,11 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             answer1 = "KID";
             answer2 = "KID";
-            clavier1 = "E";
+            clavier1 = "D";
             clavier2 = "O";
-            clavier3 = "D";
-            clavier4 = "E";
-            clavier5 = "T";
+            clavier3 = "E";
+            clavier4 = "U";
+            clavier5 = "K";
             clavier6 = "J";
             clavier7 = "A";
             clavier8 = "K";
@@ -859,7 +859,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier15 = "R";
             clavier16 = "U";
             clavier17 = "P";
-            clavier18 = "W";
+            clavier18 = "M";
 
         }else if(levelS.equals("english=1x.7xn") || levelS.equals("english=1x.7xw")){
 
@@ -875,16 +875,16 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier6 = "J";
             clavier7 = "A";
             clavier8 = "S";
-            clavier9 = "W";
+            clavier9 = "G";
             clavier10 = "A";
             clavier11 = "I";
             clavier12 = "S";
             clavier13 = "B";
             clavier14 = "L";
-            clavier15 = "D";
+            clavier15 = "P";
             clavier16 = "E";
-            clavier17 = "P";
-            clavier18 = "E";
+            clavier17 = "S";
+            clavier18 = "I";
 
 
         }else if(levelS.equals("english=1x.8xn") || levelS.equals("english=1x.8xw")){
