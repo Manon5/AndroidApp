@@ -115,26 +115,54 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
 
 
-        if(levelS.equals("english=1x.1xw") || levelS.equals("english=1x.1xn")){
-            levelS2="english=1x.2xw";
-        }else if(levelS.equals("english=1x.2xw") || levelS.equals("english=1x.2xn")){
-            levelS2="english=1x.3xw";
-        }else if(levelS.equals("english=1x.3xw") || levelS.equals("english=1x.3xn")){
-            levelS2="english=1x.4xw";
-        }else if(levelS.equals("english=1x.4xw") || levelS.equals("english=1x.4xn")){
-            levelS2="english=1x.5xw";
-        }else if(levelS.equals("english=1x.5xw") || levelS.equals("english=1x.5xn")){
-            levelS2="english=1x.6xw";
-        }else if(levelS.equals("english=1x.6xw") || levelS.equals("english=1x.6xn")){
-            levelS2="english=1x.7xw";
-        }else if(levelS.equals("english=1x.7xw") || levelS.equals("english=1x.7xn")){
-            levelS2="english=1x.8xw";
-        }else if(levelS.equals("english=1x.8xw") || levelS.equals("english=1x.8xn")){
-            levelS2="english=1x.9xw";
-        }else if(levelS.equals("english=1x.9xw") || levelS.equals("english=1x.9xn")){
-            levelS2="english=1x.10xw";
-        }else{
 
+
+
+        if(levelS.charAt(8) != 1){
+            nb1 = Character.getNumericValue(levelS.charAt(8));
+
+        }else if(levelS.charAt(9) == 'x'){
+            nb1 = 1;
+        }else{
+            nb1 = 10 + Character.getNumericValue(levelS.charAt(9));
+        }
+
+
+
+        if(levelS.charAt(11) != '1'){
+            nb2 = Character.getNumericValue(levelS.charAt(11));
+
+
+            Log.d("test", "1" + levelS.charAt(11));
+        }else if(levelS.charAt(12) == 'x'){
+            nb2 = 1;
+
+            Log.d("test", "2");
+        }else{
+            nb2 = 10;
+
+            Log.d("test", "3");
+        }
+
+        if(nb2 == 10){
+            nb2 = 1;
+            Log.d("test", "alerte");
+            nb1 = nb1 + 1;
+        }else{
+            nb2 = nb2 + 1;
+        }
+
+        Log.d("test", "nb1 = " + nb1);
+        Log.d("test", "nb2 = " + nb2);
+
+        if(nb1 <= 9 && nb2 <= 9){
+            levelS2="english=" + nb1 + "x." + nb2 + "xw";
+        }else if (nb1 <= 9){
+            levelS2="english=" + nb1 + "x." + nb2 + "w";
+        }else if (nb2 <= 9){
+            levelS2="english=" + nb1 + "." + nb2 + "xw";
+        }else{
+            levelS2="english=" + nb1 + "." + nb2 + "w";
         }
 
 
@@ -264,7 +292,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
                 @Override
                 public void onClick(View v) {
                     Intent appel;
-                    if(levelS2.charAt(8) == '1' || levelS2.charAt(8) == '2'){
+                    if(levelS2.charAt(8) == '1'){
                         appel = new Intent(WinActivity.this, ThreeLettersLevel.class);
                     }else if(levelS2.charAt(8) == '2'){
                         appel = new Intent(WinActivity.this, FourLettersLevel.class);

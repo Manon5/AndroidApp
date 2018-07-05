@@ -719,7 +719,7 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             answer2 = "ICE";
             clavier1 = "E";
             clavier2 = "O";
-            clavier3 = "Q";
+            clavier3 = "C";
             clavier4 = "E";
             clavier5 = "T";
             clavier6 = "G";
@@ -916,33 +916,33 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
 
             image.setBackgroundResource(R.mipmap.level_1_9_ang);
 
-            answer1 = "BEE";
-            answer2 = "BEE";
+            answer1 = "HUG";
+            answer2 = "HUG";
             clavier1 = "E";
             clavier2 = "O";
             clavier3 = "Q";
             clavier4 = "E";
             clavier5 = "T";
-            clavier6 = "J";
+            clavier6 = "U";
             clavier7 = "A";
             clavier8 = "B";
             clavier9 = "W";
             clavier10 = "A";
-            clavier11 = "I";
-            clavier12 = "S";
-            clavier13 = "B";
+            clavier11 = "M";
+            clavier12 = "I";
+            clavier13 = "H";
             clavier14 = "L";
             clavier15 = "R";
             clavier16 = "E";
-            clavier17 = "P";
-            clavier18 = "E";
+            clavier17 = "J";
+            clavier18 = "G";
 
         }else if(levelS.equals("english=1x.10n") || levelS.equals("english=1x.10w")){
 
             image.setBackgroundResource(R.mipmap.level_1_10_ang);
 
-            answer1 = "HUG";
-            answer2 = "HUG";
+            answer1 = "CUT";
+            answer2 = "CUT";
             clavier1 = "E";
             clavier2 = "O";
             clavier3 = "U";
@@ -958,8 +958,8 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
             clavier13 = "B";
             clavier14 = "L";
             clavier15 = "R";
-            clavier16 = "E";
-            clavier17 = "G";
+            clavier16 = "H";
+            clavier17 = "C";
             clavier18 = "E";
 
         }else{
