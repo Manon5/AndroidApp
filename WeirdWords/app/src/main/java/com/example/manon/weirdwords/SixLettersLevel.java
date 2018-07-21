@@ -1044,9 +1044,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button5.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton5Pressed = false;
+                    removeCharacter(button5);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1075,9 +1075,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button6.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton6Pressed = false;
+                    removeCharacter(button6);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1106,9 +1106,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button7.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton7Pressed = false;
+                    removeCharacter(button7);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1137,9 +1137,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button8.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton8Pressed = false;
+                    removeCharacter(button8);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1168,9 +1168,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button9.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton9Pressed = false;
+                    removeCharacter(button9);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1199,9 +1199,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button10.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton10Pressed = false;
+                    removeCharacter(button10);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1230,9 +1230,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button11.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton11Pressed = false;
+                    removeCharacter(button11);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1261,9 +1261,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button12.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton12Pressed = false;
+                    removeCharacter(button12);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1292,9 +1292,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button13.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton13Pressed = false;
+                    removeCharacter(button13);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1323,9 +1323,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button14.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton14Pressed = false;
+                    removeCharacter(button14);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1354,9 +1354,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button15.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton15Pressed = false;
+                    removeCharacter(button15);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1385,9 +1385,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button16.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton16Pressed = false;
+                    removeCharacter(button16);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1416,9 +1416,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button17.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton17Pressed = false;
+                    removeCharacter(button17);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1447,9 +1447,9 @@ public class SixLettersLevel extends AppCompatActivity implements View.OnClickLi
                     }
 
                 }else if(clueMode == false){
-                    button1.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton1Pressed = false;
-                    removeCharacter(button1);
+                    button18.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton18Pressed = false;
+                    removeCharacter(button18);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{

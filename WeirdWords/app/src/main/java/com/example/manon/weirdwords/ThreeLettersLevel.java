@@ -1587,9 +1587,16 @@ public class ThreeLettersLevel extends AppCompatActivity implements View.OnClick
                     undo.putExtras(objetbunble);
                     startActivity(undo);
                     finish();
-                }else if(levelS.substring(0, 5).equals("level")){
+                }else if(levelS.charAt(6) == '1'){
                     Bundle objetbunble = new Bundle();
                     objetbunble.putString("passInfo", "1");
+                    Intent undo = new Intent(ThreeLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else if(levelS.charAt(6) == '2'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "2");
                     Intent undo = new Intent(ThreeLettersLevel.this, ChooseLevelMenu.class);
                     undo.putExtras(objetbunble);
                     startActivity(undo);

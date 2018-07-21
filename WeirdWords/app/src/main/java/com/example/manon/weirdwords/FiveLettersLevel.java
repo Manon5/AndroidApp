@@ -184,7 +184,7 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         if(levelS.equals("level=6x.1xn") || levelS.equals("level=6x.1xw") || levelS.equals(null)){
 
             answer1 = "CRABE";
-            answer2 = "CRABE";
+            answer2 = "CABRE";
             image.setBackgroundResource(R.mipmap.level_6_1);
 
             clavier1 = "C";
@@ -1492,9 +1492,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button3.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton3Pressed = false;
+                    removeCharacter(button3);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1523,9 +1523,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button4.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton4Pressed = false;
+                    removeCharacter(button4);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1555,9 +1555,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button5.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton5Pressed = false;
+                    removeCharacter(button5);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1586,9 +1586,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button6.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton6Pressed = false;
+                    removeCharacter(button6);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1617,9 +1617,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button7.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton7Pressed = false;
+                    removeCharacter(button7);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1648,9 +1648,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button8.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton8Pressed = false;
+                    removeCharacter(button8);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1679,9 +1679,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button9.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton9Pressed = false;
+                    removeCharacter(button9);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1710,9 +1710,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button10.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton10Pressed = false;
+                    removeCharacter(button10);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1741,9 +1741,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button11.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton11Pressed = false;
+                    removeCharacter(button11);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1772,9 +1772,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button12.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton12Pressed = false;
+                    removeCharacter(button12);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1803,9 +1803,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button13.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton13Pressed = false;
+                    removeCharacter(button13);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1834,9 +1834,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button14.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton14Pressed = false;
+                    removeCharacter(button14);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1865,9 +1865,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button15.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton15Pressed = false;
+                    removeCharacter(button15);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1896,9 +1896,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_vert);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button16.setBackgroundResource(R.mipmap.clavier_vert);
+                    isButton16Pressed = false;
+                    removeCharacter(button16);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1927,9 +1927,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_orange);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button17.setBackgroundResource(R.mipmap.clavier_orange);
+                    isButton17Pressed = false;
+                    removeCharacter(button17);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1958,9 +1958,9 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
                     }
 
                 }else if(clueMode == false){
-                    button2.setBackgroundResource(R.mipmap.clavier_jaune);
-                    isButton2Pressed = false;
-                    removeCharacter(button2);
+                    button18.setBackgroundResource(R.mipmap.clavier_jaune);
+                    isButton18Pressed = false;
+                    removeCharacter(button18);
                     updateSaisie();
                     determineFocusSaisie();
                 }else{
@@ -1986,16 +1986,37 @@ public class FiveLettersLevel extends AppCompatActivity implements View.OnClickL
         undo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(levelS.charAt(6) == '2'){
+                if(levelS.charAt(6) == '6') {
                     Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "4");
+                    objetbunble.putString("passInfo", "6");
+                    Intent undo = new Intent(FiveLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else if(levelS.charAt(6) == '7'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "7");
+                    Intent undo = new Intent(FiveLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else if(levelS.charAt(6) == '8'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "8");
+                    Intent undo = new Intent(FiveLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else if(levelS.charAt(6) == '9'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "9");
                     Intent undo = new Intent(FiveLettersLevel.this, ChooseLevelMenu.class);
                     undo.putExtras(objetbunble);
                     startActivity(undo);
                     finish();
                 }else{
                     Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "5");
+                    objetbunble.putString("passInfo", "1");
                     Intent undo = new Intent(FiveLettersLevel.this, ChooseLevelMenu.class);
                     undo.putExtras(objetbunble);
                     startActivity(undo);

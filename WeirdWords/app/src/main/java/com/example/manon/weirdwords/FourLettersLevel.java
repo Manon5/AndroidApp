@@ -1807,16 +1807,30 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
             public void onClick(View v) {
 
 
-                if(levelS.charAt(6) == '2'){
+                if(levelS.charAt(6) == '3') {
                     Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "2");
+                    objetbunble.putString("passInfo", "3");
+                    Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else if(levelS.charAt(6) == '4'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "4");
+                    Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
+                    undo.putExtras(objetbunble);
+                    startActivity(undo);
+                    finish();
+                }else if(levelS.charAt(6) == '5'){
+                    Bundle objetbunble = new Bundle();
+                    objetbunble.putString("passInfo", "5");
                     Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
                     undo.putExtras(objetbunble);
                     startActivity(undo);
                     finish();
                 }else{
                     Bundle objetbunble = new Bundle();
-                    objetbunble.putString("passInfo", "3");
+                    objetbunble.putString("passInfo", "1");
                     Intent undo = new Intent(FourLettersLevel.this, ChooseLevelMenu.class);
                     undo.putExtras(objetbunble);
                     startActivity(undo);
@@ -1966,7 +1980,7 @@ public class FourLettersLevel extends AppCompatActivity implements View.OnClickL
                 if(clueMode == false){
                     char carac;
                     if (saisie4.getText().charAt(0) != ' ' && isSaisie4Locked == false) {
-                        carac = saisie3.getText().charAt(0);
+                        carac = saisie4.getText().charAt(0);
                         saisie[3] = ' ';
                         releaseButton(carac);
                         updateSaisie();

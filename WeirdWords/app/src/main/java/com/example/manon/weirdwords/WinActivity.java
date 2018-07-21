@@ -104,6 +104,11 @@ public class WinActivity extends Activity implements View.OnClickListener{
             levelS2="level=" + nb1 + "." + nb2 + "w";
         }
 
+        if(levelS2.equals("level=2x.1xw")){
+            specialLevel = 1;
+        }else{
+
+        }
 
 
 
@@ -115,9 +120,7 @@ public class WinActivity extends Activity implements View.OnClickListener{
 
 
 
-
-
-
+    if(levelS.charAt(0) == 'e'){
         if(levelS.charAt(8) != 1){
             nb1 = Character.getNumericValue(levelS.charAt(8));
 
@@ -164,6 +167,11 @@ public class WinActivity extends Activity implements View.OnClickListener{
         }else{
             levelS2="english=" + nb1 + "." + nb2 + "w";
         }
+    }
+
+
+
+
 
 
 
